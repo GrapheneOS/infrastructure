@@ -96,8 +96,10 @@ Ports:
 
 Domains:
 
-- connectivitycheck.grapheneos.org
-- connectivity.grapheneos.org
+- connectivitycheck.grapheneos.org (legacy)
+- connectivity.grapheneos.org (legacy)
+- connectivitycheck.grapheneos.network
+- grapheneos.network
 
 IPs:
 
