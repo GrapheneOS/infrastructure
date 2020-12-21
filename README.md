@@ -16,8 +16,8 @@ Domains:
 - www.grapheneos.app
 - grapheneos.page
 - www.grapheneos.page
-- www.vanadium.app
 - vanadium.app
+- www.vanadium.app
 - mta-sts.grapheneos.org
 - mta-sts.mail.grapheneos.org
 - mta-sts.grapheneos.app
