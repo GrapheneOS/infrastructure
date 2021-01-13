@@ -67,7 +67,7 @@ Ports:
 
 [Issue tracker](https://github.com/GrapheneOS/time.grapheneos.org/issues)
 
-- OVH VPS 2018 SSD 1
+- OVH VPS vps2020-starter-1-2-20
 - 1 core
 - 2 GB memory
 - 20 GB storage
@@ -79,8 +79,8 @@ Domains:
 
 IPs:
 
-- 167.114.145.173
-- 2607:5300:201:3100::2ddd
+- 51.222.141.59
+- 2607:5300:205:200::3afd
 
 Ports:
 
