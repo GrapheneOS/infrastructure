@@ -1,0 +1,13 @@
+[Unit]
+Description=Fetch OCSP responses for all certificates issued with Certbot
+
+[Service]
+Type=oneshot
+
+# When systemd v244+ is available, this should be uncommented to enable retries
+# on failure.
+Restart=on-failure
+
+User=root
+Group=root
+ExecStart=/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache
