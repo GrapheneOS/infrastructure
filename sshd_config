@@ -34,7 +34,7 @@ MACs -*
 LoginGraceTime 15s
 #PermitRootLogin prohibit-password
 #StrictModes yes
-#MaxAuthTries 6
+MaxAuthTries 2
 #MaxSessions 10
 
 #PubkeyAuthentication yes
