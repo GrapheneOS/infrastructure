@@ -31,7 +31,7 @@ MACs -*
 
 # Authentication:
 
-#LoginGraceTime 2m
+LoginGraceTime 15s
 #PermitRootLogin prohibit-password
 #StrictModes yes
 #MaxAuthTries 6
