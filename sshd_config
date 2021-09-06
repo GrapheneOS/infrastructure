@@ -101,7 +101,7 @@ PrintMotd no # pam does that
 #UseDNS no
 #PidFile /run/sshd.pid
 PerSourceMaxStartups 1
-#MaxStartups 10:30:100
+MaxStartups 4096
 #PermitTunnel no
 #ChrootDirectory none
 #VersionAddendum none
