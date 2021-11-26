@@ -248,7 +248,7 @@
 #Server = https://mirror.metalgamer.eu/archlinux/$repo/os/$arch
 #Server = http://mirror.mikrogravitation.org/archlinux/$repo/os/$arch
 #Server = https://mirror.mikrogravitation.org/archlinux/$repo/os/$arch
-#Server = https://mirror.pkgbuild.com/$repo/os/$arch
+Server = https://mirror.pkgbuild.com/$repo/os/$arch
 #Server = http://mirror.moson.org/arch/$repo/os/$arch
 #Server = https://mirror.moson.org/arch/$repo/os/$arch
 #Server = http://mirrors.n-ix.net/archlinux/$repo/os/$arch
@@ -720,7 +720,7 @@
 #Server = http://repo.ialab.dsu.edu/archlinux/$repo/os/$arch
 #Server = https://repo.ialab.dsu.edu/archlinux/$repo/os/$arch
 #Server = http://mirrors.kernel.org/archlinux/$repo/os/$arch
-Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
+#Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
 #Server = http://mirror.dal10.us.leaseweb.net/archlinux/$repo/os/$arch
 #Server = http://mirror.mia11.us.leaseweb.net/archlinux/$repo/os/$arch
 #Server = http://mirror.sfo12.us.leaseweb.net/archlinux/$repo/os/$arch
