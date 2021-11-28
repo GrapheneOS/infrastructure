@@ -4,7 +4,7 @@ After=network.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/tc qdisc replace dev eth0 root cake bandwidth {bandwidth} besteffort
+ExecStart=/usr/bin/tc qdisc replace dev eth0 root cake bandwidth {{bandwidth}} besteffort
 
 [Install]
 WantedBy=multi-user.target
