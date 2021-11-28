@@ -37,6 +37,8 @@ LoginGraceTime 15s
 MaxAuthTries 2
 #MaxSessions 10
 
+AllowUsers {{ssh_users}}
+
 #PubkeyAuthentication yes
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
