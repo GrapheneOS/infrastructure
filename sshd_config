@@ -86,7 +86,7 @@ KbdInteractiveAuthentication no
 # and KbdInteractiveAuthentication to 'no'.
 UsePAM yes
 
-#AllowAgentForwarding yes
+AllowAgentForwarding no
 #AllowTcpForwarding yes
 #GatewayPorts no
 #X11Forwarding no
