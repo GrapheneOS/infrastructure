@@ -19,7 +19,7 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 HostKeyAlgorithms ssh-ed25519
 KexAlgorithms curve25519-sha256
 PubkeyAcceptedKeyTypes ssh-ed25519
-Ciphers chacha20-poly1305@openssh.com,aes128-gcm@openssh.com,aes256-gcm@openssh.com
+Ciphers chacha20-poly1305@openssh.com
 MACs -*
 
 # Ciphers and keying
