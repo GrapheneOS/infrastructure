@@ -34,7 +34,7 @@ MACs -*
 LoginGraceTime 15s
 #PermitRootLogin prohibit-password
 #StrictModes yes
-MaxAuthTries 2
+MaxAuthTries 1
 #MaxSessions 10
 
 AllowUsers {{ssh_users}}
