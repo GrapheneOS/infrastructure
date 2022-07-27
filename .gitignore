@@ -1,2 +1,1 @@
-cake.service.tmp
-sshd_config.tmp
+*.tmp
