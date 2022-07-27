@@ -13,3 +13,7 @@ Destination=2607:5300:205:200::1
 [DHCP]
 RouteMetric=100
 UseMTU=true
+
+[CAKE]
+Bandwidth=100M
+PriorityQueueingPreset=besteffort
