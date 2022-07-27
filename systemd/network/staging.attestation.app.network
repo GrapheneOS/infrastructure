@@ -1,0 +1,15 @@
+[Match]
+Name=eth0
+
+[Network]
+DHCP=ipv4
+LinkLocalAddressing=ipv6
+Address=2607:5300:205:200::1585/128
+Gateway=2607:5300:205:200::1
+
+[Route]
+Destination=2607:5300:205:200::1
+
+[DHCP]
+RouteMetric=100
+UseMTU=true

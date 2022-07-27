@@ -1,0 +1,5 @@
+[Match]
+MACAddress=fa:16:3e:ae:26:2a
+
+[Link]
+Name=eth0
