@@ -22,5 +22,5 @@ RouteMetric=100
 UseMTU=true
 
 [CAKE]
-Bandwidth=250M
+Bandwidth=500M
 PriorityQueueingPreset=besteffort
