@@ -1,0 +1,1 @@
+swap /swapfile /dev/random swap,cipher=aes-xts-plain64,size=512
