@@ -4,15 +4,8 @@ Name=eth0
 [Network]
 DHCP=ipv4
 LinkLocalAddressing=ipv6
-Address=142.4.204.63/32
 Address=2607:5300:201:3100::6210/128
 Gateway=2607:5300:201:3100::1
-
-[Route]
-Destination=0.0.0.0/0
-Gateway=167.114.114.1
-PreferredSource=142.4.204.63
-Metric=50
 
 [Route]
 Destination=2607:5300:201:3100::1
