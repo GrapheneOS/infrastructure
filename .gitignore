@@ -1,4 +1,6 @@
 packages
+passwords
 modules
+units
 logs
 *.tmp
