@@ -95,11 +95,11 @@ AllowAgentForwarding no
 #PermitTTY yes
 PrintMotd no
 #PrintLastLog yes
-#TCPKeepAlive yes
+TCPKeepAlive no
 #PermitUserEnvironment no
 #Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
+ClientAliveInterval 60
+ClientAliveCountMax 10
 #UseDNS no
 #PidFile /run/sshd.pid
 PerSourceMaxStartups 1
