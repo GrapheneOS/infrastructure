@@ -22,6 +22,7 @@ nginx-mod-brotli
 openssh
 pacman-contrib
 pacutils
+php
 php-fpm
 php-gd
 php-legacy
