@@ -1,7 +1,7 @@
-passwords
-modules
-units
-logs
+/passwords/
+/modules/
+/units/
+/logs/
 *.tmp
-mitigation.json
+/mitigation.json
 /venv/
