@@ -4,3 +4,4 @@ units
 logs
 *.tmp
 mitigation.json
+/venv/
