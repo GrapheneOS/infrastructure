@@ -1,0 +1,2 @@
+openssl rsa -in /etc/letsencrypt/live/example.com/privkey.pem -outform der -pubout | openssl dgst -sha256 -hex
+openssl ec -in /etc/letsencrypt/live/example.com/privkey.pem -outform der -pubout | openssl dgst -sha256 -hex
