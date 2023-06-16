@@ -36,4 +36,5 @@ strace
 tree
 unbound
 vim
+xfsprogs
 zopfli

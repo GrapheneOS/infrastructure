@@ -28,3 +28,4 @@ strace
 tree
 unbound
 vim
+xfsprogs

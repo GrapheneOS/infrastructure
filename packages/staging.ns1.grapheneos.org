@@ -25,4 +25,5 @@ strace
 tree
 unbound
 vim
+xfsprogs
 yaml-cpp
