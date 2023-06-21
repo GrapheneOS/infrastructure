@@ -1,5 +1,5 @@
 certbot certonly --standalone --no-eff-email \
     --key-type rsa --rsa-key-size 3072 --reuse-key --preferred-chain "ISRG Root X1" \
     --deploy-hook "/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
-    --cert-name staging.grapheneos.org \
-    -d staging.grapheneos.org
+    --cert-name mail.grapheneos.org \
+    -d mail.grapheneos.org
