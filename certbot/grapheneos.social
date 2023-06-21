@@ -3,5 +3,4 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --deploy-hook "/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
     --cert-name grapheneos.social \
     -d grapheneos.social \
-    -d mta-sts.grapheneos.social \
     -d www.grapheneos.social
