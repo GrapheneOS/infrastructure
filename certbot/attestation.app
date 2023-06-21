@@ -3,5 +3,4 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --deploy-hook "/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
     --cert-name attestation.app \
     -d attestation.app \
-    -d mta-sts.attestation.app \
     -d www.attestation.app
