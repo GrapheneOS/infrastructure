@@ -11,7 +11,6 @@ Gateway=2402:1f00:8000:800::1
 Destination=2402:1f00:8000:800::1
 
 [DHCP]
-RouteMetric=100
 UseMTU=true
 
 [CAKE]
