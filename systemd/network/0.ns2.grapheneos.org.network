@@ -2,6 +2,7 @@
 Name=eth0
 
 [Network]
+LinkLocalAddressing=no
 Address=198.98.53.141
 Gateway=198.98.53.1
 Address=2605:6400:10:102e:95bc:89ef:2e7f:49bb/128

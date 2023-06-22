@@ -3,7 +3,7 @@ Name=eth0
 
 [Network]
 DHCP=ipv4
-LinkLocalAddressing=ipv6
+LinkLocalAddressing=no
 Address=2001:41d0:304:200::14ff/128
 Gateway=2001:41d0:304:200::1
 
