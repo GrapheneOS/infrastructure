@@ -2,17 +2,18 @@
 Name=eth0
 
 [Network]
-DHCP=ipv4
 LinkLocalAddressing=no
-Address=2607:5300:205:200::a23/128
-Gateway=2607:5300:205:200::1
+Address=199.195.250.78
+Gateway=199.195.250.1
+Address=2605:6400:0010:09d6:6d84:e183:acda:16d7
+Gateway=2605:6400:10::1
 
 [Route]
-Destination=2607:5300:205:200::1
+Destination=2605:6400:10::1
 
-[DHCP]
-UseMTU=true
+[Route]
+Destination=199.195.250.1
 
 [CAKE]
-Bandwidth=100M
+Bandwidth=1000M
 PriorityQueueingPreset=besteffort
