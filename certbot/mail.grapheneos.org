@@ -2,4 +2,5 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --key-type rsa --rsa-key-size 3072 --reuse-key --preferred-chain "ISRG Root X1" \
     --deploy-hook "/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
     --cert-name mail.grapheneos.org \
-    -d mail.grapheneos.org
+    -d mail.grapheneos.org \
+    -d mail.grapheneos.net

@@ -4,6 +4,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --cert-name mta-sts.mail.grapheneos.org \
     -d mta-sts.mail.grapheneos.org \
     -d mail.grapheneos.org \
+    -d mail.grapheneos.net \
     -d mta-sts.attestation.app \
     -d mta-sts.discuss.grapheneos.org \
     -d mta-sts.grapheneos.app \
