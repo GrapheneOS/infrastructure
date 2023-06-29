@@ -1,5 +1,5 @@
 [Match]
-MACAddress=fa:16:3e:8f:9b:72
+MACAddress=00:16:a6:ef:f0:28
 
 [Link]
 Name=eth0
