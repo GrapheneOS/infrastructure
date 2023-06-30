@@ -22,7 +22,6 @@ pacman-contrib
 pacutils
 plocate
 postgresql-old-upgrade
-qemu-guest-agent
 rsync
 sshpass
 strace

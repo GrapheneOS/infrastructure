@@ -25,7 +25,6 @@ postfix
 publicsuffix-list
 python-authres
 python-postfix-policyd-spf
-qemu-guest-agent
 rsync
 s-nail
 strace

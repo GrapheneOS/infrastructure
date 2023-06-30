@@ -18,7 +18,6 @@ openssh
 pacman-contrib
 pacutils
 plocate
-qemu-guest-agent
 rsync
 strace
 tree

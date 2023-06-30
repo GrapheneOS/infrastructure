@@ -29,7 +29,6 @@ php-legacy
 php-legacy-fpm
 php-legacy-gd
 plocate
-qemu-guest-agent
 rsync
 sshpass
 strace

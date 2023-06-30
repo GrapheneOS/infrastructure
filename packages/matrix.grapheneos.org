@@ -30,7 +30,6 @@ postgresql
 postgresql-old-upgrade
 python-pip
 python-psycopg2
-qemu-guest-agent
 rsync
 sshpass
 strace

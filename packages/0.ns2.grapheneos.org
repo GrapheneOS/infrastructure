@@ -19,7 +19,6 @@ pacman-contrib
 pacutils
 plocate
 powerdns
-qemu-guest-agent
 rsync
 strace
 tree

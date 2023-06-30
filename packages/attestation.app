@@ -21,7 +21,6 @@ openssh
 pacman-contrib
 pacutils
 plocate
-qemu-guest-agent
 rsync
 sshpass
 strace
