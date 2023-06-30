@@ -4,11 +4,11 @@ Name=eth0
 [Network]
 DHCP=ipv4
 LinkLocalAddressing=no
-Address=2001:41d0:304:200::a087/128
-Gateway=2001:41d0:304:200::1
+Address=2402:1f00:8000:800::25ba/128
+Gateway=2402:1f00:8000:800::1
 
 [Route]
-Destination=2001:41d0:304:200::1
+Destination=2402:1f00:8000:800::1
 
 [DHCP]
 UseMTU=true
