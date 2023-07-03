@@ -9,7 +9,6 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d grapheneos.online \
     -d www.grapheneos.online \
     -d connectivitycheck.grapheneos.online \
-    -d connectivitycheck.grapheneos.org \
     -d time.grapheneos.org \
     -d remoteprovisioning.grapheneos.org \
     -d broadcom.psds.grapheneos.org \
