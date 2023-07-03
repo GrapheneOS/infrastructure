@@ -1,4 +1,4 @@
 #!/bin/bash
 
 source venv/bin/activate
-python3 mitigation.py "$@"
+python3 ovh-mitigation.py "$@"

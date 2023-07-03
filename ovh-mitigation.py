@@ -11,7 +11,7 @@ def err(*args, **kwargs):
 if len(sys.argv) != 3:
     err("expected 2 arguments")
 
-with open("mitigation.json") as config:
+with open("ovh-mitigation.json") as config:
     config = json.load(config)
 
 action = sys.argv[1]

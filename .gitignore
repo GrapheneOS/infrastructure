@@ -3,5 +3,5 @@
 /units/
 /logs/
 *.tmp
-/mitigation.json
+/ovh-mitigation.json
 /venv/
