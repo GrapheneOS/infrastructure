@@ -3,13 +3,13 @@ Name=eth0
 
 [Network]
 LinkLocalAddressing=no
-Address=198.98.53.141
+Address=198.98.53.141/32
 Gateway=198.98.53.1
 Address=2605:6400:10:102e:95bc:89ef:2e7f:49bb/128
 Gateway=2605:6400:10::1
 
 [Address]
-Address=198.251.90.93
+Address=198.251.90.93/32
 
 [Route]
 Destination=198.98.53.1

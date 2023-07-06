@@ -3,9 +3,9 @@ Name=eth0
 
 [Network]
 LinkLocalAddressing=no
-Address=209.141.35.164
+Address=209.141.35.164/32
 Gateway=209.141.35.1
-Address=2605:6400:20:1131:8088:e08:84e6:632
+Address=2605:6400:20:1131:8088:e08:84e6:632/128
 Gateway=2605:6400:20::1
 
 [Route]
