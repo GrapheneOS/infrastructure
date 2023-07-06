@@ -1,10 +1,12 @@
 age
 base
+base-devel
 bash-completion
 certbot
 chrony
 cloud-guest-utils
 conntrack-tools
+git
 grub
 htop
 linux-lts
