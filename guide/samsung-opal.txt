@@ -1,0 +1,6 @@
+Authenticate with the PSID in order to set up OPAL (anti-ransomware feature):
+
+    sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID $PSID_FROM_DRIVE_STICKER $DRIVE
+    sedutil-cli --initialsetup $PASSWORD $DRIVE
+    sedutil-cli --enableLockingRange 0 $PASSWORD $DRIVE
+    sedutil-cli --loadPBAimage $PASSWORD UEFI64.img $DRIVE
