@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit
+
+user=root
+
+. hosts.sh
+
+rm -rf units
+mkdir -p units
+
+for host in ${hosts_all[@]}; do
+    echo $host
+    ssh root@$host systemctl list-unit-files --state=enabled --state=disabled --state=masked | sort > units/$host
+    echo
+done

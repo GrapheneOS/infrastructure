@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit
+
+user=root
+
+. hosts.sh
+
+rm -rf modules
+mkdir -p modules
+
+for host in ${hosts_all[@]}; do
+    echo $host
+    ssh root@$host lsmod | sort > modules/$host
+    echo
+done
