@@ -1,0 +1,66 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+[[ $# -ge 1 ]] || exit 1
+
+. hosts.sh
+
+DEVICES=(felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline)
+
+release=$1
+
+rm -rf logs
+mkdir logs
+
+for host in ${hosts_releases[@]}; do
+    echo obtaining logs from $host
+    ssh $host journalctl -u nginx | grep ' 200 ' >> logs/merged.log
+done
+
+grep Dalvik/ logs/merged.log | grep ' 200 ' > logs/merged-device.log
+
+echo
+echo update checks
+echo total $(grep -Pc -- "/\w+-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 7 $(grep -Pc -- "/(felix|tangorpro|lynx|cheetah|panther)-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 6 $(grep -Pc -- "/(bluejay|raven|oriole)-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 5 $(grep -Pc -- "/(barbet|redfin|bramble)-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 4 $(grep -Pc -- "/(sunfish|coral|flame)-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 3 $(grep -Pc -- "/(bonito|sargo|crosshatch|blueline)-(stable|beta|alpha)" logs/merged-device.log)
+
+echo
+
+for device in ${DEVICES[@]}; do
+    echo $device $(grep -Pc "/$device-(stable|beta|alpha)" logs/merged-device.log)
+done
+
+echo
+echo factory images
+echo total $(grep -Pc "/\w+-factory-\d+.zip" logs/merged.log)
+echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-factory-\d+.zip" logs/merged.log)
+echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-factory-\d+.zip" logs/merged.log)
+echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-factory-\d+.zip" logs/merged.log)
+echo gen 4 $(grep -Pc "/(sunfish|coral|flame)-factory-\d+.zip" logs/merged.log)
+echo gen 3 $(grep -Pc "/(bonito|sargo|crosshatch|blueline)-factory-\d+.zip" logs/merged.log)
+
+echo
+
+for device in ${DEVICES[@]}; do
+    echo $device $(grep -Pc "/$device-factory-\d+.zip" logs/merged.log)
+done
+
+echo
+echo updates to $release
+echo total $(grep -Pc "/\w+-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 4 $(grep -Pc "/(sunfish|coral|flame)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 3 $(grep -Pc "/(bonito|sargo|crosshatch|blueline)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+
+echo
+
+for device in ${DEVICES[@]}; do
+    echo $device $(grep -Pc "/$device-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+done
