@@ -4,10 +4,54 @@ Description=Fetch OCSP responses for all certificates issued with Certbot
 [Service]
 Type=oneshot
 
-# When systemd v244+ is available, this should be uncommented to enable retries
-# on failure.
 Restart=on-failure
+
+CacheDirectory=%N
 
 User=root
 Group=root
-ExecStart=/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache
+ExecStart=%N --no-reload-webserver
+ExecStartPost=systemctl reload nginx.service
+
+RestartSec=5
+PrivateDevices=true
+PrivateTmp=yes
+PrivateUsers=yes
+PrivateIPC=true
+
+NoNewPrivileges=true
+LockPersonality=true
+
+CapabilityBoundingSet=
+ProtectHome=yes
+ProtectControlGroups=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectClock=true
+ProtectProc=invisible
+ProcSubset=pid
+ProtectHostname=true
+RemoveIPC=true
+
+RestrictAddressFamilies=AF_INET6 AF_INET AF_UNIX
+MemoryDenyWriteExecute=true
+RestrictRealtime=true
+RestrictNamespaces=true
+RestrictSUIDSGID=true
+
+DevicePolicy=strict
+DeviceAllow=/dev/random r
+DeviceAllow=/dev/urandom r
+DeviceAllow=/dev/stdin r
+DeviceAllow=/dev/stdout r
+DeviceAllow=/dev/null w
+
+ProtectSystem=strict
+InaccessiblePaths=/root/
+ReadOnlyPaths=/etc/letsencrypt
+UMask=0077
+
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@clock @debug @module @mount @reboot @swap @resources @cpu-emulation @raw-io @obsolete @keyring @privileged

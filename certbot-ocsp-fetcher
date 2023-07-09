@@ -10,50 +10,94 @@ set \
 IFS=$'\n\t'
 shopt -s inherit_errexit
 
+determine_colored_output() {
+  declare -gl COLORED_STDOUT COLORED_STDERR
+  readonly GREEN='\033[0;32m'
+  readonly RED='\033[0;31m'
+  readonly COLOR_DEFAULT='\033[0m'
+
+  if [[ -v NO_COLOR || ${TERM-} == dumb ]]; then
+    COLORED_STDOUT=false COLORED_STDERR=false
+  else
+    [[ -t 1 ]] || COLORED_STDOUT=false
+    [[ -t 2 ]] || COLORED_STDERR=false
+  fi
+
+}
+
 exit_with_error() {
-  echo "${@}" >&2
+  local error_prefix=error:$'\t\t'
+
+  [[ ${COLORED_STDERR-} != false ]] &&
+    local -r COLORED_ERROR_MSG=${RED}${error_prefix}${*}${COLOR_DEFAULT}
+
+  # We will have closed file descriptor 2 unless verbosity was requested, so we
+  # will try to use FD5 (the FD that stderr was likely redirected to), and
+  # fallback to FD2 if FD5 wasn't opened yet.
+  if [[ -f /dev/fd/5 ]]; then
+    exec >&5
+  else
+    exec >&2
+  fi
+  printf '%b\n' "${COLORED_ERROR_MSG:-${error_prefix}${@}}"
+
   exit 1
 }
 
 check_for_dependencies() {
-  if ((BASH_VERSINFO[0] == 4 && \
-    BASH_VERSINFO[1] < 3 || \
-    BASH_VERSINFO[0] < 4)); then
-    exit_with_error \
-      error:$'\t\t'"${0##*/} requires Bash 4.3+."
+  if ((BASH_VERSINFO[0] == 4 && BASH_VERSINFO[1] < 3 || BASH_VERSINFO[0] < 4)); then
+    exit_with_error "${0##*/} requires Bash 4.3+."
   fi
 
   if ! { command -v openssl >&- &&
-    [[ $(openssl version) =~ ^OpenSSL\ ([[:digit:]]+)\.([[:digit:]]+) ]] &&
-    ((BASH_REMATCH[1] == 1 && \
-    BASH_REMATCH[2] >= 1 || \
-    BASH_REMATCH[1] > 1)); }; then
+    [[ $(openssl version || true) =~ ^OpenSSL\ ([[:digit:]]+)\.([[:digit:]]+) ]] &&
+    ((BASH_REMATCH[1] == 1 && BASH_REMATCH[2] >= 1 || BASH_REMATCH[1] > 1)); }; then
     # shellcheck disable=2016
     exit_with_error \
-      error:$'\t\t'"${0##*/} requires OpenSSL 1.1.0+," \
+      "${0##*/} requires OpenSSL 1.1.0+," \
       'but it is not available on $PATH.'
   fi
 }
 
-parse_cli_arguments() {
-  local -r usage=(
-    "USAGE: ${0}"
-    "[-c/--certbot-dir DIRECTORY]"
-    "[-f/--force-update]"
-    "[-h/--help]"
-    "[-n/--cert-name NAME[,NAME...] [-u/--ocsp-responder URL]]"
-    "[-o/--output-dir DIRECTORY]"
-    "[-q/--quiet]"
-    "[-v/--verbose]"
-    "[-w/--no-reload-webserver]"
-  )
+parse_cli_options() {
+  local -r cli_options="
+Usage: ${0} [-c/--certbot-dir DIRECTORY] [-f/--force-update] \\
+  [-h/--help] [-l/--no-color] [-n/--cert-name NAME[,NAME...] \\
+  [-u/--ocsp-responder URL]] [-o/--output-dir DIRECTORY] \\
+  [-q/--quiet|-v/--verbose] [-w/--no-reload-webserver]
+"
+
+  print_option_error() {
+    local reason=${1} option=${2}
+    shift 2
+    local option_error="${option}: "
+
+    case ${reason} in
+      --conflict)
+        local second_option=${1}
+        shift
+        option_error+="This option cannot be combined with the option ${second_option}."
+        ;;
+      --duplicate)
+        option_error+="This option cannot be specified multiple times."
+        ;;
+      --unknown)
+        option_error+="Invalid option."
+        ;;
+      --value)
+        option_error+="This option requires a value."
+        ;;
+      *)
+        exit 1
+        ;;
+    esac
+
+    exit_with_error "${option_error}" "${cli_options}"
+  }
 
   declare -gl ERROR_ENCOUNTERED
 
-  declare -gi VERBOSITY=1
-  local -r verbosity_error=(
-    "error: -q/--quiet cannot be specified in conjunction with -v/--verbose."
-  )
+  declare -gi VERBOSITY=${VERBOSITY:-1}
 
   while ((${#} > 0)); do
     local parameter=${1}
@@ -64,17 +108,17 @@ parse_cli_arguments() {
         ;;
       -c | --certbot-dir | --certbot-dir=?*)
         if [[ -v CERTBOT_DIR ]]; then
-          exit_with_error "${usage[@]}"
+          print_option_error --duplicate "${parameter}"
         fi
 
         if [[ ${parameter} =~ --certbot-dir=(.+) ]]; then
           CERTBOT_DIR=${BASH_REMATCH[1]}
         else
-          if [[ -n ${2:-} ]]; then
+          if [[ -n ${2-} ]]; then
             CERTBOT_DIR=${2}
             shift
           else
-            exit_with_error "${usage[@]}"
+            print_option_error --value "${parameter}"
           fi
         fi
 
@@ -95,19 +139,59 @@ parse_cli_arguments() {
         shift
         ;;
       -h | --help)
-        echo >&2 "${usage[@]}"
+        {
+          printf '%s\n' certbot-ocsp-fetcher
+          printf '%s\n' "${cli_options}"
+          local absolute_tool_path
+          absolute_tool_path=$(realpath --no-symlinks -- "${0}")
+          readonly absolute_tool_path
+          cat <<EOSTRING
+
+certbot-ocsp-fetcher helps you setup OCSP stapling in nginx. The tool primes
+nginx's OCSP cache to work around nginx's flawed OCSP stapling implementation.
+The tool does this by fetching and saving OCSP responses for TLS certificates
+issued with Certbot.
+
+---
+
+Example:
+
+1. Fetch OCSP responses for all certificates managed by Certbot, and save
+them in the current working directory. This should usually be run on a
+schedule, e.g. as a cronjob or systemd timer.
+
+$ ${0}
+
+2. Add the path(s) to the resulting OCSP response(s) as the value of the
+ssl_stapling_file directive in the corresponding vhosts in Nginx. Don't
+forget to reload Nginx afterwards.
+
+3. Re-issue all certificates managed by Certbot, to add the OCSP Must-Staple
+flag to the certs and automatically run certbot-ocsp-fetcher during renewals:
+
+$ certbot renew --deploy-hook ${absolute_tool_path} --force-renewal --must-staple
+
+---
+
+See the online README for an explanation of all the CLI options:
+https://github.com/tomwassenberg/certbot-ocsp-fetcher/blob/main/README.md
+EOSTRING
+        } >&2
         exit
+        ;;
+      -l | --no-color)
+        readonly COLORED_STDOUT=false COLORED_STDERR=false
         ;;
       -n | --cert-name | --cert-name=?*)
         if [[ ${parameter} =~ --cert-name=(.+) ]]; then
           local cert_lineages_value=${BASH_REMATCH[1]}
           shift
         else
-          if [[ -n ${2:-} ]]; then
+          if [[ -n ${2-} ]]; then
             local cert_lineages_value=${2}
             shift 2
           else
-            exit_with_error "${usage[@]}"
+            print_option_error --value "${parameter}"
           fi
         fi
 
@@ -117,15 +201,15 @@ parse_cli_arguments() {
         declare -Ag CERT_LINEAGES
         # Check if a hardcoded OCSP responder was specified for this set of
         # lineages.
-        case ${1:-} in
+        case ${1-} in
           -u | --ocsp-responder)
-            if [[ -n ${2:-} ]]; then
+            if [[ -n ${2-} ]]; then
               for lineage_name in ${cert_lineages_value}; do
                 CERT_LINEAGES["${lineage_name}"]=${2}
               done
               shift
             else
-              exit_with_error "${usage[@]}"
+              print_option_error --value "${parameter}"
             fi
             shift
             ;;
@@ -149,17 +233,17 @@ parse_cli_arguments() {
         ;;
       -o | --output-dir | --output-dir=?*)
         if [[ -v OUTPUT_DIR ]]; then
-          exit_with_error "${usage[@]}"
+          print_option_error --duplicate "${parameter}"
         fi
 
         if [[ ${parameter} =~ --output-dir=(.+) ]]; then
           OUTPUT_DIR=${BASH_REMATCH[1]}
         else
-          if [[ -n ${2:-} ]]; then
+          if [[ -n ${2-} ]]; then
             OUTPUT_DIR=${2}
             shift
           else
-            exit_with_error "${usage[@]}"
+            print_option_error --value "${parameter}"
           fi
         fi
 
@@ -175,7 +259,7 @@ parse_cli_arguments() {
         ;;
       -q | --quiet)
         if ((VERBOSITY != 1)); then
-          exit_with_error "${verbosity_error[@]}"
+          print_option_error --conflict "${parameter}" -v/--verbose
         else
           readonly VERBOSITY=0
           shift
@@ -183,7 +267,7 @@ parse_cli_arguments() {
         ;;
       -v | --verbose)
         if ((VERBOSITY == 0)); then
-          exit_with_error "${verbosity_error[@]}"
+          print_option_error --conflict "${parameter}" -q/--quiet
         else
           VERBOSITY+=1
           shift
@@ -196,10 +280,18 @@ parse_cli_arguments() {
         shift
         ;;
       *)
-        exit_with_error "${usage[@]}"
+        print_option_error --unknown "${parameter}"
         ;;
     esac
   done
+
+  # Respect the common "DEBUG" environment variable if set, unless the --quiet
+  # or --verbose flag has been passed as well.
+  if ((${DEBUG:-0} >= 1)) && ((VERBOSITY == 1)); then
+    # We set VERBOSITY to 0 in case of --quiet, so use the value of $DEBUG
+    # incremented with 1 to match it with $VERBOSITY.
+    VERBOSITY=$((DEBUG + 1))
+  fi
 
   # When not parsed, the stdout and/or stderr output of all external commands
   # we call in the script is redirected to file descriptor 3.  Depending on the
@@ -209,6 +301,13 @@ parse_cli_arguments() {
     exec 3>&2
   else
     exec 3>/dev/null
+  fi
+
+  # First copy file descriptor 2 to a new FD, so stderr can still be used
+  # (unconditionally) in the exit_with_error function.
+  exec 5>&2
+  if ((VERBOSITY < 1)); then
+    exec 2>/dev/null
   fi
 }
 
@@ -223,12 +322,13 @@ prepare_output_dir() {
         -- "${OUTPUT_DIR}" || true
     fi
   else
-    readonly OUTPUT_DIR=.
+    # Use $CACHE_DIRECTORY if set (e.g. when run as a systemd service),
+    # otherwise the working directory
+    readonly OUTPUT_DIR=${CACHE_DIRECTORY:-.}
   fi
 
   if [[ ! -w ${OUTPUT_DIR} ]]; then
-    exit_with_error \
-      error:$'\t\t'"no write access to output directory (\"${OUTPUT_DIR}\")"
+    exit_with_error "no write access to output directory (\"${OUTPUT_DIR}\")"
   fi
 }
 
@@ -255,26 +355,26 @@ start_in_correct_mode() {
 # Run in "check one or all certificate lineage(s) managed by Certbot" mode
 # $1 - Path to temporary output directory
 run_standalone() {
+  printf >&2 '%s\n\n' "Running in stand-alone mode..."
+
   readonly CERTBOT_DIR=${CERTBOT_DIR:-/etc/letsencrypt}
 
   if [[ ! -r ${CERTBOT_DIR} || (-d ${CERTBOT_DIR}/live && ! -r ${CERTBOT_DIR}/live) ]]; then
-    exit_with_error \
-      error:$'\t\t'"can't access ${CERTBOT_DIR}/live"
+    exit_with_error "can't access ${CERTBOT_DIR}/live"
   fi
 
   # Check specific lineage if passed on CLI,
   # or otherwise all lineages in Certbot's dir
-  if [[ -v CERT_LINEAGES[@] ]]; then
+  if [[ -n ${!CERT_LINEAGES[*]} ]]; then
     for lineage_name in "${!CERT_LINEAGES[@]}"; do
       if [[ -r ${CERTBOT_DIR}/live/${lineage_name} ]]; then
         fetch_ocsp_response \
-          "--standalone" \
+          --standalone \
           "${temp_output_dir}" \
           "${lineage_name}" \
           "${CERT_LINEAGES["${lineage_name}"]}"
       else
-        exit_with_error \
-          "error:"$'\t\t'"can't access ${CERTBOT_DIR}/live/${lineage_name}"
+        exit_with_error "can't access ${CERTBOT_DIR}/live/${lineage_name}"
       fi
     done
   else
@@ -287,7 +387,7 @@ run_standalone() {
       [[ -d ${lineage_dir} ]] || continue
 
       fetch_ocsp_response \
-        "--standalone" "${temp_output_dir}" "${lineage_dir##*/}"
+        --standalone "${temp_output_dir}" "${lineage_dir##*/}"
     done
     unset lineage_dir
   fi
@@ -296,11 +396,13 @@ run_standalone() {
 # Run in deploy-hook mode, only processing the passed lineage
 # $1 - Path to temporary output directory
 run_as_deploy_hook() {
+  printf >&2 '%s\n\n' "Running as a deploy hook of Certbot..."
+
   if [[ -v CERTBOT_DIR ]]; then
     # The directory is already inferred from the environment variable that
     # Certbot passes
     exit_with_error \
-      error:$'\t\t'"-c/--certbot-dir cannot be passed" \
+      "-c/--certbot-dir cannot be passed" \
       "when run as Certbot hook"
   fi
 
@@ -308,15 +410,14 @@ run_as_deploy_hook() {
     # When run as deploy hook the behavior of this flag is used by default.
     # Therefore passing this flag would not have any effect.
     exit_with_error \
-      error:$'\t\t'"-f/--force-update cannot be passed" \
+      "-f/--force-update cannot be passed" \
       "when run as Certbot hook"
   fi
 
-  if [[ -v CERT_LINEAGES[@] ]]; then
+  if [[ -n ${!CERT_LINEAGES[*]} ]]; then
     # The certificate lineage is already inferred from the environment
     # variable that Certbot passes
-    exit_with_error \
-      error:$'\t\t'"-n/--cert-name cannot be passed when run as Certbot hook"
+    exit_with_error "-n/--cert-name cannot be passed when run as Certbot hook"
   fi
 
   fetch_ocsp_response \
@@ -349,14 +450,23 @@ check_for_existing_ocsp_staple_file() {
       local -r next_update=${BASH_REMATCH[1]}
     fi
   done
-  [[ -n ${this_update:-} && -n ${next_update:-} ]] || return 1
+  [[ -n ${this_update-} && -n ${next_update-} ]] || return 1
 
   # Only continue fetching OCSP response if existing response expires within
   # half of its lifetime.
-  local -ri response_lifetime_in_seconds=$((\
-    $(date +%s --date "${next_update}") - $(date +%s --date "${this_update}")))
-  (($(date +%s) < \
-  $(date +%s --date "${this_update}") + response_lifetime_in_seconds / 2)) || return 1
+  {
+    # The command substitutions here don't respect `set -o errexit`, but in
+    # case any of them fail, the total command still fails unless both
+    # substitutions print an integer. This seems very unlikely to occur, so
+    # let's ignore this.
+    # shellcheck disable=2312
+    local -ri response_lifetime_in_seconds=$(($(date +%s --date "${next_update}") - $(date +%s --date "${this_update}")))
+
+    # `set -o errexit` isn't respected here either, but we default to renewing
+    # the OCSP response, so this is fine.
+    # shellcheck disable=2312
+    (($(date +%s) < $(date +%s --date "${this_update}") + response_lifetime_in_seconds / 2)) || return 1
+  }
 }
 
 # Generate file used by ssl_stapling_file in nginx config of websites
@@ -367,11 +477,27 @@ check_for_existing_ocsp_staple_file() {
 fetch_ocsp_response() {
   local -r temp_output_dir=${2}
   local -r lineage_name=${3}
+
+  # This validation should be revisited once
+  # https://github.com/certbot/certbot/issues/6127 is fixed.
+  if [[ ${lineage_name} =~ ($'\n')|($'\t') ]]; then
+    ERROR_ENCOUNTERED=true
+    exit_with_error \
+      "Unsupported characters encountered in the following" \
+      "lineage name: ${lineage_name}$'\n\n'" \
+      "Lineage names with embedded tabs or newlines are not supported," \
+      "because Certbot (as of version 1.18.0) does not have well-defined" \
+      'behavior on handling any "unconventional" lineage names.'
+  fi
+
   case ${1} in
     --standalone)
       local -r lineage_dir=${CERTBOT_DIR}/live/${lineage_name}
 
-      if [[ ${FORCE_UPDATE:-} != true ]] &&
+      # `set -o errexit` is not respected here, but in case of failure we still
+      # err on the safe side by renewing the OCSP staple file.
+      # shellcheck disable=2310
+      if [[ ${FORCE_UPDATE-} != true ]] &&
         check_for_existing_ocsp_staple_file; then
         lineages_processed["${lineage_name}"]="not updated"$'\t'"valid staple file on disk"
         return
@@ -398,7 +524,7 @@ fetch_ocsp_response() {
   set -e
   if ((cert_expiry_rc != 0)); then
     ERROR_ENCOUNTERED=true
-    lineages_processed["${lineage_name}"]="not updated"
+    lineages_processed["${lineage_name}"]="failed to update"
     if [[ ${cert_expiry_output} == "Certificate will expire" ]]; then
       lineages_processed["${lineage_name}"]+=$'\t'"leaf certificate expired"
     fi
@@ -429,13 +555,13 @@ fetch_ocsp_response() {
     -respout "${temp_output_dir}/${lineage_name}.der" 2>&3)
   local -ir ocsp_call_rc=${?}
   set -e
-  readonly ocsp_call_output=${ocsp_call_output#${lineage_dir}/cert.pem: }
+  readonly ocsp_call_output=${ocsp_call_output#"${lineage_dir}"/cert.pem: }
   local -r cert_status=${ocsp_call_output%%$'\n'*}
 
   if [[ ${ocsp_call_rc} != 0 || ${cert_status} != good ]]; then
     ERROR_ENCOUNTERED=true
 
-    lineages_processed["${lineage_name}"]="not updated"
+    lineages_processed["${lineage_name}"]="failed to update"
     if ((VERBOSITY >= 2)); then
       lineages_processed["${lineage_name}"]+=$'\t'"${ocsp_call_output//[[:space:]]/ }"
     else
@@ -455,44 +581,80 @@ fetch_ocsp_response() {
 print_and_handle_result() {
   local -r header=LINEAGE$'\t'RESULT$'\t'REASON
 
+  local lineages_processed_marked_up
   for lineage_name in "${!lineages_processed[@]}"; do
-    local lineages_processed_formatted+=$'\n'"${lineage_name}"$'\t'"${lineages_processed["${lineage_name}"]}"
+    lineages_processed_marked_up+=$'\n'"${lineage_name}"$'\t'
+    if [[ ${COLORED_STDOUT-} != false ]]; then
+      if [[ ${lineages_processed["${lineage_name}"]} =~ ^updated ]]; then
+        lineages_processed_marked_up+=${GREEN}
+      elif [[ ${lineages_processed["${lineage_name}"]} =~ ^"failed to update" ]]; then
+        lineages_processed_marked_up+=${RED}
+      fi
+      lineages_processed_marked_up+=${lineages_processed["${lineage_name}"]}${COLOR_DEFAULT}
+    else
+      lineages_processed_marked_up+=${lineages_processed["${lineage_name}"]}
+    fi
   done
   unset lineage_name
-  lineages_processed_formatted=$(sort <<<"${lineages_processed_formatted:-}")
-  readonly lineages_processed_formatted
+  lineages_processed_marked_up=$(sort <<<"${lineages_processed_marked_up-}")
+  readonly lineages_processed_marked_up
 
-  if [[ ${RELOAD_WEBSERVER:-} != false ]]; then
+  if [[ ${RELOAD_WEBSERVER-} != false ]]; then
     reload_webserver
   fi
 
-  local -r output=${header}${lineages_processed_formatted:-}${nginx_status-}
+  local output=${header}${lineages_processed_marked_up-}${nginx_status-}
 
   if ((VERBOSITY >= 1)); then
-    if command -v column >&-; then
-      column -ts$'\t' <<<"${output}"
+    local output_table
+    # shellcheck disable=2016
+    output_table=$(column \
+      --output-separator $'\t' \
+      --separator $'\t' \
+      --table \
+      <<<"${output}" \
+      2>/dev/null) ||
+      output_table=$(column -s$'\t' -t <<<"${output}" 2>/dev/null) ||
+      local -r column_error=($'\n'
+        'Install the BSD utility `column` for properly formatted output.'
+        'If the version of `column` supports the `--output-separator` flag,'
+        'the output will be formatted as TSV.'
+        $'\n'
+      )
+    readonly output=${output_table:-${output}}
+    unset output_table
+
+    # Extract header to direct it to stderr
+    printf '%s\n' "${output%%$'\n'*}" >&2
+    # Remove header before printing everything else to stdout
+    [[ -n ${!lineages_processed[*]} ]] && printf '%b\n' "${output#*$'\n'}"
+
+    if [[ ${COLORED_STDERR-} != false ]]; then
+      printf %b "${RED}${column_error[*]-}${COLOR_DEFAULT}" >&2
     else
-      # shellcheck disable=2016
-      echo >&2 \
-        'Install the BSD utility `column` for properly formatted output.'$'\n'
-      echo "${output}"
+      printf %b "${column_error[*]-}" >&2
     fi
   fi
 
-  [[ ${ERROR_ENCOUNTERED:-} != true ]]
+  [[ ${ERROR_ENCOUNTERED-} != true ]]
 }
 
 reload_webserver() {
   for lineage_name in "${!lineages_processed[@]}"; do
     if [[ ${lineages_processed["${lineage_name}"]} == updated ]]; then
+      local nginx_status
       if nginx -s reload >&3 2>&1; then
+        [[ ${COLORED_STDERR-} != false ]] && nginx_status=${GREEN}
         # The last line includes a leading space, to workaround the lack of the
         # `-n` flag in later versions of `column`.
-        local -r nginx_status=$'\n\n \t'"nginx reloaded"
+        nginx_status+=$'\n\n \t'"nginx reloaded"
       else
         ERROR_ENCOUNTERED=true
-        local -r nginx_status=$'\n\n \t'"nginx not reloaded"$'\t'"unable to reload nginx service, try manually"
+        [[ ${COLORED_STDERR-} != false ]] && nginx_status=${RED}
+        nginx_status=$'\n\n \t'"nginx not reloaded"$'\t'"unable to reload nginx service, try manually"
       fi
+      [[ ${COLORED_STDERR-} != false ]] &&
+        readonly nginx_status+=${COLOR_DEFAULT}
       break
     fi
   done
@@ -502,7 +664,9 @@ reload_webserver() {
 main() {
   check_for_dependencies
 
-  parse_cli_arguments "${@}"
+  determine_colored_output
+
+  parse_cli_options "${@}"
 
   prepare_output_dir
 

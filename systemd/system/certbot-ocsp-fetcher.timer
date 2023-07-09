@@ -1,5 +1,5 @@
 [Unit]
-Description=Nightly run certbot-ocsp-fetcher
+Description=Nightly run %N
 
 [Timer]
 OnCalendar=*-*-* 01:00:00
