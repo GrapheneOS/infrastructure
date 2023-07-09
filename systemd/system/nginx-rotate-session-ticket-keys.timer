@@ -1,0 +1,8 @@
+[Unit]
+Description=Run nginx-rotate-session-ticket-keys three times daily
+
+[Timer]
+OnCalendar=0/8:00:00
+
+[Install]
+WantedBy=timers.target
