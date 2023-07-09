@@ -7,7 +7,6 @@ chrony
 cloud-guest-utils
 composer
 conntrack-tools
-git
 grub
 htop
 linux-lts
