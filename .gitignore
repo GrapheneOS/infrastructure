@@ -4,4 +4,5 @@
 /logs/
 *.tmp
 /ovh-mitigation.json
+/ovh-mitigation.txt
 /venv/
