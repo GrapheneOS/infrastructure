@@ -33,6 +33,7 @@ python-psycopg2
 rsync
 sshpass
 strace
+sysstat
 tree
 unbound
 vim

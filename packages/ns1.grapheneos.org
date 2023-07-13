@@ -21,6 +21,7 @@ plocate
 powerdns
 rsync
 strace
+sysstat
 tree
 unbound
 vim

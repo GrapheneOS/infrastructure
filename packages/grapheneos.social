@@ -28,6 +28,7 @@ rsync
 sshpass
 strace
 sudo
+sysstat
 tree
 unbound
 vim

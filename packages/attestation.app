@@ -24,6 +24,7 @@ plocate
 rsync
 sshpass
 strace
+sysstat
 tree
 unbound
 vim

@@ -19,6 +19,7 @@ pacutils
 plocate
 rsync
 strace
+sysstat
 tree
 unbound
 vim
