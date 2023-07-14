@@ -2,4 +2,4 @@
 MACAddress=fa:16:3e:5a:57:28
 
 [Link]
-Name=eth0
+Name=public

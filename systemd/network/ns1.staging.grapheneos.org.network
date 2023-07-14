@@ -1,5 +1,5 @@
 [Match]
-Name=eth0
+Name=public
 
 [Network]
 LinkLocalAddressing=no
