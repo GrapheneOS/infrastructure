@@ -2,23 +2,17 @@
 Name=eth0
 
 [Network]
-DHCP=ipv4
 LinkLocalAddressing=no
 Address=192.99.98.22/32
+Gateway=51.161.8.1
 Address=2607:5300:205:200::94f/128
 Gateway=2607:5300:205:200::1
 
 [Route]
-Destination=0.0.0.0/0
-Gateway=51.161.8.1
-PreferredSource=192.99.98.22
-Metric=512
+Destination=51.161.8.1
 
 [Route]
 Destination=2607:5300:205:200::1
-
-[DHCP]
-UseMTU=true
 
 [CAKE]
 Bandwidth=250M
