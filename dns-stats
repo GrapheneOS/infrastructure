@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+[[ $# -eq 0 ]] || exit 1
+
+user=root
+
+. hosts.sh
+
+function print_stat() {
+    echo $1 ${stats["$1"]}
+}
+
+declare -n hosts=hosts_dns
+for host in ${hosts[@]}; do
+    echo $host
+    echo
+
+    declare -A stats
+    for field in $(ssh $user@$host "pdns_control show '*'" | tr ',' '\n'); do
+        IFS== read key value <<<$field
+        stats[$key]=$value
+    done
+
+    print_stat backend-queries
+    print_stat latency
+    print_stat receive-latency
+    print_stat backend-latency
+    print_stat send-latency
+
+    echo
+done
