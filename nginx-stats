@@ -2,14 +2,13 @@
 
 set -o errexit -o nounset -o pipefail
 
-[[ $# -ge 1 ]] || exit 1
+[[ $# -eq 1 ]] || exit 1
 
 user=root
 
 . hosts.sh
 
 declare -n hosts=hosts_$1
-shift
 for host in ${hosts[@]}; do
     echo $host
     echo
