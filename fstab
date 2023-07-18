@@ -1,1 +1,1 @@
-/dev/mapper/swap none swap defaults 0 0
+/dev/mapper/swap none swap discard=once 0 0
