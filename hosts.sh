@@ -144,3 +144,24 @@ readonly hosts_all=(
     "${hosts_dns[@]}"
     "${hosts_web[@]}"
 )
+
+readonly hosts_buyvm=(
+    ns1.staging.grapheneos.org
+    {0..2}.ns2.grapheneos.org
+    staging.grapheneos.org
+    1.grapheneos.org
+    1.grapheneos.network
+    staging.attestation.app
+)
+
+readonly hosts_ovh=(
+    ns1.grapheneos.org
+    mail.grapheneos.org
+    {0,2,3}.grapheneos.org
+    {0,2,3}.grapheneos.network
+    {0..7}.releases.grapheneos.org
+    matrix.grapheneos.org
+    discuss.grapheneos.org
+    grapheneos.social
+    attestation.app
+)
