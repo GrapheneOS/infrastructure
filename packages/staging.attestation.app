@@ -7,6 +7,7 @@ cloud-guest-utils
 conntrack-tools
 grub
 htop
+ioping
 jdk-openjdk
 jre-openjdk-headless
 linux-lts

@@ -8,6 +8,7 @@ conntrack-tools
 git
 grub
 htop
+ioping
 jemalloc
 jq
 linux-lts

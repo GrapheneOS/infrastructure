@@ -6,6 +6,7 @@ cloud-guest-utils
 conntrack-tools
 grub
 htop
+ioping
 linux-lts
 logrotate
 lsof

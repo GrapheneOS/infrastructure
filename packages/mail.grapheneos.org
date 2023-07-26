@@ -8,6 +8,7 @@ conntrack-tools
 dovecot
 grub
 htop
+ioping
 linux-lts
 logrotate
 lsof

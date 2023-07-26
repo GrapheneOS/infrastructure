@@ -9,6 +9,7 @@ conntrack-tools
 git
 grub
 htop
+ioping
 linux-lts
 logrotate
 lsof

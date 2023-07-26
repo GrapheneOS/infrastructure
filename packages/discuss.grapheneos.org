@@ -9,6 +9,7 @@ composer
 conntrack-tools
 grub
 htop
+ioping
 linux-lts
 logrotate
 lsof
@@ -18,6 +19,7 @@ moreutils
 nftables
 nginx
 nginx-mod-brotli
+nmap
 openssh
 pacman-contrib
 pacutils
@@ -35,5 +37,6 @@ sysstat
 tree
 unbound
 vim
+whois
 xfsprogs
 zopfli
