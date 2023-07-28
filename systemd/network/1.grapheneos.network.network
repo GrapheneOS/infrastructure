@@ -3,7 +3,7 @@ Name=public
 
 [Network]
 LinkLocalAddressing=no
-Address=209.141.37.35/32
+Address=209.141.37.35/24
 Gateway=209.141.37.1
 Address=2605:6400:20:387:72d4:dab9:a369:f351/128
 Gateway=2605:6400:20::1
