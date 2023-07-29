@@ -29,6 +29,7 @@ parallel
 plocate
 postgresql
 postgresql-old-upgrade
+pv
 python-pip
 python-psycopg2
 rsync

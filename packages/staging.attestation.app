@@ -22,6 +22,7 @@ openssh
 pacman-contrib
 pacutils
 plocate
+pv
 rsync
 sshpass
 strace

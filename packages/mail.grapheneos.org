@@ -24,6 +24,7 @@ pacutils
 plocate
 postfix
 publicsuffix-list
+pv
 python-authres
 python-postfix-policyd-spf
 rsync

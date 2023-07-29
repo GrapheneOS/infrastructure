@@ -25,6 +25,7 @@ pacman-contrib
 pacutils
 plocate
 postgresql-old-upgrade
+pv
 rsync
 sshpass
 strace

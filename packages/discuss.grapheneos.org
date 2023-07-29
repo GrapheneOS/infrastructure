@@ -30,6 +30,7 @@ php-legacy
 php-legacy-fpm
 php-legacy-gd
 plocate
+pv
 rsync
 sshpass
 strace

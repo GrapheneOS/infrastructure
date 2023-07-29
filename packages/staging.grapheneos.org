@@ -19,6 +19,7 @@ openssh
 pacman-contrib
 pacutils
 plocate
+pv
 rsync
 strace
 sysstat
