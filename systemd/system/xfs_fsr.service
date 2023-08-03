@@ -1,0 +1,12 @@
+[Unit]
+Description=XFS filesystem reorganization
+
+[Service]
+CPUSchedulingPolicy=idle
+ExecStart=/usr/bin/xfs_fsr -f /var/lib/.fsrlast
+IOSchedulingClass=idle
+IPAddressDeny=any
+MemoryDenyWriteExecute=true
+PrivateIPC=true
+PrivateNetwork=true
+Type=oneshot
