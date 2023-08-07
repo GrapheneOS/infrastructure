@@ -16,3 +16,4 @@ UseMTU=true
 [CAKE]
 Bandwidth=2000M
 PriorityQueueingPreset=besteffort
+SplitGSO=false
