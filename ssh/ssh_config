@@ -1,3 +1,6 @@
+# Include drop-in configurations
+Include /etc/ssh/ssh_config.d/*.conf
+
 ServerAliveInterval 60
 ServerAliveCountMax 10
 TCPKeepAlive no
