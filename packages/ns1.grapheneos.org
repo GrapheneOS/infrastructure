@@ -14,6 +14,7 @@ logrotate
 lsof
 man-db
 moreutils
+mtr
 nftables
 openssh
 pacman-contrib

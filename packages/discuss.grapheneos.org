@@ -16,6 +16,7 @@ lsof
 man-db
 mariadb
 moreutils
+mtr
 nftables
 nginx
 nginx-mod-brotli

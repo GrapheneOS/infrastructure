@@ -18,6 +18,7 @@ man-db
 matrix-synapse
 matterbridge
 moreutils
+mtr
 nftables
 nginx
 nginx-mod-brotli

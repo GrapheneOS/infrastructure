@@ -15,6 +15,7 @@ logrotate
 lsof
 man-db
 moreutils
+mtr
 nftables
 nginx
 nginx-mod-brotli

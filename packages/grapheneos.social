@@ -16,6 +16,7 @@ lsof
 man-db
 mastodon
 moreutils
+mtr
 nftables
 nginx
 nginx-mod-brotli
