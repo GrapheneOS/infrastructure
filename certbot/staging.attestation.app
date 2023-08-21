@@ -1,5 +1,5 @@
 certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --key-type ecdsa --reuse-key --must-staple --preferred-chain "ISRG Root X1" \
-    --deploy-hook "/usr/local/bin/certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
+    --deploy-hook "certbot-ocsp-fetcher -o /etc/nginx/ocsp-cache" \
     --cert-name staging.attestation.app \
     -d staging.attestation.app
