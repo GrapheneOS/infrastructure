@@ -2,7 +2,10 @@ declare -Ar hosts_reserved_ports=(
     [staging.attestation.app]=8080
     [attestation.app]=8080
     [matrix.grapheneos.org]=8008
-    [{0..3}.grapheneos.network]=7275
+    [0.grapheneos.network]=7275
+    [1.grapheneos.network]=7275
+    [2.grapheneos.network]=7275
+    [3.grapheneos.network]=7275
 )
 
 declare -Ar hosts_ssh_users=(
@@ -12,16 +15,34 @@ declare -Ar hosts_ssh_users=(
 )
 
 declare -Ar hosts_journald_system_max_use=(
-    [{0..3}.grapheneos.org]=16G
-    [{0..3}.grapheneos.network]=16G
-    [{0..7}.releases.grapheneos.org]=8G
+    [0.grapheneos.org]=16G
+    [1.grapheneos.org]=16G
+    [2.grapheneos.org]=16G
+    [3.grapheneos.org]=16G
+    [0.grapheneos.network]=16G
+    [1.grapheneos.network]=16G
+    [2.grapheneos.network]=16G
+    [3.grapheneos.network]=16G
+    [0.releases.grapheneos.org]=8G
+    [1.releases.grapheneos.org]=8G
+    [2.releases.grapheneos.org]=8G
+    [3.releases.grapheneos.org]=8G
+    [4.releases.grapheneos.org]=8G
+    [5.releases.grapheneos.org]=8G
+    [6.releases.grapheneos.org]=8G
+    [7.releases.grapheneos.org]=8G
 )
 
 declare -Ar hosts_journald_max_retention_sec=(
     [ns1.staging.grapheneos.org]=4day
     [ns1.grapheneos.org]=4day
-    [{0..2}.ns2.grapheneos.org]=4day
-    [{0..3}.grapheneos.network]=4day
+    [0.ns2.grapheneos.org]=4day
+    [1.ns2.grapheneos.org]=4day
+    [2.ns2.grapheneos.org]=4day
+    [0.grapheneos.network]=4day
+    [1.grapheneos.network]=4day
+    [2.grapheneos.network]=4day
+    [3.grapheneos.network]=4day
 )
 
 declare -Ar hosts_ipv4_address=(
