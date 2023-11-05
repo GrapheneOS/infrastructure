@@ -1,5 +1,6 @@
 base
 bash-completion
+certbot
 chrony
 cloud-guest-utils
 conntrack-tools
@@ -16,6 +17,7 @@ man-db
 moreutils
 mtr
 nftables
+nginx
 openssh
 pacman-contrib
 pacutils

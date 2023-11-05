@@ -120,6 +120,9 @@ readonly hosts_staging=(
 )
 
 readonly hosts_certbot=(
+    ns1.staging.grapheneos.org
+    ns1.grapheneos.org
+    0.ns2.grapheneos.org
     mail.grapheneos.org
     staging.grapheneos.org
     0.grapheneos.org
@@ -151,6 +154,7 @@ readonly hosts_attestation=(
 )
 
 readonly hosts_web=(
+    "${hosts_dns[@]}"
     mail.grapheneos.org
     "${hosts_grapheneos[@]}"
     "${hosts_network[@]}"
@@ -162,7 +166,6 @@ readonly hosts_web=(
 )
 
 readonly hosts_all=(
-    "${hosts_dns[@]}"
     "${hosts_web[@]}"
 )
 

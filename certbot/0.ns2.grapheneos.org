@@ -1,0 +1,19 @@
+certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
+    --key-type ecdsa --reuse-key --must-staple --preferred-chain "ISRG Root X1" \
+    --deploy-hook "certbot-ocsp-fetcher -o /var/cache/certbot-ocsp-fetcher" \
+    --cert-name ns2.grapheneos.org \
+    -d ns2.attestation.app \
+    -d ns2.grapheneos.app \
+    -d ns2.grapheneos.ca \
+    -d ns2.grapheneos.com \
+    -d ns2.grapheneos.dev \
+    -d ns2.grapheneos.info \
+    -d ns2.grapheneos.net \
+    -d ns2.grapheneos.network \
+    -d ns2.grapheneos.online \
+    -d ns2.grapheneos.org \
+    -d ns2.grapheneos.ovh \
+    -d ns2.grapheneos.page \
+    -d ns2.grapheneos.social \
+    -d ns2.seamlessupdate.app \
+    -d ns2.vanadium.app

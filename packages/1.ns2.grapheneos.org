@@ -16,6 +16,7 @@ man-db
 moreutils
 mtr
 nftables
+nginx
 openssh
 pacman-contrib
 pacutils
