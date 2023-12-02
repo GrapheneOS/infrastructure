@@ -16,7 +16,7 @@ logrotate
 lsof
 man-db
 matrix-synapse
-matterbridge
+matterbridge-git
 moreutils
 mtr
 nftables
