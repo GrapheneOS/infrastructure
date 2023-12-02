@@ -11,6 +11,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d connectivitycheck.grapheneos.online \
     -d time.grapheneos.org \
     -d remoteprovisioning.grapheneos.org \
+    -d widevineprovisioning.grapheneos.org \
     -d broadcom.psds.grapheneos.org \
     -d qualcomm.psds.grapheneos.org \
     -d supl.grapheneos.org \
