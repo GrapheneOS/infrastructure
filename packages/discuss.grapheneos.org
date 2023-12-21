@@ -16,6 +16,7 @@ logrotate
 lsof
 man-db
 mariadb
+mmdblookup
 moreutils
 mtr
 nftables
