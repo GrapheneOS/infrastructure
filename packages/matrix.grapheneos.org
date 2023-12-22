@@ -22,7 +22,7 @@ mtr
 nftables
 nginx
 nginx-mod-brotli
-nodejs-lts-gallium
+nodejs-lts-iron
 openssh
 pacman-contrib
 pacutils

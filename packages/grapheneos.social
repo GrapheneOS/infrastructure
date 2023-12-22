@@ -18,7 +18,7 @@ mtr
 nftables
 nginx
 nginx-mod-brotli
-nodejs-lts-hydrogen
+nodejs-lts-iron
 openssh
 pacman-contrib
 pacutils
