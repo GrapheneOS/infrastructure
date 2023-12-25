@@ -15,10 +15,10 @@ mkdir logs
 
 for host in ${hosts_releases[@]}; do
     echo obtaining logs from $host
-    ssh $host journalctl -u nginx | grep ' 200 ' >> logs/merged.log
+    ssh $host journalctl -u nginx -g ' 200 ' >> logs/merged.log
 done
 
-grep Dalvik/ logs/merged.log | grep ' 200 ' > logs/merged-device.log
+grep Dalvik/ logs/merged.log > logs/merged-device.log
 
 echo
 echo update checks
