@@ -11,7 +11,7 @@ mkdir -p modules packages units
 
 for host in ${hosts_all[@]}; do
     (
-        ssh root@$host lsmod | sort > modules/$host
+        ssh root@$host lsmod | awk '{ print $1 }' | sort > modules/$host
         ssh root@$host pacman -Qqe > packages/$host
         ssh root@$host systemctl list-unit-files --state=enabled --state=disabled --state=masked | sort > units/$host
     ) &
