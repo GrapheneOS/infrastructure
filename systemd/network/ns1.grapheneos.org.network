@@ -4,7 +4,7 @@ Name=public
 [Network]
 DHCP=ipv4
 LinkLocalAddressing=no
-Address=2607:5300:205:200:0:0:0:29e8/128
+Address=2607:5300:205:200::eaa/128
 Gateway=2607:5300:205:200::1
 
 [Route]
@@ -14,5 +14,5 @@ Destination=2607:5300:205:200::1
 UseMTU=true
 
 [CAKE]
-Bandwidth=250M
+Bandwidth=500M
 PriorityQueueingPreset=besteffort
