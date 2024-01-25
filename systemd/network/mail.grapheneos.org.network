@@ -4,16 +4,16 @@ Name=public
 [Network]
 LinkLocalAddressing=no
 Address=192.99.98.22/32
-Gateway=51.161.8.1
-Address=2607:5300:205:200::94f/128
+Gateway=51.79.64.1
+Address=2607:5300:205:200::472f/128
 Gateway=2607:5300:205:200::1
 
 [Route]
-Destination=51.161.8.1
+Destination=51.79.64.1
 
 [Route]
 Destination=2607:5300:205:200::1
 
 [CAKE]
-Bandwidth=250M
+Bandwidth=500M
 PriorityQueueingPreset=besteffort
