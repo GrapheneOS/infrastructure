@@ -2,7 +2,6 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --key-type ecdsa --reuse-key --must-staple --preferred-chain "ISRG Root X1" \
     --deploy-hook "certbot-ocsp-fetcher -o /var/cache/certbot-ocsp-fetcher" \
     --cert-name mta-sts.mail.grapheneos.org \
-    -d mta-sts.mail.grapheneos.org \
     -d mail.grapheneos.org \
     -d mail.grapheneos.net \
     -d mta-sts.attestation.app \
@@ -19,6 +18,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d mta-sts.grapheneos.ovh \
     -d mta-sts.grapheneos.page \
     -d mta-sts.grapheneos.social \
+    -d mta-sts.mail.grapheneos.org \
     -d mta-sts.matrix.grapheneos.org \
     -d mta-sts.seamlessupdate.app \
     -d mta-sts.vanadium.app
