@@ -30,6 +30,7 @@ python-authres
 python-postfix-policyd-spf
 rsync
 s-nail
+sshpass
 strace
 sysstat
 tree
