@@ -6,7 +6,7 @@ set -o errexit -o nounset -o pipefail
 
 . hosts.sh
 
-DEVICES=(felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline)
+DEVICES=(husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline)
 
 release=$1
 
@@ -23,6 +23,7 @@ grep Dalvik/ logs/merged.log > logs/merged-device.log
 echo
 echo update checks
 echo total $(grep -Pc -- "/\w+-(stable|beta|alpha)" logs/merged-device.log)
+echo gen 8 $(grep -Pc -- "/(husky|shiba)-(stable|beta|alpha)" logs/merged-device.log)
 echo gen 7 $(grep -Pc -- "/(felix|tangorpro|lynx|cheetah|panther)-(stable|beta|alpha)" logs/merged-device.log)
 echo gen 6 $(grep -Pc -- "/(bluejay|raven|oriole)-(stable|beta|alpha)" logs/merged-device.log)
 echo gen 5 $(grep -Pc -- "/(barbet|redfin|bramble)-(stable|beta|alpha)" logs/merged-device.log)
@@ -38,6 +39,7 @@ done
 echo
 echo factory images
 echo total $(grep -Pc "/\w+-factory-\d+.zip" logs/merged.log)
+echo gen 8 $(grep -Pc "/(husky|shiba)-factory-\d+.zip" logs/merged.log)
 echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-factory-\d+.zip" logs/merged.log)
 echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-factory-\d+.zip" logs/merged.log)
 echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-factory-\d+.zip" logs/merged.log)
@@ -53,6 +55,7 @@ done
 echo
 echo updates to $release
 echo total $(grep -Pc "/\w+-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
+echo gen 8 $(grep -Pc "/(husky|shiba)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
