@@ -1,0 +1,62 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+. hosts.sh
+. deploy.sh
+
+readonly remote=root@$ip
+
+# check for Arch ISO
+ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5
+ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.01.01" ]]' || exit 5
+
+exit 2
+
+ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
+ssh $remote "mkfs.xfs -f /dev/${drive}1"
+rsync -tv pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
+ssh $remote "mount /dev/${drive}1 /mnt"
+ssh $remote "pacstrap -K /mnt base bash-completion chrony cloud-guest-utils conntrack-tools grub htop ioping linux-lts logrotate lsof man-db moreutils mtr nftables nginx openssh pacman-contrib pacutils plocate pv rsync strace sysstat tree unbound vim xfsprogs"
+
+ssh $remote "echo $hostname >/mnt/etc/hostname"
+
+rsync -ptv --chmod=644 systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
+rsync -ptv --chmod=644 systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
+
+rsync -ptv --chmod=644 crypttab environment fstab hosts locale.conf locale.gen pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
+ssh $remote "arch-chroot /mnt locale-gen"
+
+rsync -tv grub $remote:/mnt/etc/default/grub
+ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
+ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
+
+rsync -tv unbound.conf $remote:/mnt/etc/unbound/unbound.conf
+
+if [[ $host = @(0.grapheneos.network|1.grapheneos.network|2.grapheneos.network|3.grapheneos.network) ]]; then
+    cp chrony.conf chrony.conf.tmp
+    echo -e '\nallow' >> chrony.conf.tmp
+    rsync -tv chrony.conf.tmp $remote:/mnt/etc/chrony.conf
+    rm chrony.conf.tmp
+else
+    rsync -tv chrony.conf $remote:/mnt/etc/chrony.conf
+fi
+ssh $remote mkdir -vp /mnt/etc/sysconfig
+rsync -ptv --chmod 644 sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
+
+rsync -tv authorized_keys $remote:/mnt/root/.ssh/authorized_keys
+cp ssh/sshd_config ssh/sshd_config.tmp
+sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" ssh/sshd_config.tmp
+rsync -tv ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
+rm ssh/sshd_config.tmp
+
+ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer plocate-updatedb.timer systemd-networkd.service sshd.service unbound.service"
+ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service"
+
+ssh $remote "dd if=/dev/urandom of=/mnt/swapfile bs=1M count=$swap status=progress"
+
+password=$(head -c32 <(tr -dc A-Za-z0-9 </dev/random))
+echo password: $password
+ssh $remote "echo root:$password | arch-chroot /mnt chpasswd"
+ssh $remote umount /mnt
+ssh $remote reboot
