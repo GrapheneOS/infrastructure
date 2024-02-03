@@ -23,6 +23,7 @@ for host in ${hosts[@]}; do
         stats[$key]=$value
     done
 
+    print_stat uptime
     print_stat backend-queries
     print_stat latency
     print_stat receive-latency
