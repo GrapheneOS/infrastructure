@@ -1,0 +1,8 @@
+[Unit]
+Description=Run systemd-journald-vacuum hourly
+
+[Timer]
+OnCalendar=hourly
+
+[Install]
+WantedBy=timers.target
