@@ -24,8 +24,7 @@ ssh $remote "echo $hostname >/mnt/etc/hostname"
 rsync -ptv --chmod=644 systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
 rsync -ptv --chmod=644 systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
-rsync -ptv --chmod=644 crypttab environment fstab hosts locale.conf locale.gen pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
-ssh $remote "arch-chroot /mnt locale-gen"
+rsync -ptv --chmod=644 crypttab environment fstab hosts locale.conf pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
 
 rsync -tv grub $remote:/mnt/etc/default/grub
 ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
