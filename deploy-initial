@@ -9,7 +9,7 @@ readonly remote=root@$ip
 
 # check for Arch ISO
 ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5
-ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.01.01" ]]' || exit 5
+ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.02.01" ]]' || exit 5
 
 exit 2
 
