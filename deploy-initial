@@ -11,8 +11,6 @@ readonly remote=root@$ip
 ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5
 ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.02.01" ]]' || exit 5
 
-exit 2
-
 ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -f /dev/${drive}1"
 rsync -tv pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
