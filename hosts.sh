@@ -33,6 +33,21 @@ declare -Ar hosts_journald_system_max_use=(
     [7.releases.grapheneos.org]=8G
 )
 
+declare -Ar hosts_journald_system_max_file_size=(
+    [0.grapheneos.network]=512M
+    [1.grapheneos.network]=512M
+    [2.grapheneos.network]=512M
+    [3.grapheneos.network]=512M
+    [0.releases.grapheneos.org]=256M
+    [1.releases.grapheneos.org]=256M
+    [2.releases.grapheneos.org]=256M
+    [3.releases.grapheneos.org]=256M
+    [4.releases.grapheneos.org]=256M
+    [5.releases.grapheneos.org]=256M
+    [6.releases.grapheneos.org]=256M
+    [7.releases.grapheneos.org]=256M
+)
+
 declare -Ar hosts_journald_max_retention_sec=(
     [ns1.staging.grapheneos.org]=4day
     [ns1.grapheneos.org]=4day
