@@ -6,10 +6,10 @@ umask 077
 
 cd /etc/nginx/session-ticket-keys
 
-rsync -It 2.key 1.key
-rsync -It 3.key 2.key
-rsync -It 4.key 3.key
+rsync -I 2.key 1.key
+rsync -I 3.key 2.key
+rsync -I 4.key 3.key
 openssl rand -out new.key 80
-rsync -It new.key 4.key
+rsync -I new.key 4.key
 rm new.key
 nginx -s reload
