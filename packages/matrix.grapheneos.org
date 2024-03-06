@@ -13,7 +13,6 @@ jemalloc
 jq
 linux-lts
 logrotate
-lsof
 man-db
 matrix-synapse
 matterbridge-git

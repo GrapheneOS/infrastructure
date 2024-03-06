@@ -8,7 +8,6 @@ htop
 ioping
 linux-lts
 logrotate
-lsof
 man-db
 moreutils
 mtr

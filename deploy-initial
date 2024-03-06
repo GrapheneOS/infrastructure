@@ -15,7 +15,7 @@ ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -d agcount=$agcount -f /dev/${drive}1"
 rsync -cv pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
 ssh $remote "mount /dev/${drive}1 /mnt"
-ssh $remote "pacstrap -K /mnt base bash-completion chrony cloud-guest-utils conntrack-tools grub htop ioping linux-lts logrotate lsof man-db moreutils mtr nftables nginx openssh pacman-contrib pacutils plocate pv rsync strace sysstat tree unbound vim xfsprogs"
+ssh $remote "pacstrap -K /mnt base bash-completion chrony cloud-guest-utils conntrack-tools grub htop ioping linux-lts logrotate man-db moreutils mtr nftables nginx openssh pacman-contrib pacutils plocate pv rsync strace sysstat tree unbound vim xfsprogs"
 
 ssh $remote "echo $hostname >/mnt/etc/hostname"
 

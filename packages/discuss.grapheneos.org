@@ -13,7 +13,6 @@ htop
 ioping
 linux-lts
 logrotate
-lsof
 man-db
 mariadb
 mmdblookup

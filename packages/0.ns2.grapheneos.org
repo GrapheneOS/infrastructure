@@ -12,7 +12,6 @@ ioping
 libmaxminddb
 linux-lts
 logrotate
-lsof
 man-db
 mmdblookup
 moreutils

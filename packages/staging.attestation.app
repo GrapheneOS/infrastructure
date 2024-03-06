@@ -11,7 +11,6 @@ ioping
 jre-openjdk-headless
 linux-lts
 logrotate
-lsof
 man-db
 moreutils
 mtr
