@@ -23,6 +23,7 @@ pacutils
 plocate
 pv
 rsync
+sqlite-analyzer
 sshpass
 strace
 sysstat
