@@ -1,0 +1,3 @@
+set colored-stats on
+set menu-complete-display-prefix on
+set show-all-if-ambiguous on
