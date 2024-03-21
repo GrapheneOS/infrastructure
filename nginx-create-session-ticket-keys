@@ -9,7 +9,6 @@ mount -t ramfs -o mode=700 ramfs /etc/nginx/session-ticket-keys
 
 cd /etc/nginx/session-ticket-keys
 
-openssl rand -out 1.key 80
-openssl rand -out 2.key 80
-openssl rand -out 3.key 80
-openssl rand -out 4.key 80
+for i in {1..4}; do
+    head -c 80 </dev/random >$i.key
+done

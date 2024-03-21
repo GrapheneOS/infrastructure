@@ -9,7 +9,7 @@ cd /etc/nginx/session-ticket-keys
 rsync -I 2.key 1.key
 rsync -I 3.key 2.key
 rsync -I 4.key 3.key
-openssl rand -out new.key 80
+head -c 80 </dev/urandom >new.key
 rsync -I new.key 4.key
 rm new.key
 nginx -s reload
