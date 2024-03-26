@@ -8,9 +8,6 @@ Address=2605:6400:0010:09d6:6d84:e183:acda:16d7/128
 Gateway=2605:6400:10::1
 
 [Route]
-Destination=2605:6400:10::1
-
-[Route]
 Destination=0.0.0.0/0
 Gateway=199.195.250.1
 PreferredSource=199.195.250.78
@@ -18,6 +15,9 @@ PreferredSource=199.195.250.78
 [Route]
 Destination=199.195.250.1
 PreferredSource=199.195.250.78
+
+[Route]
+Destination=2605:6400:10::1
 
 [CAKE]
 Bandwidth=1000M
