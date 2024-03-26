@@ -5,7 +5,6 @@ Name=public
 LinkLocalAddressing=no
 Address=192.99.98.22/32
 Address=2607:5300:205:200::472f/128
-Gateway=2607:5300:205:200::1
 
 [Route]
 Destination=0.0.0.0/0
@@ -17,7 +16,13 @@ Destination=51.79.64.1
 PreferredSource=192.99.98.22
 
 [Route]
+Destination=::/0
+Gateway=2607:5300:205:200::1
+PreferredSource=2607:5300:205:200::472f
+
+[Route]
 Destination=2607:5300:205:200::1
+PreferredSource=2607:5300:205:200::472f
 
 [CAKE]
 Bandwidth=500M

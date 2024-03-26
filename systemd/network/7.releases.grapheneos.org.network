@@ -5,10 +5,15 @@ Name=public
 DHCP=ipv4
 LinkLocalAddressing=no
 Address=2001:41d0:701:1100::3e56/128
+
+[Route]
+Destination=::/0
 Gateway=2001:41d0:701:1100::1
+PreferredSource=2001:41d0:701:1100::3e56
 
 [Route]
 Destination=2001:41d0:701:1100::1
+PreferredSource=2001:41d0:701:1100::3e56
 
 [DHCP]
 UseMTU=true

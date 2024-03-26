@@ -5,7 +5,6 @@ Name=public
 LinkLocalAddressing=no
 Address=205.185.124.155/24
 Address=2605:6400:20:1c8f:a0c9:372d:482e:945b/128
-Gateway=2605:6400:20::1
 
 [Address]
 Address=198.251.90.93/32
@@ -20,7 +19,13 @@ Destination=205.185.124.1
 PreferredSource=205.185.124.155
 
 [Route]
+Destination=::/0
+Gateway=2605:6400:20::1
+PreferredSource=2605:6400:20:1c8f:a0c9:372d:482e:945b
+
+[Route]
 Destination=2605:6400:20::1
+PreferredSource=2605:6400:20:1c8f:a0c9:372d:482e:945b
 
 [CAKE]
 Bandwidth=1000M
