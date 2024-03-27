@@ -105,7 +105,6 @@ ClientAliveInterval 60
 ClientAliveCountMax 10
 #UseDNS no
 #PidFile /run/sshd.pid
-PerSourceMaxStartups 1
 MaxStartups 4096
 #PermitTunnel no
 #ChrootDirectory none
