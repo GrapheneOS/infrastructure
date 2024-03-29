@@ -8,7 +8,7 @@ conntrack-tools
 grub
 htop
 ioping
-jre-openjdk-headless
+jre21-openjdk-headless
 linux-lts
 logrotate
 man-db
