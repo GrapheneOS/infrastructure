@@ -3,4 +3,6 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --deploy-hook "certbot-ocsp-fetcher -o /var/cache/certbot-ocsp-fetcher" \
     --cert-name ns1.staging.grapheneos.org \
     -d ns1.staging.grapheneos.org \
-    -d ns1.staging.attestation.app
+    -d ns2.staging.grapheneos.org \
+    -d ns1.staging.attestation.app \
+    -d ns2.staging.attestation.app
