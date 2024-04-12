@@ -32,6 +32,7 @@ postgresql-old-upgrade
 pv
 python-pip
 python-psycopg2
+python-pydantic
 rsync
 sshpass
 strace
