@@ -17,6 +17,7 @@ declare -Ar hosts_tcp_wmem_max=(
     [5.releases.grapheneos.org]=16777216
     [6.releases.grapheneos.org]=16777216
     [7.releases.grapheneos.org]=16777216
+    [matrix.grapheneos.org]=16777216
 )
 
 declare -Ar hosts_ssh_users=(
