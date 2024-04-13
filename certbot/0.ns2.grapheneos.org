@@ -8,6 +8,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d ns2.grapheneos.ca \
     -d ns2.grapheneos.com \
     -d ns2.grapheneos.dev \
+    -d ns2.grapheneos.foundation \
     -d ns2.grapheneos.info \
     -d ns2.grapheneos.net \
     -d ns2.grapheneos.network \

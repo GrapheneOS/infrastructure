@@ -10,6 +10,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d mta-sts.grapheneos.ca \
     -d mta-sts.grapheneos.com \
     -d mta-sts.grapheneos.dev \
+    -d mta-sts.grapheneos.foundation \
     -d mta-sts.grapheneos.info \
     -d mta-sts.grapheneos.net \
     -d mta-sts.grapheneos.network \
