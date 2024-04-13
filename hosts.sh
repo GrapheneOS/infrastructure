@@ -1,11 +1,11 @@
 declare -Ar hosts_reserved_ports=(
-    [staging.attestation.app]=8080
-    [attestation.app]=8080
-    [matrix.grapheneos.org]=8008
     [0.grapheneos.network]=7275
     [1.grapheneos.network]=7275
     [2.grapheneos.network]=7275
     [3.grapheneos.network]=7275
+    [staging.attestation.app]=8080
+    [attestation.app]=8080
+    [matrix.grapheneos.org]=8008
 )
 
 declare -Ar hosts_tcp_wmem_max=(
@@ -97,11 +97,11 @@ declare -Ar hosts_ipv4_address=(
     [5.releases.grapheneos.org]=141.94.71.72
     [6.releases.grapheneos.org]=135.125.183.155
     [7.releases.grapheneos.org]=141.95.0.242
+    [staging.attestation.app]=198.98.57.157
+    [attestation.app]=51.79.66.27
     [matrix.grapheneos.org]=51.79.51.42
     [discuss.grapheneos.org]=51.79.52.38
     [grapheneos.social]=51.222.30.159
-    [staging.attestation.app]=198.98.57.157
-    [attestation.app]=51.79.66.27
 )
 
 declare -Ar hosts_ipv6_address=(
@@ -128,11 +128,11 @@ declare -Ar hosts_ipv6_address=(
     [5.releases.grapheneos.org]=2001:41d0:304:200::a687
     [6.releases.grapheneos.org]=2001:41d0:701:1100::2ec9
     [7.releases.grapheneos.org]=2001:41d0:701:1100::3e56
+    [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
+    [attestation.app]=2607:5300:205:200::7e9
     [matrix.grapheneos.org]=2607:5300:205:200::26e1
     [discuss.grapheneos.org]=2607:5300:205:200::3c4
     [grapheneos.social]=2607:5300:205:200::2706
-    [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
-    [attestation.app]=2607:5300:205:200::7e9
 )
 
 readonly hosts_dns=(
@@ -156,11 +156,11 @@ readonly hosts_certbot=(
     0.grapheneos.org
     0.grapheneos.network
     0.releases.grapheneos.org
+    staging.attestation.app
+    attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
     grapheneos.social
-    staging.attestation.app
-    attestation.app
 )
 
 readonly hosts_grapheneos=(
@@ -191,10 +191,10 @@ readonly hosts_web=(
     "${hosts_grapheneos_all[@]}"
     "${hosts_network[@]}"
     "${hosts_releases[@]}"
+    "${hosts_attestation[@]}"
     matrix.grapheneos.org
     discuss.grapheneos.org
     grapheneos.social
-    "${hosts_attestation[@]}"
 )
 
 readonly hosts_all=(
@@ -216,8 +216,8 @@ readonly hosts_ovh=(
     {0,2,3}.grapheneos.org
     {0,2,3}.grapheneos.network
     {0..7}.releases.grapheneos.org
+    attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
     grapheneos.social
-    attestation.app
 )
