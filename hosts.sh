@@ -8,6 +8,17 @@ declare -Ar hosts_reserved_ports=(
     [3.grapheneos.network]=7275
 )
 
+declare -Ar hosts_tcp_wmem_max=(
+    [0.releases.grapheneos.org]=16777216
+    [1.releases.grapheneos.org]=16777216
+    [2.releases.grapheneos.org]=16777216
+    [3.releases.grapheneos.org]=16777216
+    [4.releases.grapheneos.org]=16777216
+    [5.releases.grapheneos.org]=16777216
+    [6.releases.grapheneos.org]=16777216
+    [7.releases.grapheneos.org]=16777216
+)
+
 declare -Ar hosts_ssh_users=(
     [staging.attestation.app]="root attestation"
     [attestation.app]="root attestation"
