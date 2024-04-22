@@ -41,6 +41,5 @@ sysstat
 tree
 unbound
 vim
-whois
 xfsprogs
 zopfli
