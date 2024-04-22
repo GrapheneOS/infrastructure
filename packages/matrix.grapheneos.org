@@ -21,6 +21,7 @@ mtr
 nftables
 nginx
 nginx-mod-brotli
+nmap
 nodejs-lts-iron
 openssh
 pacman-contrib

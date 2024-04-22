@@ -18,6 +18,7 @@ moreutils
 mtr
 nftables
 nginx
+nmap
 openssh
 pacman-contrib
 pacutils

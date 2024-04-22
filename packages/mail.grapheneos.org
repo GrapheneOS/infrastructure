@@ -16,6 +16,7 @@ moreutils
 mtr
 nftables
 nginx
+nmap
 opendkim
 opendmarc
 openssh

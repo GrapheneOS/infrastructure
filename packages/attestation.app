@@ -17,6 +17,7 @@ mtr
 nftables
 nginx
 nginx-mod-brotli
+nmap
 openssh
 pacman-contrib
 pacutils
