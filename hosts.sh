@@ -20,6 +20,37 @@ declare -Ar hosts_tcp_wmem_max=(
     [matrix.grapheneos.org]=16777216
 )
 
+declare -Ar hosts_conntrack_size=(
+    [ns1.staging.grapheneos.org]=65536
+    [ns1.grapheneos.org]=131072
+    [0.ns2.grapheneos.org]=65536
+    [1.ns2.grapheneos.org]=65536
+    [2.ns2.grapheneos.org]=65536
+    [mail.grapheneos.org]=131072
+    [staging.grapheneos.org]=65536
+    [0.grapheneos.org]=131072
+    [1.grapheneos.org]=131072
+    [2.grapheneos.org]=131072
+    [3.grapheneos.org]=131072
+    [0.grapheneos.network]=131072
+    [1.grapheneos.network]=131072
+    [2.grapheneos.network]=131072
+    [3.grapheneos.network]=131072
+    [0.releases.grapheneos.org]=262144
+    [1.releases.grapheneos.org]=262144
+    [2.releases.grapheneos.org]=262144
+    [3.releases.grapheneos.org]=262144
+    [4.releases.grapheneos.org]=262144
+    [5.releases.grapheneos.org]=262144
+    [6.releases.grapheneos.org]=262144
+    [7.releases.grapheneos.org]=262144
+    [staging.attestation.app]=65536
+    [attestation.app]=131072
+    [matrix.grapheneos.org]=131072
+    [discuss.grapheneos.org]=131072
+    [grapheneos.social]=131072
+)
+
 declare -Ar hosts_ssh_users=(
     [staging.attestation.app]="root attestation"
     [attestation.app]="root attestation"
