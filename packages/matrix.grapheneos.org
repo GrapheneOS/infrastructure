@@ -22,7 +22,7 @@ nftables
 nginx
 nginx-mod-brotli
 nmap
-nodejs-lts-iron
+nodejs-lts-hydrogen
 openssh
 pacman-contrib
 pacutils
