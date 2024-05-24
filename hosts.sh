@@ -194,6 +194,15 @@ readonly hosts_certbot=(
     grapheneos.social
 )
 
+readonly hosts_backup=(
+    mail.grapheneos.org
+    staging.attestation.app
+    attestation.app
+    matrix.grapheneos.org
+    discuss.grapheneos.org
+    grapheneos.social
+)
+
 readonly hosts_grapheneos=(
     {0..3}.grapheneos.org
 )
