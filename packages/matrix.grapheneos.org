@@ -35,7 +35,6 @@ python-keystoneauth1
 python-keystoneclient
 python-pip
 python-psycopg2
-python-pydantic
 python-swiftclient
 rsync
 strace
