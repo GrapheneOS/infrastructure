@@ -27,10 +27,12 @@ postfix
 publicsuffix-list
 pv
 python-authres
+python-keystoneauth1
+python-keystoneclient
 python-postfix-policyd-spf
+python-swiftclient
 rsync
 s-nail
-sshpass
 strace
 sysstat
 tree

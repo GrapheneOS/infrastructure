@@ -31,11 +31,13 @@ plocate
 postgresql
 postgresql-old-upgrade
 pv
+python-keystoneauth1
+python-keystoneclient
 python-pip
 python-psycopg2
 python-pydantic
+python-swiftclient
 rsync
-sshpass
 strace
 sysstat
 tree

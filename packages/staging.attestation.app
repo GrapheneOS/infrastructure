@@ -23,9 +23,11 @@ pacman-contrib
 pacutils
 plocate
 pv
+python-keystoneauth1
+python-keystoneclient
+python-swiftclient
 rsync
 sqlite-analyzer
-sshpass
 strace
 sysstat
 tree

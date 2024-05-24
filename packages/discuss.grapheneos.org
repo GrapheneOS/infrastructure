@@ -34,8 +34,10 @@ php-legacy-fpm
 php-legacy-gd
 plocate
 pv
+python-keystoneauth1
+python-keystoneclient
+python-swiftclient
 rsync
-sshpass
 strace
 sysstat
 tree
