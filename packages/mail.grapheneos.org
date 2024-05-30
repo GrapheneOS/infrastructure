@@ -29,7 +29,7 @@ pv
 python-authres
 python-keystoneauth1
 python-keystoneclient
-python-postfix-policyd-spf
+python-spf-engine
 python-swiftclient
 rsync
 s-nail
