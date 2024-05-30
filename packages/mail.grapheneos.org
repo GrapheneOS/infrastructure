@@ -24,6 +24,7 @@ pacman-contrib
 pacutils
 plocate
 postfix
+postfix-pcre
 publicsuffix-list
 pv
 python-authres
