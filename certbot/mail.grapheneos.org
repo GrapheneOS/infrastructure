@@ -1,5 +1,5 @@
 certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
-    --key-type rsa --rsa-key-size 3072 --reuse-key --preferred-chain "ISRG Root X1" \
+    --key-type rsa --rsa-key-size 3072 --reuse-key \
     --deploy-hook "postfix reload; dovecot reload" \
     --cert-name mail.grapheneos.org \
     -d mail.grapheneos.org \
