@@ -4,20 +4,20 @@ Name=public
 [Network]
 DHCP=ipv4
 LinkLocalAddressing=no
-Address=2402:1f00:8000:800::25ba/128
+Address=2402:1f00:8000:800::16d6/128
 
 [Route]
 Destination=::/0
 Gateway=2402:1f00:8000:800::1
-PreferredSource=2402:1f00:8000:800::25ba
+PreferredSource=2402:1f00:8000:800::16d6
 
 [Route]
 Destination=2402:1f00:8000:800::1
-PreferredSource=2402:1f00:8000:800::25ba
+PreferredSource=2402:1f00:8000:800::16d6
 
 [DHCP]
 UseMTU=true
 
 [CAKE]
-Bandwidth=250M
+Bandwidth=500M
 PriorityQueueingPreset=besteffort
