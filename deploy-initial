@@ -9,7 +9,7 @@ readonly remote=root@$ip
 
 # check for Arch ISO
 ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5
-ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.02.01" ]]' || exit 5
+ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2024.06.01" ]]' || exit 5
 
 ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -d agcount=$agcount -f /dev/${drive}1"
