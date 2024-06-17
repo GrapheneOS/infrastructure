@@ -3,9 +3,17 @@
 set -o errexit -o nounset -o pipefail
 
 . hosts.sh
-. deploy.sh
 
+[[ $# -eq 1 ]] || exit 1
+
+readonly host=$1
+readonly ip=${hosts_ipv4_address[$host]}
+readonly hostname=${hosts_hostname[$host]}
+readonly agcount=${hosts_agcount[$host]:-4}
+readonly swap=${hosts_agcount[$host]:-2048}
 readonly remote=root@$ip
+
+readonly drive=$(ssh $remote '[[ -e /dev/sda ]] && echo sda || echo vda')
 
 # check for Arch ISO
 ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5

@@ -1,3 +1,60 @@
+declare -Ar hosts_hostname=(
+    [ns1.staging.grapheneos.org]=ns1-staging
+    [ns1.grapheneos.org]=ns1
+    [0.ns2.grapheneos.org]=0-ns2
+    [1.ns2.grapheneos.org]=1-ns2
+    [2.ns2.grapheneos.org]=2-ns2
+    [mail.grapheneos.org]=mail
+    [staging.grapheneos.org]=staging
+    [0.grapheneos.org]=0-grapheneos
+    [1.grapheneos.org]=1-grapheneos
+    [2.grapheneos.org]=2-grapheneos
+    [3.grapheneos.org]=3-grapheneos
+    [0.grapheneos.network]=0-network
+    [1.grapheneos.network]=1-network
+    [2.grapheneos.network]=2-network
+    [3.grapheneos.network]=3-network
+    [0.releases.grapheneos.org]=0-releases
+    [1.releases.grapheneos.org]=1-releases
+    [2.releases.grapheneos.org]=2-releases
+    [3.releases.grapheneos.org]=3-releases
+    [4.releases.grapheneos.org]=4-releases
+    [5.releases.grapheneos.org]=5-releases
+    [6.releases.grapheneos.org]=6-releases
+    [7.releases.grapheneos.org]=7-releases
+    [staging.attestation.app]=staging-attestation
+    [attestation.app]=attestation
+    [matrix.grapheneos.org]=matrix
+    [discuss.grapheneos.org]=discuss
+    [grapheneos.social]=social
+)
+
+declare -Ar hosts_swap=(
+    [0.releases.grapheneos.org]=8192
+    [1.releases.grapheneos.org]=8192
+    [2.releases.grapheneos.org]=8192
+    [3.releases.grapheneos.org]=8192
+    [4.releases.grapheneos.org]=8192
+    [5.releases.grapheneos.org]=8192
+    [6.releases.grapheneos.org]=8192
+    [7.releases.grapheneos.org]=8192
+    [attestation.app]=4096
+    [matrix.grapheneos.org]=8192
+    [discuss.grapheneos.org]=4096
+    [grapheneos.social]=4096
+)
+
+declare -Ar hosts_agcount=(
+    [0.releases.grapheneos.org]=8
+    [1.releases.grapheneos.org]=8
+    [2.releases.grapheneos.org]=8
+    [3.releases.grapheneos.org]=8
+    [4.releases.grapheneos.org]=8
+    [5.releases.grapheneos.org]=8
+    [6.releases.grapheneos.org]=8
+    [7.releases.grapheneos.org]=8
+)
+
 declare -Ar hosts_reserved_ports=(
     [0.grapheneos.network]=7275
     [1.grapheneos.network]=7275
