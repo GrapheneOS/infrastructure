@@ -50,7 +50,7 @@ rm ssh/sshd_config.tmp
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer plocate-updatedb.timer systemd-networkd.service sshd.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service"
 
-ssh $remote "dd if=/dev/urandom of=/mnt/swapfile bs=1M count=$swap status=progress"
+ssh $remote "dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
 
 password=$(head -c32 <(tr -dc A-Za-z0-9 </dev/random))
 echo password: $password
