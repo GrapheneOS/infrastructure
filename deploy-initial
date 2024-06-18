@@ -55,7 +55,9 @@ sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" ssh/sshd_config.tmp
 rsync -cv ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
 rm ssh/sshd_config.tmp
 
-ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer plocate-updatedb.timer systemd-networkd.service sshd.service unbound.service"
+rsync -cv nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/nftables.conf
+
+ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service plocate-updatedb.timer systemd-networkd.service sshd.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service"
 
 ssh $remote "dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
