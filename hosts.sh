@@ -29,6 +29,24 @@ declare -Ar hosts_hostname=(
     [grapheneos.social]=social
 )
 
+declare -Ar hosts_firewall=(
+    [ns1.staging.grapheneos.org]=ns1
+    [ns1.grapheneos.org]=ns1
+    [0.ns2.grapheneos.org]=ns2
+    [1.ns2.grapheneos.org]=ns2
+    [2.ns2.grapheneos.org]=ns2
+    [mail.grapheneos.org]=mail
+    [0.grapheneos.network]=network
+    [1.grapheneos.network]=network
+    [2.grapheneos.network]=network
+    [3.grapheneos.network]=network
+    [staging.attestation.app]=attestation
+    [attestation.app]=attestation
+    [matrix.grapheneos.org]=matrix
+    [discuss.grapheneos.org]=discuss
+    [grapheneos.social]=social
+)
+
 declare -Ar hosts_swap=(
     [0.releases.grapheneos.org]=8192
     [1.releases.grapheneos.org]=8192
