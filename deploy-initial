@@ -25,16 +25,16 @@ rsync -cv pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
 ssh $remote "mount /dev/${drive}1 /mnt"
 ssh $remote "pacstrap -K /mnt $(tr '\n' ' ' < packages/$host)"
 
+rsync -cv grub $remote:/mnt/etc/default/grub
+ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
+ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
+
 ssh $remote "echo $hostname >/mnt/etc/hostname"
 
 rsync -cpv --chmod=644 systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
 rsync -cpv --chmod=644 systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
 rsync -cpv --chmod=644 crypttab environment fstab locale.conf pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
-
-rsync -cv grub $remote:/mnt/etc/default/grub
-ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
-ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
 
 rsync -cv unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
