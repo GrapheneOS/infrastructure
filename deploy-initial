@@ -60,7 +60,7 @@ rsync -cv nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service plocate-updatedb.timer systemd-networkd.service sshd.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service"
 
-ssh $remote "dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
+ssh $remote "umask 077 && dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
 
 password=$(head -c32 <(tr -dc A-Za-z0-9 </dev/random))
 echo password: $password
