@@ -5,7 +5,7 @@ set -o errexit -o nounset -o pipefail
 umask 077
 
 mkdir -p /etc/nginx/session-ticket-keys
-mount -t ramfs -o mode=700 ramfs /etc/nginx/session-ticket-keys
+mount -t tmpfs -o size=1M,mode=700,noswap tmpfs /etc/nginx/session-ticket-keys
 
 cd /etc/nginx/session-ticket-keys
 
