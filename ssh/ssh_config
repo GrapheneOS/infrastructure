@@ -3,6 +3,8 @@ Include /etc/ssh/ssh_config.d/*.conf
 
 IPQoS af21 af11
 
+ObscureKeystrokeTiming yes
+
 ServerAliveInterval 60
 ServerAliveCountMax 10
 TCPKeepAlive no
