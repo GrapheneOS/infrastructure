@@ -573,7 +573,7 @@ fetch_ocsp_response() {
 
   # If arrived here status was good, so move OCSP staple file to definitive
   # folder
-  mv "${temp_output_dir}/${lineage_name}.der" "${OUTPUT_DIR}/"
+  mv --context "${temp_output_dir}/${lineage_name}.der" "${OUTPUT_DIR}/"
 
   lineages_processed["${lineage_name}"]=updated
 }
