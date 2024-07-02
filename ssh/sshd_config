@@ -102,7 +102,7 @@ TCPKeepAlive no
 #PermitUserEnvironment no
 #Compression delayed
 ClientAliveInterval 60
-ClientAliveCountMax 10
+ClientAliveCountMax 2
 #UseDNS no
 #PidFile /run/sshd.pid
 MaxStartups 4096

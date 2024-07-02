@@ -4,7 +4,7 @@ Include /etc/ssh/ssh_config.d/*.conf
 IPQoS af21 af11
 
 ServerAliveInterval 60
-ServerAliveCountMax 10
+ServerAliveCountMax 2
 TCPKeepAlive no
 
 VerifyHostKeyDNS ask
