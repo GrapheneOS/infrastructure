@@ -1,6 +1,7 @@
 /authorized_keys
 /passwords/
 /modules/
+/sysctl/
 /units/
 /logs/
 *.tmp
