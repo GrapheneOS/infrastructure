@@ -29,6 +29,7 @@ python-swiftclient
 rsync
 sqlite-analyzer
 strace
+stress
 sysstat
 tree
 unbound

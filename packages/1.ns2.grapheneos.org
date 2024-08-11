@@ -26,6 +26,7 @@ powerdns
 pv
 rsync
 strace
+stress
 sysstat
 tree
 unbound

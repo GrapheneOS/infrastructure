@@ -39,6 +39,7 @@ python-keystoneclient
 python-swiftclient
 rsync
 strace
+stress
 sysstat
 tree
 unbound

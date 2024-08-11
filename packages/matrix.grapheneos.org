@@ -38,6 +38,7 @@ python-psycopg2
 python-swiftclient
 rsync
 strace
+stress
 sysstat
 tree
 unbound

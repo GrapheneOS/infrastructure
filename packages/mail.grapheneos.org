@@ -36,6 +36,7 @@ python-swiftclient
 rsync
 s-nail
 strace
+stress
 sysstat
 tree
 unbound
