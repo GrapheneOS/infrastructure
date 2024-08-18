@@ -1,9 +1,0 @@
-[Unit]
-Description=Vacuum journald logs
-After=systemd-journald.service
-
-[Service]
-Type=oneshot
-User=root
-Group=root
-ExecStart=/usr/bin/journalctl --vacuum-time={{journald_max_retention_sec}}
