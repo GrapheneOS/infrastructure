@@ -43,6 +43,7 @@ stress
 sysstat
 tree
 unbound
+valkey
 vim
 xfsprogs
 zopfli
