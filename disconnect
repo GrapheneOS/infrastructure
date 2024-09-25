@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+[[ $# -eq 0 ]] || exit 1
+
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    echo $host
+    echo
+
+    ssh root@$host -O exit || true
+
+    echo
+done
