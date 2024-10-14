@@ -153,6 +153,7 @@ declare -Ar hosts_journald_system_max_use=(
 )
 
 declare -Ar hosts_journald_system_max_file_size=(
+    [0.grapheneos.org]=256M
     [2.grapheneos.org]=256M
     [0.grapheneos.network]=4G
     [1.grapheneos.network]=2G
