@@ -3,8 +3,6 @@ Description=Rotate nginx TLS session ticket keys
 After=nginx.service nginx-create-session-ticket-keys.service
 
 [Service]
-Type=oneshot
-User=root
-Group=root
 ExecStart=/usr/local/bin/nginx-rotate-session-ticket-keys
+Type=oneshot
 UMask=0077
