@@ -2,8 +2,6 @@
 
 set -o errexit -o nounset -o pipefail
 
-umask 077
-
 cd /etc/nginx/session-ticket-keys
 
 for i in {1..4}; do

@@ -7,6 +7,7 @@ Type=oneshot
 User=root
 Group=root
 ExecStart=/usr/local/bin/nginx-create-session-ticket-keys
+UMask=0077
 
 [Install]
 WantedBy=multi-user.target

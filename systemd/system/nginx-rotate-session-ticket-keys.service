@@ -7,3 +7,4 @@ Type=oneshot
 User=root
 Group=root
 ExecStart=/usr/local/bin/nginx-rotate-session-ticket-keys
+UMask=0077
