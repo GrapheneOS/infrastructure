@@ -34,7 +34,7 @@ ssh $remote "echo $hostname >/mnt/etc/hostname"
 rsync -cpv --chmod=644 systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
 rsync -cpv --chmod=644 systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
-rsync -cpv --chmod=644 crypttab environment fstab locale.conf pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
+rsync -cpv --chmod=644 crypttab fstab locale.conf pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
 
 rsync -cv unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
