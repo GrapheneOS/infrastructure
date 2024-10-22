@@ -10,7 +10,7 @@ readonly host=$1
 readonly ip=${hosts_ipv4_address[$host]}
 readonly hostname=${hosts_hostname[$host]}
 readonly agcount=${hosts_agcount[$host]:-4}
-readonly swap=${hosts_agcount[$host]:-2048}
+readonly swap=${hosts_swap[$host]:-2048}
 readonly remote=root@$ip
 
 readonly drive=$(ssh $remote '[[ -e /dev/sda ]] && echo sda || echo vda')
