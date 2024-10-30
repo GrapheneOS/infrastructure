@@ -6,6 +6,7 @@ chrony
 cloud-guest-utils
 conntrack-tools
 dovecot
+fish
 grub
 htop
 ioping

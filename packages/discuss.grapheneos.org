@@ -7,6 +7,7 @@ chrony
 cloud-guest-utils
 composer
 conntrack-tools
+fish
 geoipupdate
 grub
 htop

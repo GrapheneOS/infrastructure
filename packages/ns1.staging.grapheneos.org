@@ -4,6 +4,7 @@ certbot
 chrony
 cloud-guest-utils
 conntrack-tools
+fish
 geoip
 geoipupdate
 grub
