@@ -4,3 +4,6 @@ set show-all-if-ambiguous on
 
 TAB:menu-complete
 "\e[Z":menu-complete-backward
+
+"\e[A":history-search-backward
+"\e[B":history-search-forward
