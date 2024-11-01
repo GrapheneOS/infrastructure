@@ -1,5 +1,7 @@
 set -g fish_greeting
 
+set -gx INPUTRC ~/.config/inputrc
+
 set -gx EDITOR vim
 set -gx VISUAL vim
 set -gx PAGER less
