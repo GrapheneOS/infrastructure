@@ -19,6 +19,7 @@ mariadb
 mmdblookup
 moreutils
 mtr
+neovim
 nftables
 nginx
 nginx-mod-brotli
@@ -42,9 +43,9 @@ rsync
 strace
 stress
 sysstat
+tinyxxd
 tree
 unbound
 valkey
-vim
 xfsprogs
 zopfli

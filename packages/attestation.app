@@ -15,6 +15,7 @@ logrotate
 man-db
 moreutils
 mtr
+neovim
 nftables
 nginx
 nginx-mod-brotli
@@ -32,7 +33,7 @@ sqlite-analyzer
 strace
 stress
 sysstat
+tinyxxd
 tree
 unbound
-vim
 xfsprogs

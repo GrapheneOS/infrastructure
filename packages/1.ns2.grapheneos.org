@@ -16,6 +16,7 @@ man-db
 mmdblookup
 moreutils
 mtr
+neovim
 nftables
 nginx
 nmap
@@ -29,8 +30,8 @@ rsync
 strace
 stress
 sysstat
+tinyxxd
 tree
 unbound
-vim
 xfsprogs
 yaml-cpp

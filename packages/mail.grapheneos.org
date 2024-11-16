@@ -16,6 +16,7 @@ man-db
 moreutils
 mtr
 mutt
+neovim
 nftables
 nginx
 nmap
@@ -39,7 +40,7 @@ s-nail
 strace
 stress
 sysstat
+tinyxxd
 tree
 unbound
-vim
 xfsprogs

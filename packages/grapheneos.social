@@ -16,6 +16,7 @@ man-db
 mastodon
 moreutils
 mtr
+neovim
 nftables
 nginx
 nginx-mod-brotli
@@ -35,7 +36,7 @@ strace
 stress
 sudo
 sysstat
+tinyxxd
 tree
 unbound
-vim
 xfsprogs

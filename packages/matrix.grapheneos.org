@@ -19,6 +19,7 @@ matrix-synapse
 matterbridge-git
 moreutils
 mtr
+neovim
 nftables
 nginx
 nginx-mod-brotli
@@ -41,8 +42,8 @@ rsync
 strace
 stress
 sysstat
+tinyxxd
 tree
 unbound
-vim
 xfsprogs
 yarn
