@@ -44,4 +44,9 @@ if status is-interactive
     alias chown 'chgrp --preserve-root'
     alias vim nvim
     alias vimdiff 'nvim -d'
+
+    abbr cp cp -i
+    abbr mv mv -i
+    abbr rm rm -I
+    abbr ln ln -i
 end
