@@ -49,4 +49,9 @@ if status is-interactive
     abbr mv mv -i
     abbr rm rm -I
     abbr ln ln -i
+
+    abbr free free -m
+    abbr ls ls -h
+    abbr df df -h
+    abbr du du -h
 end
