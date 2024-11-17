@@ -33,15 +33,15 @@ if status is-interactive
 	end
     end
 
-    alias rsync='rsync --preallocate'
-    alias diff='diff --color=auto'
-    alias grep='grep --color=auto'
-    alias ls='ls -A --color=auto'
-    alias ip='ip --color=auto'
-    alias tree='tree -a'
-    alias chown='chown --preserve-root'
-    alias chown='chmod --preserve-root'
-    alias chown='chgrp --preserve-root'
-    alias vim=nvim
-    alias vimdiff='nvim -d'
+    alias rsync 'rsync --preallocate'
+    alias diff 'diff --color=auto'
+    alias grep 'grep --color=auto'
+    alias ls 'ls -A --color=auto'
+    alias ip 'ip --color=auto'
+    alias tree 'tree -a'
+    alias chown 'chown --preserve-root'
+    alias chown 'chmod --preserve-root'
+    alias chown 'chgrp --preserve-root'
+    alias vim nvim
+    alias vimdiff 'nvim -d'
 end
