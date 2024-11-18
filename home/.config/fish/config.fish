@@ -40,8 +40,8 @@ if status is-interactive
     alias ip 'ip --color=auto'
     alias tree 'tree -a'
     alias chown 'chown --preserve-root'
-    alias chown 'chmod --preserve-root'
-    alias chown 'chgrp --preserve-root'
+    alias chmod 'chmod --preserve-root'
+    alias chgrp 'chgrp --preserve-root'
     alias vim nvim
     alias vimdiff 'nvim -d'
 
