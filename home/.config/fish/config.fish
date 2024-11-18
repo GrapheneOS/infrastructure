@@ -1,6 +1,7 @@
 set -g fish_greeting
 
 set -gx INPUTRC ~/.config/inputrc
+set -gx PARALLEL_HOME ~/.config/parallel
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
