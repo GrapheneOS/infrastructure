@@ -21,6 +21,8 @@ set smartcase
 
 let mapleader = ","
 
+nnoremap gb :ls<CR>:b<Space>
+
 colorscheme gruvbox
 
 " highlight trailing whitespace, except when typing at eol
