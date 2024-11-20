@@ -63,7 +63,7 @@ ssh $remote "arch-chroot /mnt groupadd -g 2000 io_uring"
 
 ssh $remote "umask 077 && dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
 
-ssh $remote "arch-chroot chsh -s /usr/bin/fish"
+ssh $remote "arch-chroot /mnt chsh -s /usr/bin/fish"
 
 password=$(head -c32 <(tr -dc A-Za-z0-9 </dev/random))
 echo password: $password
