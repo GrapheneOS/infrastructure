@@ -211,7 +211,7 @@ declare -Ar hosts_ipv4_address=(
     [attestation.app]=51.79.66.27
     [matrix.grapheneos.org]=51.79.51.42
     [discuss.grapheneos.org]=51.79.52.38
-    [grapheneos.social]=51.222.30.159
+    [grapheneos.social]=51.222.159.14
 )
 
 declare -Ar hosts_ipv6_address=(
@@ -242,7 +242,7 @@ declare -Ar hosts_ipv6_address=(
     [attestation.app]=2607:5300:205:200::7e9
     [matrix.grapheneos.org]=2607:5300:205:200::26e1
     [discuss.grapheneos.org]=2607:5300:205:200::3c4
-    [grapheneos.social]=2607:5300:205:200::2706
+    [grapheneos.social]=2607:5300:205:200::5e3f
 )
 
 readonly hosts_dns=(
