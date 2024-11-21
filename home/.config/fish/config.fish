@@ -39,6 +39,7 @@ if status is-interactive
     alias grep 'grep --color=auto'
     alias ls 'ls -A --color=auto'
     alias ip 'ip --color=auto'
+    alias tc 'tc -color=auto'
     alias tree 'tree -a'
     alias chown 'chown --preserve-root'
     alias chmod 'chmod --preserve-root'
