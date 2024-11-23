@@ -57,4 +57,8 @@ if status is-interactive
     abbr ls ls -h
     abbr df df -h
     abbr du du -h
+
+    abbr vi vim
+    abbr rr rm -rI
+    abbr ll ls -lh
 end
