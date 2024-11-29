@@ -15,6 +15,8 @@ if set -q TERM && test $TERM = alacritty && ! set -q COLORTERM
 end
 
 if status is-interactive
+    set -g fish_prompt_pwd_full_dirs 2
+
     alias rsync 'rsync --preallocate'
     alias diff 'diff --color=auto'
     alias grep 'grep --color=auto'
