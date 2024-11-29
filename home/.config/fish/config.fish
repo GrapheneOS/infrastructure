@@ -15,6 +15,12 @@ if set -q TERM && test $TERM = alacritty && ! set -q COLORTERM
 end
 
 if status is-interactive
+    fish_vi_key_bindings
+    set fish_cursor_insert line
+    set fish_cursor_replace_one underscore
+    set fish_cursor_replace underscore
+    set fish_cursor_external line
+
     set -g fish_prompt_pwd_full_dirs 2
 
     alias rsync 'rsync --preallocate'
