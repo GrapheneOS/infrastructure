@@ -1,5 +1,4 @@
 base
-bash-completion
 chrony
 cloud-guest-utils
 conntrack-tools

@@ -1,6 +1,5 @@
 age
 base
-bash-completion
 brotli
 certbot
 chrony

@@ -1,6 +1,5 @@
 age
 base
-bash-completion
 certbot
 chrony
 cloud-guest-utils
