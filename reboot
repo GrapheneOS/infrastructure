@@ -5,7 +5,7 @@ set -o errexit -o nounset -o pipefail
 [[ $# -eq 2 ]] || exit 1
 
 input=
-read -p "Reboot $1 servers? " input
+read -p "Reboot $1 servers with $2 second delay? " input
 if [[ $input != yes ]]; then
     exit 1
 fi
