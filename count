@@ -38,18 +38,18 @@ done
 
 echo
 echo factory images
-echo total $(grep -Pc "/\w+-factory-\d+.zip" logs/merged.log)
-echo gen 9 $(grep -Pc "/(comet|komodo|caiman|tokay)-factory-\d+.zip" logs/merged.log)
-echo gen 8 $(grep -Pc "/(akita|husky|shiba)-factory-\d+.zip" logs/merged.log)
-echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-factory-\d+.zip" logs/merged.log)
-echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-factory-\d+.zip" logs/merged.log)
-echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-factory-\d+.zip" logs/merged.log)
-echo gen 4 $(grep -Pc "/(sunfish|coral|flame)-factory-\d+.zip" logs/merged.log)
+echo total $(grep -Pc "/\w+-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 9 $(grep -Pc "/(comet|komodo|caiman|tokay)-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 8 $(grep -Pc "/(akita|husky|shiba)-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 5 $(grep -Pc "/(barbet|redfin|bramble)-(factory|install)-\d+.zip" logs/merged.log)
+echo gen 4 $(grep -Pc "/(sunfish|coral|flame)-(factory|install)-\d+.zip" logs/merged.log)
 
 echo
 
 for device in ${DEVICES[@]}; do
-    echo $device $(grep -Pc "/$device-factory-\d+.zip" logs/merged.log)
+    echo $device $(grep -Pc "/$device-(factory|install)-\d+.zip" logs/merged.log)
 done
 
 echo
