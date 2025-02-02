@@ -168,7 +168,7 @@ declare -Ar hosts_journald_system_max_file_size=(
     [7.releases.grapheneos.org]=1G
     [matrix.grapheneos.org]=512M
     [discuss.grapheneos.org]=512M
-    [grapheneos.social]=256M
+    [grapheneos.social]=512M
 )
 
 declare -Ar hosts_journald_max_retention_sec=(
