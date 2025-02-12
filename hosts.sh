@@ -245,6 +245,9 @@ declare -Ar hosts_ipv6_address=(
     [grapheneos.social]=2607:5300:205:200::5e3f
 )
 
+declare -Ar hosts_hardware_watchdog=(
+)
+
 readonly hosts_dns=(
     ns1.staging.grapheneos.org
     ns1.grapheneos.org
