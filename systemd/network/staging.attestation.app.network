@@ -27,3 +27,4 @@ PreferredSource=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
 [CAKE]
 Bandwidth=1000M
 PriorityQueueingPreset=besteffort
+SplitGSO=false
