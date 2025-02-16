@@ -8,6 +8,7 @@ fish
 grub
 htop
 ioping
+iperf
 jre21-openjdk-headless
 linux-lts
 logrotate

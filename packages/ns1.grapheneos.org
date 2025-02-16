@@ -9,6 +9,7 @@ geoipupdate
 grub
 htop
 ioping
+iperf
 libmaxminddb
 linux-lts
 logrotate

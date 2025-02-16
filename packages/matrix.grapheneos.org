@@ -9,6 +9,7 @@ git
 grub
 htop
 ioping
+iperf
 jemalloc
 jq
 linux-lts

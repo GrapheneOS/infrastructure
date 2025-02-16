@@ -11,6 +11,7 @@ geoipupdate
 grub
 htop
 ioping
+iperf
 linux-lts
 logrotate
 man-db
