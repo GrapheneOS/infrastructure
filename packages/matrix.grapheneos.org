@@ -24,7 +24,7 @@ nftables
 nginx
 nginx-mod-brotli
 nmap
-nodejs-lts-hydrogen
+nodejs-lts-jod
 openssh
 pacman-contrib
 pacutils
