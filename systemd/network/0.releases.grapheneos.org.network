@@ -4,16 +4,16 @@ Name=public
 [Network]
 DHCP=ipv4
 LinkLocalAddressing=no
-Address=2607:5300:201:3100::6210/128
+Address=2607:5300:205:200::47ea/128
 
 [Route]
 Destination=::/0
-Gateway=2607:5300:201:3100::1
-PreferredSource=2607:5300:201:3100::6210
+Gateway=2607:5300:205:200::1
+PreferredSource=2607:5300:205:200::47ea
 
 [Route]
-Destination=2607:5300:201:3100::1
-PreferredSource=2607:5300:201:3100::6210
+Destination=2607:5300:205:200::1
+PreferredSource=2607:5300:205:200::47ea
 
 [DHCP]
 UseMTU=true
