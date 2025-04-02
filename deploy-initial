@@ -58,7 +58,7 @@ rm ssh/sshd_config.tmp
 rsync -cv nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/nftables.conf
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service plocate-updatedb.timer systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
-ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service"
+ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service systemd-userdbd.socket"
 ssh $remote "arch-chroot /mnt groupadd -g 2000 io_uring"
 
 ssh $remote "umask 077 && dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap status=progress"
