@@ -166,7 +166,7 @@ declare -Ar hosts_journald_system_max_use=(
     [old.5.releases.grapheneos.org]=8G
     [old.6.releases.grapheneos.org]=8G
     [old.7.releases.grapheneos.org]=8G
-    [4.releases.grapheneos.org]=8G
+    [4.releases.grapheneos.org]=64G
 )
 
 declare -Ar hosts_journald_system_max_file_size=(
@@ -185,7 +185,7 @@ declare -Ar hosts_journald_system_max_file_size=(
     [old.5.releases.grapheneos.org]=1G
     [old.6.releases.grapheneos.org]=1G
     [old.7.releases.grapheneos.org]=1G
-    [4.releases.grapheneos.org]=1G
+    [4.releases.grapheneos.org]=4G
     [matrix.grapheneos.org]=512M
     [discuss.grapheneos.org]=512M
     [grapheneos.social]=512M
