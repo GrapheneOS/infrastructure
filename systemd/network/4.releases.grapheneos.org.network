@@ -23,7 +23,7 @@ PreferredSource=2a14:3f87:6920:250::100
 [DHCP]
 UseMTU=true
 
-#[CAKE]
-#Bandwidth=25000M
-#PriorityQueueingPreset=besteffort
-#SplitGSO=false
+[CAKE]
+Bandwidth=25000M
+PriorityQueueingPreset=besteffort
+SplitGSO=false
