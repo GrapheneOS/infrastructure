@@ -38,6 +38,22 @@ declare -Ar hosts_hardware_watchdog=(
     [4.releases.grapheneos.org]=true
 )
 
+declare -Ar hosts_authorized_keys=(
+    [1.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [2.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [1.grapheneos.org]=authorized_keys-replica-grapheneos
+    [2.grapheneos.org]=authorized_keys-replica-grapheneos
+    [3.grapheneos.org]=authorized_keys-replica-grapheneos
+    [1.grapheneos.network]=authorized_keys-replica-network
+    [2.grapheneos.network]=authorized_keys-replica-network
+    [3.grapheneos.network]=authorized_keys-replica-network
+    [1.releases.grapheneos.org]=authorized_keys-replica-releases
+    [2.releases.grapheneos.org]=authorized_keys-replica-releases
+    [3.releases.grapheneos.org]=authorized_keys-replica-releases
+    [4.releases.grapheneos.org]=authorized_keys-replica-releases
+    [staging.attestation.app]=authorized_keys-staging-attestation
+)
+
 declare -Ar hosts_firewall=(
     [ns1.staging.grapheneos.org]=ns1
     [ns1.grapheneos.org]=ns1
