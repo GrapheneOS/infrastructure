@@ -20,7 +20,7 @@ IPQoS af21 af11
 
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKeyAlgorithms ssh-ed25519
-KexAlgorithms sntrup761x25519-sha512@openssh.com
+KexAlgorithms mlkem768x25519-sha256
 PubkeyAcceptedKeyTypes ssh-ed25519
 Ciphers aes256-gcm@openssh.com
 MACs -*
