@@ -1,0 +1,2 @@
+governor=performance
+perf_bias=0
