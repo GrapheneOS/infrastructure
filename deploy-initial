@@ -21,42 +21,42 @@ ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2025.03.0
 
 ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -d agcount=$agcount -f /dev/${drive}1"
-rsync -cv pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
+rsync -cv etc/pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
 ssh $remote "mount /dev/${drive}1 /mnt"
 ssh $remote "pacstrap -K /mnt $(tr '\n' ' ' < packages/$host)"
 
-rsync -cv grub $remote:/mnt/etc/default/grub
+rsync -cv etc/default/grub $remote:/mnt/etc/default/grub
 ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
 ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
 
 ssh $remote "echo $hostname >/mnt/etc/hostname"
 
-rsync -cpv --chmod=644 systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
-rsync -cpv --chmod=644 systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
+rsync -cpv --chmod=644 etc/systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
+rsync -cpv --chmod=644 etc/systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
-rsync -cpv --chmod=644 fstab.virtual $remote:/mnt/etc/fstab
-rsync -cpv --chmod=644 crypttab locale.conf mkinitcpio.conf pacman.conf pacreport.conf resolv.conf $remote:/mnt/etc/
+rsync -cpv --chmod=644 etc/fstab.virtual $remote:/mnt/etc/fstab
+rsync -cpv --chmod=644 etc/{crypttab,locale.conf,mkinitcpio.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
 
-rsync -cv unbound.conf $remote:/mnt/etc/unbound/unbound.conf
+rsync -cv etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
 if [[ $host = @(0.grapheneos.network|1.grapheneos.network|2.grapheneos.network|3.grapheneos.network) ]]; then
-    cp chrony.conf chrony.conf.tmp
-    echo -e '\nallow' >> chrony.conf.tmp
-    rsync -cv chrony.conf.tmp $remote:/mnt/etc/chrony.conf
-    rm chrony.conf.tmp
+    cp etc/chrony.conf etc/chrony.conf.tmp
+    echo -e '\nallow' >> etc/chrony.conf.tmp
+    rsync -cv etc/chrony.conf.tmp $remote:/mnt/etc/chrony.conf
+    rm etc/chrony.conf.tmp
 else
-    rsync -cv chrony.conf $remote:/mnt/etc/chrony.conf
+    rsync -cv etc/chrony.conf $remote:/mnt/etc/chrony.conf
 fi
 ssh $remote mkdir -vp /mnt/etc/sysconfig
-rsync -cpv --chmod 644 sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
+rsync -cpv --chmod 644 etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
 rsync -cv authorized_keys $remote:/mnt/root/.ssh/authorized_keys
-cp ssh/sshd_config ssh/sshd_config.tmp
-sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" ssh/sshd_config.tmp
-rsync -cv ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
-rm ssh/sshd_config.tmp
+cp etc/ssh/sshd_config etc/ssh/sshd_config.tmp
+sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" etc/ssh/sshd_config.tmp
+rsync -cv etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
+rm etc/ssh/sshd_config.tmp
 
-rsync -cv nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/nftables.conf
+rsync -cv etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/nftables.conf
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service plocate-updatedb.timer systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service systemd-userdbd.socket"
