@@ -12,6 +12,10 @@ Gateway=45.90.185.1
 PreferredSource=45.90.185.33
 
 [Route]
+Destination=45.90.185.1
+PreferredSource=45.90.185.33
+
+[Route]
 Destination=::/0
 Gateway=2a14:3f87:6920:250::1
 PreferredSource=2a14:3f87:6920:250::100
