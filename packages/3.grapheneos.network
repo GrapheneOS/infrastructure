@@ -15,6 +15,7 @@ mtr
 neovim
 nftables
 nginx
+nginx-mod-stream
 nmap
 openssh
 pacman-contrib
