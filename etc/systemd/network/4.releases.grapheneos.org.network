@@ -24,9 +24,6 @@ PreferredSource=2a14:3f87:6920:250::100
 Destination=2a14:3f87:6920:250::1
 PreferredSource=2a14:3f87:6920:250::100
 
-[DHCP]
-UseMTU=true
-
 [CAKE]
 Bandwidth=25000M
 PriorityQueueingPreset=besteffort
