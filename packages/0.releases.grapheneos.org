@@ -1,5 +1,4 @@
 base
-certbot
 chrony
 cloud-guest-utils
 conntrack-tools

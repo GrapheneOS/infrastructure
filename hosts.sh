@@ -293,7 +293,7 @@ readonly hosts_certbot=(
     staging.grapheneos.org
     0.grapheneos.org
     0.grapheneos.network
-    0.releases.grapheneos.org
+    4.releases.grapheneos.org
     staging.attestation.app
     attestation.app
     matrix.grapheneos.org
