@@ -14,10 +14,6 @@ declare -Ar hosts_hostname=(
     [1.grapheneos.network]=1-network
     [2.grapheneos.network]=2-network
     [3.grapheneos.network]=3-network
-    [0.releases.grapheneos.org]=0-releases
-    [1.releases.grapheneos.org]=1-releases
-    [2.releases.grapheneos.org]=2-releases
-    [3.releases.grapheneos.org]=3-releases
     [4.releases.grapheneos.org]=4-releases
     [5.releases.grapheneos.org]=5-releases
     [6.releases.grapheneos.org]=6-releases
@@ -83,10 +79,6 @@ declare -Ar hosts_firewall=(
 )
 
 declare -Ar hosts_swap=(
-    [0.releases.grapheneos.org]=8192
-    [1.releases.grapheneos.org]=8192
-    [2.releases.grapheneos.org]=8192
-    [3.releases.grapheneos.org]=8192
     [4.releases.grapheneos.org]=32768
     [5.releases.grapheneos.org]=32768
     [6.releases.grapheneos.org]=32768
@@ -97,10 +89,6 @@ declare -Ar hosts_swap=(
 )
 
 declare -Ar hosts_agcount=(
-    [0.releases.grapheneos.org]=8
-    [1.releases.grapheneos.org]=8
-    [2.releases.grapheneos.org]=8
-    [3.releases.grapheneos.org]=8
     [4.releases.grapheneos.org]=32
     [5.releases.grapheneos.org]=24
     [6.releases.grapheneos.org]=24
@@ -117,10 +105,6 @@ declare -Ar hosts_reserved_ports=(
 )
 
 declare -Ar hosts_tcp_wmem_max=(
-    [0.releases.grapheneos.org]=16777216
-    [1.releases.grapheneos.org]=16777216
-    [2.releases.grapheneos.org]=16777216
-    [3.releases.grapheneos.org]=16777216
     [4.releases.grapheneos.org]=16777216
     [5.releases.grapheneos.org]=16777216
     [6.releases.grapheneos.org]=16777216
@@ -143,10 +127,6 @@ declare -Ar hosts_conntrack_size=(
     [1.grapheneos.network]=131072
     [2.grapheneos.network]=131072
     [3.grapheneos.network]=131072
-    [0.releases.grapheneos.org]=262144
-    [1.releases.grapheneos.org]=262144
-    [2.releases.grapheneos.org]=262144
-    [3.releases.grapheneos.org]=262144
     [4.releases.grapheneos.org]=4194304
     [5.releases.grapheneos.org]=4194304
     [6.releases.grapheneos.org]=4194304
@@ -172,10 +152,6 @@ declare -Ar hosts_journald_system_max_use=(
     [1.grapheneos.network]=16G
     [2.grapheneos.network]=24G
     [3.grapheneos.network]=24G
-    [0.releases.grapheneos.org]=8G
-    [1.releases.grapheneos.org]=8G
-    [2.releases.grapheneos.org]=8G
-    [3.releases.grapheneos.org]=8G
     [4.releases.grapheneos.org]=64G
     [5.releases.grapheneos.org]=64G
     [6.releases.grapheneos.org]=64G
@@ -189,10 +165,6 @@ declare -Ar hosts_journald_system_max_file_size=(
     [1.grapheneos.network]=2G
     [2.grapheneos.network]=4G
     [3.grapheneos.network]=2G
-    [0.releases.grapheneos.org]=1G
-    [1.releases.grapheneos.org]=1G
-    [2.releases.grapheneos.org]=1G
-    [3.releases.grapheneos.org]=1G
     [4.releases.grapheneos.org]=4G
     [5.releases.grapheneos.org]=2G
     [6.releases.grapheneos.org]=2G
@@ -229,10 +201,6 @@ declare -Ar hosts_ipv4_address=(
     [1.grapheneos.network]=209.141.37.35
     [2.grapheneos.network]=54.37.41.189
     [3.grapheneos.network]=51.79.161.36
-    [0.releases.grapheneos.org]=51.222.15.172
-    [1.releases.grapheneos.org]=51.79.74.15
-    [2.releases.grapheneos.org]=51.222.159.48
-    [3.releases.grapheneos.org]=148.113.200.36
     [4.releases.grapheneos.org]=45.90.185.33
     [5.releases.grapheneos.org]=172.96.172.37
     [6.releases.grapheneos.org]=104.194.8.203
@@ -259,10 +227,6 @@ declare -Ar hosts_ipv6_address=(
     [1.grapheneos.network]=2605:6400:20:387:72d4:dab9:a369:f351
     [2.grapheneos.network]=2001:41d0:304:200::b109
     [3.grapheneos.network]=2402:1f00:8000:800::1949
-    [0.releases.grapheneos.org]=2607:5300:205:200::47ea
-    [1.releases.grapheneos.org]=2607:5300:205:200::2441
-    [2.releases.grapheneos.org]=2607:5300:205:200::3f46
-    [3.releases.grapheneos.org]=2607:5300:205:200::5854
     [4.releases.grapheneos.org]=2a14:3f87:6920:250::100
     [5.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [6.releases.grapheneos.org]=2605:9880:200:20::113
@@ -320,7 +284,7 @@ readonly hosts_grapheneos_all=(
 )
 
 readonly hosts_releases=(
-    {0..6}.releases.grapheneos.org
+    {4..6}.releases.grapheneos.org
 )
 
 readonly hosts_network=(
