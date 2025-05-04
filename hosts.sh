@@ -1,6 +1,7 @@
 declare -Ar hosts_hostname=(
     [ns1.staging.grapheneos.org]=ns1-staging
     [0.ns1.grapheneos.org]=0-ns1
+    [2.ns1.grapheneos.org]=2-ns1
     [0.ns2.grapheneos.org]=0-ns2
     [1.ns2.grapheneos.org]=1-ns2
     [2.ns2.grapheneos.org]=2-ns2
@@ -63,6 +64,7 @@ declare -Ar hosts_authorized_keys=(
 declare -Ar hosts_firewall=(
     [ns1.staging.grapheneos.org]=ns1
     [0.ns1.grapheneos.org]=ns1
+    [2.ns1.grapheneos.org]=ns1
     [0.ns2.grapheneos.org]=ns2
     [1.ns2.grapheneos.org]=ns2
     [2.ns2.grapheneos.org]=ns2
@@ -114,6 +116,7 @@ declare -Ar hosts_tcp_wmem_max=(
 declare -Ar hosts_conntrack_size=(
     [ns1.staging.grapheneos.org]=65536
     [0.ns1.grapheneos.org]=131072
+    [2.ns1.grapheneos.org]=131072
     [0.ns2.grapheneos.org]=65536
     [1.ns2.grapheneos.org]=65536
     [2.ns2.grapheneos.org]=65536
@@ -176,6 +179,7 @@ declare -Ar hosts_journald_system_max_file_size=(
 declare -Ar hosts_journald_max_retention_sec=(
     [ns1.staging.grapheneos.org]=4day
     [0.ns1.grapheneos.org]=4day
+    [2.ns1.grapheneos.org]=4day
     [0.ns2.grapheneos.org]=4day
     [1.ns2.grapheneos.org]=4day
     [2.ns2.grapheneos.org]=4day
@@ -188,6 +192,7 @@ declare -Ar hosts_journald_max_retention_sec=(
 declare -Ar hosts_ipv4_address=(
     [ns1.staging.grapheneos.org]=198.98.56.238
     [0.ns1.grapheneos.org]=51.161.34.158
+    [2.ns1.grapheneos.org]=57.129.65.223
     [0.ns2.grapheneos.org]=198.98.53.141
     [1.ns2.grapheneos.org]=205.185.124.155
     [2.ns2.grapheneos.org]=107.189.3.168
@@ -214,6 +219,7 @@ declare -Ar hosts_ipv4_address=(
 declare -Ar hosts_ipv6_address=(
     [ns1.staging.grapheneos.org]=2605:6400:10:c41:de92:c534:326a:711a
     [0.ns1.grapheneos.org]=2607:5300:205:200::eaa
+    [2.ns1.grapheneos.org]=2001:41d0:701:1100::245b
     [0.ns2.grapheneos.org]=2605:6400:10:102e:95bc:89ef:2e7f:49bb
     [1.ns2.grapheneos.org]=2605:6400:20:1c8f:a0c9:372d:482e:945b
     [2.ns2.grapheneos.org]=2605:6400:30:ec25:102c:af6d:5be:1eb8
@@ -239,7 +245,7 @@ declare -Ar hosts_ipv6_address=(
 
 readonly hosts_dns=(
     ns1.staging.grapheneos.org
-    0.ns1.grapheneos.org
+    {0,2}.ns1.grapheneos.org
     {0..2}.ns2.grapheneos.org
 )
 
@@ -322,7 +328,7 @@ readonly hosts_buyvm=(
 )
 
 readonly hosts_ovh=(
-    0.ns1.grapheneos.org
+    {0,2}.ns1.grapheneos.org
     mail.grapheneos.org
     {0,2,3}.grapheneos.org
     {0,2,3}.grapheneos.network
