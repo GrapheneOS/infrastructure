@@ -44,6 +44,7 @@ declare -Ar hosts_hardware_watchdog=(
 )
 
 declare -Ar hosts_authorized_keys=(
+    [2.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [1.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [2.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [1.grapheneos.org]=authorized_keys-replica-grapheneos
