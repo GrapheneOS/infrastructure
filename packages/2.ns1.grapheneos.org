@@ -1,4 +1,5 @@
 base
+bird
 chrony
 cloud-guest-utils
 conntrack-tools
@@ -36,3 +37,4 @@ tree
 unbound
 xfsprogs
 yaml-cpp
+zerotier-one
