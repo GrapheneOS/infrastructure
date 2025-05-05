@@ -1,6 +1,6 @@
 certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
-    --key-type ecdsa --reuse-key --must-staple \
-    --deploy-hook "certbot-ocsp-fetcher -o /var/cache/certbot-ocsp-fetcher" \
+    --key-type ecdsa --reuse-key --preferred-profile tlsserver \
+    --deploy-hook "nginx -s reload" \
     --cert-name grapheneos.network \
     -d grapheneos.network \
     -d grapheneos.network \
@@ -23,6 +23,6 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
 
 certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --key-type rsa --rsa-key-size 3072 --reuse-key \
-    --deploy-hook "certbot-ocsp-fetcher -o /var/cache/certbot-ocsp-fetcher" \
+    --deploy-hook "nginx -s reload" \
     --cert-name supl.grapheneos.org \
     -d supl.grapheneos.org
