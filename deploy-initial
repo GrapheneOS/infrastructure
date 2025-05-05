@@ -50,7 +50,7 @@ fi
 ssh $remote mkdir -vp /mnt/etc/sysconfig
 rsync -cpv --chmod 644 etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
-rsync -cv authorized_keys $remote:/mnt/root/.ssh/authorized_keys
+rsync -cv ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
 cp etc/ssh/sshd_config etc/ssh/sshd_config.tmp
 sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" etc/ssh/sshd_config.tmp
 rsync -cv etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
