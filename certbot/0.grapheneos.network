@@ -3,7 +3,6 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     --deploy-hook "nginx -s reload" \
     --cert-name grapheneos.network \
     -d grapheneos.network \
-    -d grapheneos.network \
     -d www.grapheneos.network \
     -d connectivitycheck.grapheneos.network \
     -d grapheneos.online \
