@@ -3,6 +3,7 @@ bird
 chrony
 cloud-guest-utils
 conntrack-tools
+dnsdist
 fish
 geoip
 geoipupdate
@@ -20,7 +21,6 @@ mtr
 neovim
 nftables
 nginx
-nginx-mod-stream
 nmap
 openssh
 pacman-contrib
