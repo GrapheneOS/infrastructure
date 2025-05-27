@@ -5,5 +5,6 @@ Requires=nginx.service create-session-ticket-keys.service
 
 [Service]
 ExecStart=/usr/local/bin/rotate-session-ticket-keys
+Group=tls
 Type=oneshot
-UMask=0077
+UMask=0027
