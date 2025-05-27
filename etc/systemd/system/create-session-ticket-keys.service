@@ -1,6 +1,6 @@
 [Unit]
 Description=Create TLS session ticket keys
-Before=nginx.service
+Before=dnsdist.service nginx.service
 
 [Service]
 ExecStart=/usr/local/bin/create-session-ticket-keys
