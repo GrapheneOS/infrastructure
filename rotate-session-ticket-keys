@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-cd /etc/nginx/session-ticket-keys
+cd /etc/session-ticket-keys
 
 rsync -I 2.key 1.key
 rsync -I 3.key 2.key

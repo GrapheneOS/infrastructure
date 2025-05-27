@@ -1,2 +1,2 @@
 /dev/mapper/swap none swap defaults 0 0
-tmpfs /etc/nginx/session-ticket-keys tmpfs size=1M,mode=700,noswap,x-systemd.before=nginx-create-session-ticket-keys.service,x-systemd.required-by=nginx-create-session-ticket-keys.service 0 0
+tmpfs /etc/session-ticket-keys tmpfs size=1M,mode=750,noswap,x-systemd.before=create-session-ticket-keys.service,x-systemd.required-by=create-session-ticket-keys.service 0 0

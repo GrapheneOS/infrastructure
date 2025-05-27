@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-cd /etc/nginx/session-ticket-keys
+cd /etc/session-ticket-keys
 
 for i in {1..4}; do
     head -c 80 </dev/random >$i.key

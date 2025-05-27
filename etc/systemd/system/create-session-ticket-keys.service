@@ -1,0 +1,11 @@
+[Unit]
+Description=Create TLS session ticket keys
+Before=nginx.service
+
+[Service]
+ExecStart=/usr/local/bin/create-session-ticket-keys
+Type=oneshot
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

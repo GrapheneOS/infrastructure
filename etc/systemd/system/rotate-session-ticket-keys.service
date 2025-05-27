@@ -1,0 +1,9 @@
+[Unit]
+Description=Rotate TLS session ticket keys
+After=nginx.service create-session-ticket-keys.service
+Requires=nginx.service create-session-ticket-keys.service
+
+[Service]
+ExecStart=/usr/local/bin/rotate-session-ticket-keys
+Type=oneshot
+UMask=0077
