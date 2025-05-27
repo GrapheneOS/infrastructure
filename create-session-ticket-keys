@@ -7,3 +7,5 @@ cd /etc/session-ticket-keys
 for i in {1..4}; do
     head -c 80 </dev/random >$i.key
 done
+
+cat {1..4}.key > keys

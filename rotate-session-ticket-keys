@@ -10,4 +10,7 @@ rsync -I 4.key 3.key
 head -c 80 </dev/random >new.key
 rsync -I new.key 4.key
 rm new.key
+cat {1..4}.key > keys.new
+rsync -I keys.new keys
+rm keys.new
 nginx -s reload
