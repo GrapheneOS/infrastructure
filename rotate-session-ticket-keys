@@ -10,12 +10,15 @@ rsync -I 4.key 3.key
 head -c 80 </dev/random >new.key
 rsync -I new.key 4.key
 rm new.key
+
 cat {1..4}.key > keys.new
 rsync -I keys.new keys
 rm keys.new
+
 if systemctl is-enabled nginx.service >/dev/null; then
     nginx -s reload
 fi
+
 if systemctl is-enabled dnsdist.service >/dev/null; then
     dnsdist -c -e 'reloadAllCertificates()'
 fi
