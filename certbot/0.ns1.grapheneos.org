@@ -1,5 +1,5 @@
 certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
-    --key-type ecdsa --reuse-key --preferred-profile tlsserver \
+    --key-type ecdsa --reuse-key --required-profile tlsserver \
     --deploy-hook "nginx -s reload; rsync -rLvc --delete --chmod=D750,F640 --chown root:dnsdist /etc/letsencrypt/live/ /etc/letsencrypt/dnsdist/; dnsdist -c -e 'reloadAllCertificates()'" \
     --cert-name ns1.grapheneos.org \
     -d ns1.grapheneos.org \
