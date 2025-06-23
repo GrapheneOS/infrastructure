@@ -59,7 +59,9 @@ sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" etc/ssh/sshd_config.t
 rsync -cv etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
 rm etc/ssh/sshd_config.tmp
 
-rsync -cv etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf $remote:/mnt/etc/nftables.conf
+synproxy_threshold=$(( ${hosts_conntrack_size[$host]} / 64 ))
+sed "s/{{synproxy_threshold}}/$synproxy_threshold/g" etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf >tmp
+rsync -cv tmp $remote:/mnt/etc/nftables.conf
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service systemd-userdbd.socket"
