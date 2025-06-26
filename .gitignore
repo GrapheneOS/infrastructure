@@ -8,6 +8,7 @@
 /passwords/
 /modules/
 /sysctl/
+/tmp
 /units/
 /logs/
 *.tmp
