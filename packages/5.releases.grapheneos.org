@@ -11,7 +11,7 @@ fish
 htop
 ioping
 iperf
-linux-firmware
+linux-firmware-amdgpu
 linux-lts
 logrotate
 man-db
