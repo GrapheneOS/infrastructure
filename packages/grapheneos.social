@@ -34,7 +34,6 @@ python-swiftclient
 rsync
 strace
 stress
-sudo
 sysstat
 tinyxxd
 tree
