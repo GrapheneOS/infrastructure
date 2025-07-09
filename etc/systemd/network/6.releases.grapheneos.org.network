@@ -23,8 +23,3 @@ PreferredSource=2605:9880:200:20::113
 [Route]
 Destination=2605:9880:200::1
 PreferredSource=2605:9880:200:20::113
-
-[CAKE]
-Bandwidth=10000M
-PriorityQueueingPreset=besteffort
-SplitGSO=false
