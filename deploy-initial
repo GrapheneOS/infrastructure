@@ -62,6 +62,7 @@ rm etc/ssh/sshd_config.tmp
 synproxy_threshold=$(( ${hosts_conntrack_size[$host]} / 64 ))
 sed "s/{{synproxy_threshold}}/$synproxy_threshold/g" etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf >tmp
 rsync -cv tmp $remote:/mnt/etc/nftables.conf
+rm tmp
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service systemd-userdbd.socket"
