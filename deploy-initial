@@ -16,7 +16,7 @@ readonly remote=root@$ip
 
 readonly drive=$(ssh $remote '[[ -e /dev/sda ]] && echo sda || echo vda')
 
-alias rsync='rsync --preallocate'
+alias rsync='rsync -cpv --chmod=D755,F644 --preallocate'
 
 # check for Arch ISO
 ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || exit 5
@@ -24,44 +24,44 @@ ssh $remote '[[ $(grep IMAGE_VERSION /etc/os-release) = "IMAGE_VERSION=2025.05.0
 
 ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -d agcount=$agcount -f /dev/${drive}1"
-rsync -cv etc/pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
+rsync etc/pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
 ssh $remote "mount /dev/${drive}1 /mnt"
 ssh $remote "pacstrap -K /mnt $(tr '\n' ' ' < packages/$host)"
 
-rsync -cv etc/default/grub $remote:/mnt/etc/default/grub
+rsync etc/default/grub $remote:/mnt/etc/default/grub
 ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
 ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
 
 ssh $remote "echo $hostname >/mnt/etc/hostname"
 
-rsync -cpv --chmod=644 etc/systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
-rsync -cpv --chmod=644 etc/systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
+rsync etc/systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
+rsync etc/systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
-rsync -cpv --chmod=644 etc/fstab.virtual $remote:/mnt/etc/fstab
-rsync -cpv --chmod=644 etc/{crypttab,locale.conf,mkinitcpio.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
+rsync etc/fstab.virtual $remote:/mnt/etc/fstab
+rsync etc/{crypttab,locale.conf,mkinitcpio.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
 
-rsync -cv etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
+rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
 if [[ $host = @(0.grapheneos.network|1.grapheneos.network|2.grapheneos.network|3.grapheneos.network) ]]; then
     cp etc/chrony.conf etc/chrony.conf.tmp
     echo -e '\nallow' >> etc/chrony.conf.tmp
-    rsync -cv etc/chrony.conf.tmp $remote:/mnt/etc/chrony.conf
+    rsync etc/chrony.conf.tmp $remote:/mnt/etc/chrony.conf
     rm etc/chrony.conf.tmp
 else
-    rsync -cv etc/chrony.conf $remote:/mnt/etc/chrony.conf
+    rsync etc/chrony.conf $remote:/mnt/etc/chrony.conf
 fi
 ssh $remote mkdir -vp /mnt/etc/sysconfig
-rsync -cpv --chmod 644 etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
+rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
-rsync -cv ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
+rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
 cp etc/ssh/sshd_config etc/ssh/sshd_config.tmp
 sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" etc/ssh/sshd_config.tmp
-rsync -cv etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
+rsync etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
 rm etc/ssh/sshd_config.tmp
 
 synproxy_threshold=$(( ${hosts_conntrack_size[$host]} / 64 ))
 sed "s/{{synproxy_threshold}}/$synproxy_threshold/g" etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf >tmp
-rsync -cv tmp $remote:/mnt/etc/nftables.conf
+rsync tmp $remote:/mnt/etc/nftables.conf
 rm tmp
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
