@@ -7,6 +7,7 @@ cpupower
 dmidecode
 dosfstools
 efibootmgr
+ethtool
 fish
 htop
 ioping
