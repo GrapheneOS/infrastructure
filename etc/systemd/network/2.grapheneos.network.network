@@ -21,3 +21,4 @@ UseMTU=true
 [CAKE]
 Bandwidth=500M
 PriorityQueueingPreset=besteffort
+FlowIsolationMode=dual-dst-host
