@@ -22,3 +22,4 @@ UseMTU=true
 Bandwidth=1000M
 PriorityQueueingPreset=besteffort
 FlowIsolationMode=dual-dst-host
+SplitGSO=false
