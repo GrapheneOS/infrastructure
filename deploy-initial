@@ -43,10 +43,10 @@ rsync etc/{crypttab,locale.conf,mkinitcpio.conf,pacman.conf,pacreport.conf,resol
 rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
 if [[ $host = @(0.grapheneos.network|1.grapheneos.network|2.grapheneos.network|3.grapheneos.network) ]]; then
-    cp etc/chrony.conf etc/chrony.conf.tmp
-    echo -e '\nallow' >> etc/chrony.conf.tmp
-    rsync etc/chrony.conf.tmp $remote:/mnt/etc/chrony.conf
-    rm etc/chrony.conf.tmp
+    cp etc/chrony.conf tmp
+    echo -e '\nallow' >> tmp
+    rsync tmp $remote:/mnt/etc/chrony.conf
+    rm tmp
 else
     rsync etc/chrony.conf $remote:/mnt/etc/chrony.conf
 fi
@@ -54,10 +54,10 @@ ssh $remote mkdir -vp /mnt/etc/sysconfig
 rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
 rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
-cp etc/ssh/sshd_config etc/ssh/sshd_config.tmp
-sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" etc/ssh/sshd_config.tmp
-rsync etc/ssh/sshd_config.tmp $remote:/mnt/etc/ssh/sshd_config
-rm etc/ssh/sshd_config.tmp
+cp etc/ssh/sshd_config tmp
+sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" tmp
+rsync tmp $remote:/mnt/etc/ssh/sshd_config
+rm tmp
 
 synproxy_threshold=$(( ${hosts_conntrack_size[$host]} / 64 ))
 sed "s/{{synproxy_threshold}}/$synproxy_threshold/g" etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf >tmp
