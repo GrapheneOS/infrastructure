@@ -37,18 +37,6 @@ if system == "mitigation":
             print("state: " + result["state"])
         else:
             err("expected single result")
-    elif action == "enable":
-        result = client.post(f'/ip/{ip}/mitigation', ipOnMitigation=ip)
-        if result["permanent"] is True and result["state"] == "creationPending":
-            print("enabling permanent mitigation")
-        else:
-            err(json.dumps(result, indent=4) + "\nunexpected result")
-    elif action == "disable":
-        result = client.delete(f"/ip/{ip}/mitigation/{ip}")
-        if result["permanent"] is True and result["state"] == "removalPending":
-            print("disabling permanent mitigation")
-        else:
-            err(json.dumps(result, indent=4) + "\nunexpected result")
     else:
         err("unknown action: " + action)
 elif system == "firewall":
