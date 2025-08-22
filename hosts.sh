@@ -106,7 +106,6 @@ declare -Ar hosts_reserved_ports=(
     [3.grapheneos.network]=7275
     [staging.attestation.app]=8080
     [attestation.app]=8080
-    [matrix.grapheneos.org]=8008
 )
 
 declare -Ar hosts_tcp_wmem_max=(
