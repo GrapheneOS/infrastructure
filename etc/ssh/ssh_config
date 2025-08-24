@@ -1,7 +1,7 @@
 # Include drop-in configurations
 Include /etc/ssh/ssh_config.d/*.conf
 
-IPQoS af21 af11
+IPQoS cs2 cs0
 
 ServerAliveInterval 60
 ServerAliveCountMax 2
