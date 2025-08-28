@@ -1,1 +1,1 @@
-Server = https://america.mirror.pkgbuild.com/$repo/os/$arch
+Server = https://mirrors.kernel.org/archlinux/$repo/os/$arch
