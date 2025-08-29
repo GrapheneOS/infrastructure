@@ -27,6 +27,6 @@ PreferredSource=2605:6400:20:387:72d4:dab9:a369:f351
 [CAKE]
 Handle=1
 Bandwidth=1000M
-PriorityQueueingPreset=besteffort
+PriorityQueueingPreset=diffserv4
 FlowIsolationMode=dual-dst-host
 SplitGSO=false

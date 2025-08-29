@@ -21,6 +21,6 @@ UseMTU=true
 [CAKE]
 Handle=1
 Bandwidth=500M
-PriorityQueueingPreset=besteffort
+PriorityQueueingPreset=diffserv4
 FlowIsolationMode=dual-dst-host
 SplitGSO=false
