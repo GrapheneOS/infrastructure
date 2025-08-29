@@ -7,6 +7,7 @@
 /authorized_keys-staging-attestation
 /passwords/
 /modules/
+/ssh.sh
 /sysctl/
 /tmp
 /units/

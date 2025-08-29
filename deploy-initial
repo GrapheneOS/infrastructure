@@ -4,6 +4,7 @@ set -o errexit -o nounset -o pipefail
 shopt -s expand_aliases
 
 . hosts.sh
+. ssh.sh
 
 [[ $# -eq 1 ]] || exit 1
 
@@ -59,8 +60,10 @@ sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" tmp
 rsync tmp $remote:/mnt/etc/ssh/sshd_config
 rm tmp
 
-synproxy_threshold=$(( ${hosts_conntrack_size[$host]} / 64 ))
-sed "s/{{synproxy_threshold}}/$synproxy_threshold/g" etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf >tmp
+cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf tmp
+sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]} / 64 ))/g" tmp
+sed -i "s/{{ssh_ipv4}}/$ssh_ipv4/g" tmp
+sed -i "s/{{ssh_ipv6}}/$ssh_ipv6/g" tmp
 rsync tmp $remote:/mnt/etc/nftables.conf
 rm tmp
 
