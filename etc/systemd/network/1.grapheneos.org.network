@@ -25,6 +25,7 @@ Destination=2605:6400:20::1
 PreferredSource=2605:6400:20:1131:8088:e08:84e6:632
 
 [CAKE]
+Handle=1
 Bandwidth=1000M
 PriorityQueueingPreset=besteffort
 FlowIsolationMode=dual-dst-host

@@ -19,6 +19,7 @@ PreferredSource=2607:5300:205:200::26e1
 UseMTU=true
 
 [CAKE]
+Handle=1
 Bandwidth=1000M
 PriorityQueueingPreset=besteffort
 FlowIsolationMode=dual-dst-host
