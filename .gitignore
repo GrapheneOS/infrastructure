@@ -5,13 +5,13 @@
 /authorized_keys-replica-ns2
 /authorized_keys-replica-releases
 /authorized_keys-staging-attestation
-/passwords/
+/logs/
 /modules/
+/ovh-mitigation.json
+/ovh-mitigation.txt
+/passwords/
 /ssh.sh
 /sysctl/
 /tmp
 /units/
-/logs/
-/ovh-mitigation.json
-/ovh-mitigation.txt
 /venv/
