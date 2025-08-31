@@ -109,9 +109,9 @@ declare -Ar hosts_reserved_ports=(
 )
 
 declare -Ar hosts_tcp_wmem_max=(
-    [0.releases.grapheneos.org]=16777216
-    [1.releases.grapheneos.org]=16777216
-    [2.releases.grapheneos.org]=16777216
+    [0.releases.grapheneos.org]=33554432
+    [1.releases.grapheneos.org]=33554432
+    [2.releases.grapheneos.org]=33554432
     [matrix.grapheneos.org]=16777216
 )
 
