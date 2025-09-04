@@ -3,6 +3,7 @@ chrony
 cloud-guest-utils
 conntrack-tools
 dnsdist
+ethtool
 fish
 geoip
 geoipupdate

@@ -5,6 +5,7 @@ chrony
 cloud-guest-utils
 conntrack-tools
 dovecot
+ethtool
 fish
 grub
 htop

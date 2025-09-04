@@ -4,6 +4,7 @@ certbot
 chrony
 cloud-guest-utils
 conntrack-tools
+ethtool
 fish
 grub
 htop
