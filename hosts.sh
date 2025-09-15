@@ -272,10 +272,18 @@ declare -Ar hosts_ipv6_address=(
     [grapheneos.social]=2607:5300:205:200::5e3f
 )
 
+readonly hosts_ns1=(
+    {0..3}.ns1.grapheneos.org
+)
+
+readonly hosts_ns2=(
+    {0..2}.ns2.grapheneos.org
+)
+
 readonly hosts_dns=(
     ns1.staging.grapheneos.org
-    {0..3}.ns1.grapheneos.org
-    {0..2}.ns2.grapheneos.org
+    "${hosts_ns1[@]}"
+    "${hosts_ns2[@]}"
 )
 
 readonly hosts_staging=(
