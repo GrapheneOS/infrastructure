@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+umask 077
+
+if [[ -e /etc/tcp_fastopen_seed ]]; then
+    rand=$(b3sum --keyed -l 16 --no-names </etc/tcp_fastopen_seed <(date -uI))
+else
+    rand=$(openssl rand -hex 16)
+fi
+
+new_key=${rand:0:8}-${rand:8:8}-${rand:16:8}-${rand:24:8}
+echo new_key: $new_key
+
+old_key="$(sysctl net.ipv4.tcp_fastopen_key | awk '{ print $3 }' | cut -d ',' -f 1)"
+echo old_key: $old_key
+
+echo "net.ipv4.tcp_fastopen_key=$new_key,$old_key" >/etc/sysctl.d/50-tcp_fastopen_key.conf
+sysctl -p /etc/sysctl.d/50-tcp_fastopen_key.conf

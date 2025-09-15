@@ -1,0 +1,7 @@
+[Unit]
+Description=Rotate TCP Fast Open keys
+
+[Service]
+ExecStart=/usr/local/bin/tcp-fastopen-rotate-keys
+Type=oneshot
+UMask=0077
