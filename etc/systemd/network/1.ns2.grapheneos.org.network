@@ -26,10 +26,3 @@ PreferredSource=2605:6400:20:1c8f:a0c9:372d:482e:945b
 [Route]
 Destination=2605:6400:20::1
 PreferredSource=2605:6400:20:1c8f:a0c9:372d:482e:945b
-
-[CAKE]
-Handle=1
-Bandwidth=1000M
-PriorityQueueingPreset=diffserv4
-FlowIsolationMode=dual-dst-host
-SplitGSO=false

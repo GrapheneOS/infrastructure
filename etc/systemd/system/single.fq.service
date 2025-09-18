@@ -1,0 +1,10 @@
+[Unit]
+Requires=sys-subsystem-net-devices-public.device
+After=sys-subsystem-net-devices-public.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tc qdisc replace dev public root handle 1 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+
+[Install]
+WantedBy=sys-subsystem-net-devices-public.device
