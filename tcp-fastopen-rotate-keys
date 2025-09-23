@@ -7,7 +7,7 @@ umask 077
 if [[ -e /etc/tcp_fastopen_seed ]]; then
     rand=$(b3sum --keyed -l 16 --no-names </etc/tcp_fastopen_seed <(date -uI))
 else
-    rand=$(openssl rand -hex 16)
+    rand=$(xxd -l 16 -p /dev/random)
 fi
 
 new_key=${rand:0:8}-${rand:8:8}-${rand:16:8}-${rand:24:8}
