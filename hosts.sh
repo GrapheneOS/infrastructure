@@ -120,6 +120,17 @@ declare -Ar hosts_tcp_wmem_max=(
     [matrix.grapheneos.org]=16777216
 )
 
+declare -Ar hosts_tcp_fastopen=(
+    [ns1.staging.grapheneos.org]=false
+    [0.ns2.grapheneos.org]=false
+    [1.ns2.grapheneos.org]=false
+    [2.ns2.grapheneos.org]=false
+    [staging.grapheneos.org]=false
+    [1.grapheneos.org]=false
+    [1.grapheneos.network]=false
+    [staging.attestation.app]=false
+)
+
 declare -Ar hosts_conntrack_size=(
     [ns1.staging.grapheneos.org]=65536
     [0.ns1.grapheneos.org]=131072
