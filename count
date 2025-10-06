@@ -55,7 +55,7 @@ done
 echo
 echo updates to $release
 echo total $(grep -Pc "/\w+-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
-echo gen 9 $(grep -Pc "/(tegu|comet|komodo|caiman|tokay)-(ota_update|incremental)-\d+.zip" logs/merged-device.log)
+echo gen 9 $(grep -Pc "/(tegu|comet|komodo|caiman|tokay)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 8 $(grep -Pc "/(akita|husky|shiba)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 7 $(grep -Pc "/(felix|tangorpro|lynx|cheetah|panther)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
 echo gen 6 $(grep -Pc "/(bluejay|raven|oriole)-(ota_update|incremental-\d+)-$release.zip" logs/merged-device.log)
