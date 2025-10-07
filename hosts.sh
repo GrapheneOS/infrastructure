@@ -57,8 +57,8 @@ declare -Ar hosts_authorized_keys=(
     [1.grapheneos.network]=authorized_keys-replica-network
     [2.grapheneos.network]=authorized_keys-replica-network
     [3.grapheneos.network]=authorized_keys-replica-network
-    [5.releases.grapheneos.org]=authorized_keys-replica-releases
-    [6.releases.grapheneos.org]=authorized_keys-replica-releases
+    [1.releases.grapheneos.org]=authorized_keys-replica-releases
+    [2.releases.grapheneos.org]=authorized_keys-replica-releases
     [staging.attestation.app]=authorized_keys-staging-attestation
 )
 
