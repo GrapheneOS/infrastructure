@@ -1,0 +1,15 @@
+[Match]
+Name=public
+
+[Network]
+LinkLocalAddressing=no
+Address=45.88.230.12/24
+
+[Route]
+Destination=0.0.0.0/0
+Gateway=45.88.230.1
+PreferredSource=45.88.230.12
+
+[Route]
+Destination=45.88.230.1
+PreferredSource=45.88.230.12
