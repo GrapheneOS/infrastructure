@@ -11,6 +11,7 @@ for host in ${hosts_all[@]}; do
     echo
 
     ssh root@$host -O exit || true
+    ssh root@$host -O exit true || true
 
     echo
 done
