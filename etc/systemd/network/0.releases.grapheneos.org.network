@@ -6,6 +6,7 @@ LinkLocalAddressing=no
 Address=185.225.24.20/24
 Address=185.225.24.21/24
 Address=2a14:3f87:6920:250::100/60
+Address=2a14:3f87:6920:250::101/60
 
 [Route]
 Destination=0.0.0.0/0
