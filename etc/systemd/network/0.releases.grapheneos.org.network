@@ -3,17 +3,18 @@ Name=public
 
 [Network]
 LinkLocalAddressing=no
-Address=45.90.185.33/24
+Address=185.225.24.20/24
+Address=185.225.24.21/24
 Address=2a14:3f87:6920:250::100/60
 
 [Route]
 Destination=0.0.0.0/0
-Gateway=45.90.185.1
-PreferredSource=45.90.185.33
+Gateway=185.225.24.1
+PreferredSource=185.225.24.20
 
 [Route]
-Destination=45.90.185.1
-PreferredSource=45.90.185.33
+Destination=185.225.24.1
+PreferredSource=185.225.24.20
 
 [Route]
 Destination=::/0
