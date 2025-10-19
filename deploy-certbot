@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_certbot[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    rsync etc/logrotate.d/letsencrypt $remote:/etc/logrotate.d/
+    rsync -r etc/systemd/system/certbot-renew.service.d/ $remote:/etc/systemd/system/certbot-renew.service.d/
+
+    ssh $remote "systemctl daemon-reload &&
+systemctl enable --now certbot-renew.timer &&
+mkdir -vp /srv/certbot &&
+chmod -c 750 /srv/certbot &&
+chown -c root:http /srv/certbot"
+done
