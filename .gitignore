@@ -5,6 +5,7 @@
 /authorized_keys-replica-ns2
 /authorized_keys-replica-releases
 /authorized_keys-staging-attestation
+/lock
 /logs/
 /modules/
 /ovh-mitigation.json
