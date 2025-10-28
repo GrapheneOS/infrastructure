@@ -2,6 +2,7 @@
 Description=Run tcp-fastopen-rotate-keys daily
 
 [Timer]
+AccuracySec=1us
 OnCalendar=daily UTC
 Persistent=true
 
