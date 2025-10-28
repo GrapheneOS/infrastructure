@@ -7,10 +7,11 @@ cd /etc/session-ticket-keys
 rsync -tI 2.key 1.key
 rsync -tI 3.key 2.key
 rsync -tI 4.key 3.key
-head -c 80 </dev/random >new.key
-mv new.key 4.key
+rsync -tI next.key 4.key
+head -c 80 </dev/random >tmp.key
+mv tmp.key next.key
 
-cat {1..4}.key > keys.new
+cat next.key {1..4}.key > keys.new
 mv keys.new keys
 
 status=0

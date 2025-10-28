@@ -4,8 +4,8 @@ set -o errexit -o nounset -o pipefail
 
 cd /etc/session-ticket-keys
 
-for i in {1..4}; do
-    head -c 80 </dev/random >$i.key
+for i in next.key {1..4}.key; do
+    head -c 80 </dev/random >$i
 done
 
-cat {1..4}.key > keys
+cat next.key {1..4}.key > keys
