@@ -4,6 +4,15 @@ set -o errexit -o nounset -o pipefail
 
 cd /etc/session-ticket-keys
 
+exec {fd}>sync-lock
+flock $fd
+
+if [[ -f synced ]]; then
+    echo skipping rotation due to sync
+    rm synced
+    exit 0
+fi
+
 rsync -tI 2.key 1.key
 rsync -tI 3.key 2.key
 rsync -tI 4.key 3.key
