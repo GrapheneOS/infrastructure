@@ -25,11 +25,11 @@ mv keys.new keys
 
 status=0
 
-if systemctl is-enabled nginx.service >/dev/null; then
+if systemctl is-active --quiet nginx.service; then
     nginx -s reload || status=1
 fi
 
-if systemctl is-enabled dnsdist.service >/dev/null; then
+if systemctl is-active --quiet dnsdist.service; then
     dnsdist -c -e 'reloadAllCertificates()' || status=1
 fi
 
