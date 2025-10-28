@@ -1,5 +1,5 @@
 [Unit]
-Description=Run rotate-session-ticket-keys three times daily
+Description=Run rotate-session-ticket-keys every 8 hours
 After=create-session-ticket-keys.service
 Requires=create-session-ticket-keys.service
 
