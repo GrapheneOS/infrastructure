@@ -1,11 +1,11 @@
 [Unit]
-Description=Run rotate-session-ticket-keys every 8 hours
+Description=Run rotate-session-ticket-keys every 6 hours
 After=create-session-ticket-keys.service
 Requires=create-session-ticket-keys.service
 
 [Timer]
-OnActiveSec=8h
-OnUnitActiveSec=8h
+OnActiveSec=6h
+OnUnitActiveSec=6h
 
 [Install]
 WantedBy=timers.target
