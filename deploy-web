@@ -16,7 +16,8 @@ for host in ${hosts_web[@]}; do
     rsync --chmod=755 create-session-ticket-keys rotate-session-ticket-keys $remote:/usr/local/bin/
     rsync -r --delete etc/systemd/system/nginx.service.d/ $remote:/etc/systemd/system/nginx.service.d
 
-    ssh $remote "groupadd -fg 2100 tls
+    ssh $remote "mkdir -pm755 /var/cache/nginx
+groupadd -fg 2100 tls
 mkdir -p -m 750 /etc/session-ticket-keys && chgrp tls /etc/session-ticket-keys
 systemctl daemon-reload &&
 systemctl enable create-session-ticket-keys.service rotate-session-ticket-keys.timer nginx"
