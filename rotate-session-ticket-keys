@@ -4,16 +4,14 @@ set -o errexit -o nounset -o pipefail
 
 cd /etc/session-ticket-keys
 
-rsync -I 2.key 1.key
-rsync -I 3.key 2.key
-rsync -I 4.key 3.key
+rsync -tI 2.key 1.key
+rsync -tI 3.key 2.key
+rsync -tI 4.key 3.key
 head -c 80 </dev/random >new.key
-rsync -I new.key 4.key
-rm new.key
+mv new.key 4.key
 
 cat {1..4}.key > keys.new
-rsync -I keys.new keys
-rm keys.new
+mv keys.new keys
 
 status=0
 
