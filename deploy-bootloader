@@ -1,0 +1,24 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+. ssh.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    if [[ ${hosts_uefi[$host]:-false} = true ]]; then
+        rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
+        rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
+        ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
+    else
+        rsync etc/default/grub $remote:/etc/default/grub
+        drive=$(ssh $remote bash -c '[[ -e /dev/sda ]] && echo sda || echo vda')
+        ssh $remote grub-install /dev/$drive
+        ssh $remote grub-mkconfig -o /boot/grub/grub.cfg
+    fi
+done
