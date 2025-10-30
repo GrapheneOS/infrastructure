@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+cd /etc/session-ticket-keys
+
+exec {fd}>sync-lock
+flock $fd
+
+if ! cmp --silent keys sync/keys; then
+    rsync -aIv sync/{{next,1,2,3,4}.key,keys} .
+    rm -rf sync
+
+    status=0
+
+    if systemctl is-active --quiet nginx.service; then
+        nginx -s reload || status=1
+    fi
+
+    if systemctl is-active --quiet dnsdist.service; then
+        dnsdist -c -e 'reloadAllCertificates()' || status=1
+    fi
+
+    touch synced
+
+    exit $status
+fi
+
+rm -rf sync
+touch synced

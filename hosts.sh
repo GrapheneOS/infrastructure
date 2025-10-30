@@ -342,6 +342,14 @@ readonly hosts_primary=(
     0.releases.grapheneos.org
 )
 
+readonly hosts_secondary=(
+    {1..3}.ns1.grapheneos.org
+    {1..2}.ns2.grapheneos.org
+    {1..3}.grapheneos.org
+    {1..3}.grapheneos.network
+    {1..3}.releases.grapheneos.org
+)
+
 readonly hosts_backup=(
     mail.grapheneos.org
     staging.attestation.app

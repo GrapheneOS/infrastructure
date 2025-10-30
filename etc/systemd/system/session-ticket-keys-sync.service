@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync TLS session ticket keys
+After=dnsdist.service nginx.service create-session-ticket-keys.service
+Requires=create-session-ticket-keys.service
+
+[Service]
+ExecStart=/usr/local/bin/session-ticket-keys-sync
+Group=tls
+Type=oneshot
+UMask=0027

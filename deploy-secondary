@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_secondary[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    rsync --chmod=F755 session-ticket-keys-sync-deploy $remote:/usr/local/bin/
+done

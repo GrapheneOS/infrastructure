@@ -1,0 +1,12 @@
+[Unit]
+Description=Run session-ticket-keys-sync.service every minute
+After=create-session-ticket-keys.service
+Requires=create-session-ticket-keys.service
+
+[Timer]
+AccuracySec=1s
+OnActiveSec=0
+OnUnitActiveSec=1m
+
+[Install]
+WantedBy=timers.target

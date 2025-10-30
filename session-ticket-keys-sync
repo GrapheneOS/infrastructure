@@ -1,0 +1,44 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+status=0
+
+cd /etc/session-ticket-keys
+
+if [[ ! -f syncing ]]; then
+    for mirror in $(cat /etc/mirrors); do
+        echo
+        echo Syncing from $mirror
+        echo
+
+        ssh $mirror "bash -c [[ -f /etc/session-ticket-keys/synced ]]" || continue
+
+        rm -rf sync
+        mkdir sync
+        rsync -aI $mirror:/etc/session-ticket-keys/{{next,1,2,3,4}.key,keys} sync/ || continue
+        rsync -aIv sync/{{next,1,2,3,4}.key,keys} . || continue
+        rm -r sync
+
+        if systemctl is-active --quiet nginx.service; then
+            nginx -s reload || true
+        fi
+
+        if systemctl is-active --quiet dnsdist.service; then
+            dnsdist -c -e 'reloadAllCertificates()' || true
+        fi
+
+        touch syncing
+        break
+    done
+fi
+
+for mirror in $(cat /etc/mirrors); do
+    echo
+    echo Syncing to $mirror
+    echo
+
+    ssh $mirror "rm -rf /etc/session-ticket-keys/sync && mkdir /etc/session-ticket-keys/sync" || continue
+    rsync -aI {{next,1,2,3,4}.key,keys} $mirror:/etc/session-ticket-keys/sync || continue
+    ssh $mirror session-ticket-keys-sync-deploy || continue
+done
