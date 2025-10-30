@@ -334,6 +334,14 @@ readonly hosts_certbot=(
     grapheneos.social
 )
 
+readonly hosts_primary=(
+    0.ns1.grapheneos.org
+    0.ns2.grapheneos.org
+    0.grapheneos.org
+    0.grapheneos.network
+    0.releases.grapheneos.org
+)
+
 readonly hosts_backup=(
     mail.grapheneos.org
     staging.attestation.app

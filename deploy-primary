@@ -1,0 +1,16 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_primary[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    rsync --chmod=F755 certbot-replicate $remote:/usr/local/bin/
+    rsync etc/systemd/system/certbot-renew.service.d/replicate.conf $remote:/etc/systemd/system/certbot-renew.service.d/
+    ssh $remote systemctl daemon-reload
+done
