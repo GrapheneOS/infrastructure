@@ -1,12 +1,11 @@
 [Unit]
-Description=Sync session ticket keys every minute
+Description=Rotate session ticket keys every 6 hours
 After=session-ticket-keys-create.service
 Requires=session-ticket-keys-create.service
 
 [Timer]
-AccuracySec=1s
-OnActiveSec=0
-OnUnitActiveSec=1m
+OnActiveSec=6h
+OnUnitActiveSec=6h
 
 [Install]
 WantedBy=timers.target

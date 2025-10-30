@@ -1,10 +1,10 @@
 [Unit]
-Description=Sync TLS session ticket keys
+Description=Rotate TLS session ticket keys
 After=dnsdist.service nginx.service session-ticket-keys-create.service
 Requires=session-ticket-keys-create.service
 
 [Service]
-ExecStart=/usr/local/bin/session-ticket-keys-sync
+ExecStart=/usr/local/bin/session-ticket-keys-rotate
 Group=tls
 Type=oneshot
 UMask=0027
