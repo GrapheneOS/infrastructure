@@ -13,6 +13,5 @@ for host in ${hosts_primary[@]}; do
     rsync --chmod=F755 certbot-replicate session-ticket-keys-sync $remote:/usr/local/bin/
     rsync etc/systemd/system/certbot-renew.service.d/replicate.conf $remote:/etc/systemd/system/certbot-renew.service.d/
     rsync etc/systemd/system/session-ticket-keys-sync.{service,timer} $remote:/etc/systemd/system/
-    ssh $remote systemctl daemon-reload
-    ssh $remote systemctl enable --now session-ticket-keys-sync.timer
+    ssh $remote 'systemctl daemon-reload && systemctl enable --now session-ticket-keys-sync.timer'
 done
