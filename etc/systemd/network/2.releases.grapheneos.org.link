@@ -1,7 +1,5 @@
 [Match]
-MACAddress=9c:6b:00:68:14:ec
+MACAddress=50:7c:6f:7d:4c:93
 
 [Link]
 Name=public
-CombinedChannels=24
-UseAdaptiveRxCoalesce=true

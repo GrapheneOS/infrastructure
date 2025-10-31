@@ -3,25 +3,23 @@ Name=public
 
 [Network]
 LinkLocalAddressing=no
-Address=185.225.24.20/24
-Address=185.225.24.21/24
-Address=2a14:3f87:6920:250::100/60
-Address=2a14:3f87:6920:250::101/60
+Address=172.96.172.37/24
+Address=2605:9880:400:1100:15:1240:515:6e/64
 
 [Route]
 Destination=0.0.0.0/0
-Gateway=185.225.24.1
-PreferredSource=185.225.24.20
+Gateway=172.96.172.1
+PreferredSource=172.96.172.37
 
 [Route]
-Destination=185.225.24.1
-PreferredSource=185.225.24.20
+Destination=172.96.172.1
+PreferredSource=172.96.172.37
 
 [Route]
 Destination=::/0
-Gateway=2a14:3f87:6920:250::1
-PreferredSource=2a14:3f87:6920:250::100
+Gateway=2605:9880:400::1
+PreferredSource=2605:9880:400:1100:15:1240:515:6e
 
 [Route]
-Destination=2a14:3f87:6920:250::1
-PreferredSource=2a14:3f87:6920:250::100
+Destination=2605:9880:400::1
+PreferredSource=2605:9880:400:1100:15:1240:515:6e

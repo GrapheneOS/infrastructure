@@ -13,6 +13,7 @@ htop
 ioping
 iperf
 linux-firmware-amdgpu
+linux-firmware-intel
 linux-lts
 logrotate
 man-db

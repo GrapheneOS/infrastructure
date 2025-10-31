@@ -29,14 +29,6 @@ ExecStart=/usr/bin/tc qdisc replace dev public parent 1:15 handle 1015 fq bands 
 ExecStart=/usr/bin/tc qdisc replace dev public parent 1:16 handle 1016 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
 ExecStart=/usr/bin/tc qdisc replace dev public parent 1:17 handle 1017 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
 ExecStart=/usr/bin/tc qdisc replace dev public parent 1:18 handle 1018 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:19 handle 1019 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1a handle 101a fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1b handle 101b fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1c handle 101c fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1d handle 101d fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1e handle 101e fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1f handle 101f fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
-ExecStart=/usr/bin/tc qdisc replace dev public parent 1:20 handle 1020 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
 
 [Install]
 WantedBy=sys-subsystem-net-devices-public.device
