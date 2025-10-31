@@ -4,6 +4,7 @@ Name=public
 [Network]
 LinkLocalAddressing=no
 Address=104.194.8.203/24
+Address=2605:9880:200:400:135:7700:ef0a:81/64
 Address=2605:9880:200:20::113/64
 
 [Route]
@@ -18,8 +19,8 @@ PreferredSource=104.194.8.203
 [Route]
 Destination=::/0
 Gateway=2605:9880:200::1
-PreferredSource=2605:9880:200:20::113
+PreferredSource=2605:9880:200:400:135:7700:ef0a:81
 
 [Route]
 Destination=2605:9880:200::1
-PreferredSource=2605:9880:200:20::113
+PreferredSource=2605:9880:200:400:135:7700:ef0a:81
