@@ -5,7 +5,6 @@ Name=public
 LinkLocalAddressing=no
 Address=104.194.8.203/24
 Address=2605:9880:200:400:135:7700:ef0a:81/64
-Address=2605:9880:200:20::113/64
 
 [Route]
 Destination=0.0.0.0/0
