@@ -409,7 +409,6 @@ readonly hosts_ovh=(
     mail.grapheneos.org
     {0,2,3}.grapheneos.org
     {0,2,3}.grapheneos.network
-    {0..3}.releases.grapheneos.org
     attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
