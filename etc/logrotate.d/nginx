@@ -1,0 +1,11 @@
+/var/log/nginx/*log {
+    missingok
+    notifempty
+    create 600 root root
+    sharedscripts
+    compress
+    maxsize 2G
+    postrotate
+        syslog-ng-ctl reopen >/dev/null
+    endscript
+}

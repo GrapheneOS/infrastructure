@@ -33,6 +33,7 @@ rsync
 sqlite-analyzer
 strace
 stress
+syslog-ng
 sysstat
 tinyxxd
 tree

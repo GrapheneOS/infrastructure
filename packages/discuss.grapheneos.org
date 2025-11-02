@@ -43,6 +43,7 @@ python-swiftclient
 rsync
 strace
 stress
+syslog-ng
 sysstat
 tinyxxd
 tree
