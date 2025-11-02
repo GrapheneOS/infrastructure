@@ -58,9 +58,10 @@ declare -Ar hosts_authorized_keys=(
     [1.grapheneos.org]=authorized_keys-replica-grapheneos
     [2.grapheneos.org]=authorized_keys-replica-grapheneos
     [3.grapheneos.org]=authorized_keys-replica-grapheneos
-    [1.grapheneos.network]=authorized_keys-replica-network
-    [2.grapheneos.network]=authorized_keys-replica-network
-    [3.grapheneos.network]=authorized_keys-replica-network
+    [0.grapheneos.network]=authorized_keys-replica-grapheneos
+    [1.grapheneos.network]=authorized_keys-replica-grapheneos
+    [2.grapheneos.network]=authorized_keys-replica-grapheneos
+    [3.grapheneos.network]=authorized_keys-replica-grapheneos
     [1.releases.grapheneos.org]=authorized_keys-replica-releases
     [2.releases.grapheneos.org]=authorized_keys-replica-releases
     [3.releases.grapheneos.org]=authorized_keys-replica-releases
@@ -77,8 +78,11 @@ declare -Ar hosts_firewall=(
     [1.ns2.grapheneos.org]=ns2
     [2.ns2.grapheneos.org]=ns2
     [mail.grapheneos.org]=mail
-    [staging.grapheneos.org]=web-fq
-    [1.grapheneos.org]=web-fq
+    [staging.grapheneos.org]=network-fq
+    [0.grapheneos.org]=network
+    [1.grapheneos.org]=network-fq
+    [2.grapheneos.org]=network
+    [3.grapheneos.org]=network
     [0.grapheneos.network]=network
     [1.grapheneos.network]=network-fq
     [2.grapheneos.network]=network
@@ -325,7 +329,6 @@ readonly hosts_certbot=(
     mail.grapheneos.org
     staging.grapheneos.org
     0.grapheneos.org
-    0.grapheneos.network
     0.releases.grapheneos.org
     staging.attestation.app
     attestation.app
@@ -338,7 +341,6 @@ readonly hosts_primary=(
     0.ns1.grapheneos.org
     0.ns2.grapheneos.org
     0.grapheneos.org
-    0.grapheneos.network
     0.releases.grapheneos.org
 )
 
@@ -346,7 +348,7 @@ readonly hosts_secondary=(
     {1..3}.ns1.grapheneos.org
     {1..2}.ns2.grapheneos.org
     {1..3}.grapheneos.org
-    {1..3}.grapheneos.network
+    {0..3}.grapheneos.network
     {1..3}.releases.grapheneos.org
 )
 
@@ -361,6 +363,7 @@ readonly hosts_backup=(
 
 readonly hosts_grapheneos=(
     {0..3}.grapheneos.org
+    {0..3}.grapheneos.network
 )
 
 readonly hosts_grapheneos_all=(
@@ -372,10 +375,6 @@ readonly hosts_releases=(
     {0..3}.releases.grapheneos.org
 )
 
-readonly hosts_network=(
-    {0..3}.grapheneos.network
-)
-
 readonly hosts_attestation=(
     staging.attestation.app
     attestation.app
@@ -385,7 +384,6 @@ readonly hosts_web=(
     "${hosts_dns[@]}"
     mail.grapheneos.org
     "${hosts_grapheneos_all[@]}"
-    "${hosts_network[@]}"
     "${hosts_releases[@]}"
     "${hosts_attestation[@]}"
     matrix.grapheneos.org

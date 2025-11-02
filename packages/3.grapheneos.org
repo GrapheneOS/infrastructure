@@ -17,6 +17,7 @@ neovim
 nftables
 nginx
 nginx-mod-brotli
+nginx-mod-stream
 nmap
 openssh
 pacman-contrib

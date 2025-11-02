@@ -1,5 +1,4 @@
 base
-certbot
 chrony
 cloud-guest-utils
 conntrack-tools
@@ -17,6 +16,7 @@ mtr
 neovim
 nftables
 nginx
+nginx-mod-brotli
 nginx-mod-stream
 nmap
 openssh
