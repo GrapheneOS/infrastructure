@@ -1,4 +1,4 @@
-/var/log/nginx/*log {
+/var/log/nginx/access.log /var/log/nginx/error.log {
     missingok
     create 600 root root
     sharedscripts
