@@ -19,7 +19,6 @@ declare -Ar hosts_hostname=(
     [3.grapheneos.network]=3-network
     [0.releases.grapheneos.org]=0-releases
     [1.releases.grapheneos.org]=1-releases
-    [2.releases.grapheneos.org]=2-releases
     [3.releases.grapheneos.org]=3-releases
     [staging.attestation.app]=staging-attestation
     [attestation.app]=attestation
@@ -31,21 +30,18 @@ declare -Ar hosts_hostname=(
 declare -Ar hosts_uefi=(
     [0.releases.grapheneos.org]=true
     [1.releases.grapheneos.org]=true
-    [2.releases.grapheneos.org]=true
     [3.releases.grapheneos.org]=true
 )
 
 declare -Ar hosts_metal=(
     [0.releases.grapheneos.org]=true
     [1.releases.grapheneos.org]=true
-    [2.releases.grapheneos.org]=true
     [3.releases.grapheneos.org]=true
 )
 
 declare -Ar hosts_hardware_watchdog=(
     [0.releases.grapheneos.org]=true
     [1.releases.grapheneos.org]=true
-    [2.releases.grapheneos.org]=true
     [3.releases.grapheneos.org]=true
 )
 
@@ -63,7 +59,6 @@ declare -Ar hosts_authorized_keys=(
     [2.grapheneos.network]=authorized_keys-replica-grapheneos
     [3.grapheneos.network]=authorized_keys-replica-grapheneos
     [1.releases.grapheneos.org]=authorized_keys-replica-releases
-    [2.releases.grapheneos.org]=authorized_keys-replica-releases
     [3.releases.grapheneos.org]=authorized_keys-replica-releases
     [staging.attestation.app]=authorized_keys-staging-attestation
 )
@@ -89,7 +84,6 @@ declare -Ar hosts_firewall=(
     [3.grapheneos.network]=network
     [0.releases.grapheneos.org]=web-fq
     [1.releases.grapheneos.org]=web-fq
-    [2.releases.grapheneos.org]=web-fq
     [3.releases.grapheneos.org]=web-fq
     [staging.attestation.app]=attestation-fq
     [attestation.app]=attestation
@@ -101,7 +95,6 @@ declare -Ar hosts_firewall=(
 declare -Ar hosts_swap=(
     [0.releases.grapheneos.org]=32768
     [1.releases.grapheneos.org]=32768
-    [2.releases.grapheneos.org]=32768
     [3.releases.grapheneos.org]=32768
     [attestation.app]=4096
     [matrix.grapheneos.org]=8192
@@ -112,7 +105,6 @@ declare -Ar hosts_swap=(
 declare -Ar hosts_agcount=(
     [0.releases.grapheneos.org]=24
     [1.releases.grapheneos.org]=24
-    [2.releases.grapheneos.org]=32
     [3.releases.grapheneos.org]=32
 )
 
@@ -128,7 +120,6 @@ declare -Ar hosts_reserved_ports=(
 declare -Ar hosts_tcp_wmem_max=(
     [0.releases.grapheneos.org]=33554432
     [1.releases.grapheneos.org]=33554432
-    [2.releases.grapheneos.org]=33554432
     [3.releases.grapheneos.org]=33554432
     [matrix.grapheneos.org]=16777216
 )
@@ -165,7 +156,6 @@ declare -Ar hosts_conntrack_size=(
     [3.grapheneos.network]=131072
     [0.releases.grapheneos.org]=12582912
     [1.releases.grapheneos.org]=12582912
-    [2.releases.grapheneos.org]=8388608
     [3.releases.grapheneos.org]=8388608
     [staging.attestation.app]=65536
     [attestation.app]=131072
@@ -191,7 +181,6 @@ declare -Ar hosts_journald_system_max_use=(
     [3.grapheneos.network]=24G
     [0.releases.grapheneos.org]=64G
     [1.releases.grapheneos.org]=64G
-    [2.releases.grapheneos.org]=64G
     [3.releases.grapheneos.org]=64G
 )
 
@@ -206,7 +195,6 @@ declare -Ar hosts_journald_system_max_file_size=(
     [3.grapheneos.network]=2G
     [0.releases.grapheneos.org]=4G
     [1.releases.grapheneos.org]=4G
-    [2.releases.grapheneos.org]=4G
     [3.releases.grapheneos.org]=4G
     [matrix.grapheneos.org]=1G
     [discuss.grapheneos.org]=1G
@@ -234,7 +222,6 @@ declare -Ar hosts_ipv4_address=(
     [3.grapheneos.network]=51.79.161.36
     [0.releases.grapheneos.org]=172.96.172.37
     [1.releases.grapheneos.org]=104.194.8.203
-    [2.releases.grapheneos.org]=185.225.24.20
     [3.releases.grapheneos.org]=45.88.230.12
     [staging.attestation.app]=198.98.57.157
     [attestation.app]=51.79.66.27
@@ -264,7 +251,6 @@ declare -Ar hosts_ipv6_address=(
     [3.grapheneos.network]=2402:1f00:8000:800::1949
     [0.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [1.releases.grapheneos.org]=2605:9880:200:20::113
-    [2.releases.grapheneos.org]=2a14:3f87:6920:250::100
     [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
     [attestation.app]=2607:5300:205:200::7e9
     [matrix.grapheneos.org]=2607:5300:205:200::26e1
@@ -319,7 +305,7 @@ readonly hosts_secondary=(
     {1..2}.ns2.grapheneos.org
     {1..3}.grapheneos.org
     {0..3}.grapheneos.network
-    {1..3}.releases.grapheneos.org
+    {1,3}.releases.grapheneos.org
 )
 
 readonly hosts_backup=(
@@ -342,7 +328,7 @@ readonly hosts_grapheneos_all=(
 )
 
 readonly hosts_releases=(
-    {0..3}.releases.grapheneos.org
+    {0,1,3}.releases.grapheneos.org
 )
 
 readonly hosts_attestation=(
