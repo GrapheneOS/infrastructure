@@ -132,6 +132,7 @@ declare -Ar hosts_tcp_fastopen=(
     [staging.grapheneos.org]=false
     [1.grapheneos.org]=false
     [1.grapheneos.network]=false
+    [3.releases.grapheneos.org]=false
     [staging.attestation.app]=false
 )
 
