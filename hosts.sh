@@ -213,36 +213,6 @@ declare -Ar hosts_journald_system_max_file_size=(
     [grapheneos.social]=1G
 )
 
-declare -Ar hosts_journald_max_file_sec=(
-    [ns1.staging.grapheneos.org]=12hour
-    [0.ns1.grapheneos.org]=12hour
-    [1.ns1.grapheneos.org]=12hour
-    [2.ns1.grapheneos.org]=12hour
-    [3.ns1.grapheneos.org]=12hour
-    [0.ns2.grapheneos.org]=12hour
-    [1.ns2.grapheneos.org]=12hour
-    [2.ns2.grapheneos.org]=12hour
-    [0.grapheneos.network]=12hour
-    [1.grapheneos.network]=12hour
-    [2.grapheneos.network]=12hour
-    [3.grapheneos.network]=12hour
-)
-
-declare -Ar hosts_journald_max_retention_sec=(
-    [ns1.staging.grapheneos.org]=4day
-    [0.ns1.grapheneos.org]=4day
-    [1.ns1.grapheneos.org]=4day
-    [2.ns1.grapheneos.org]=4day
-    [3.ns1.grapheneos.org]=4day
-    [0.ns2.grapheneos.org]=4day
-    [1.ns2.grapheneos.org]=4day
-    [2.ns2.grapheneos.org]=4day
-    [0.grapheneos.network]=4day
-    [1.grapheneos.network]=4day
-    [2.grapheneos.network]=4day
-    [3.grapheneos.network]=4day
-)
-
 declare -Ar hosts_ipv4_address=(
     [ns1.staging.grapheneos.org]=198.98.56.238
     [0.ns1.grapheneos.org]=51.161.34.158
