@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    cp etc/systemd/journald.conf tmp
+    sed -i "s/{{journald_system_max_use}}/${hosts_journald_system_max_use[$host]:-8G}/g" tmp
+    sed -i "s/{{journald_system_max_file_size}}/${hosts_journald_system_max_file_size[$host]:-512M}/g" tmp
+    rsync tmp $remote:/etc/systemd/journald.conf
+    rm tmp
+    ssh $remote systemctl restart systemd-journald
+done
