@@ -2,7 +2,7 @@
     missingok
     create 600 root root
     sharedscripts
-    compress
+    nodelaycompress
     maxsize 2G
     postrotate
         syslog-ng-ctl reopen >/dev/null
