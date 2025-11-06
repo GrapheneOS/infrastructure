@@ -33,6 +33,12 @@ declare -Ar hosts_uefi=(
     [3.releases.grapheneos.org]=true
 )
 
+declare -Ar hosts_mdraid=(
+    [0.releases.grapheneos.org]=true
+    [1.releases.grapheneos.org]=true
+    [3.releases.grapheneos.org]=true
+)
+
 declare -Ar hosts_metal=(
     [0.releases.grapheneos.org]=true
     [1.releases.grapheneos.org]=true
