@@ -21,7 +21,7 @@ nftables
 nginx
 nginx-mod-brotli
 nmap
-nodejs-lts-jod
+nodejs-lts-krypton
 openssh
 pacman-contrib
 pacutils
