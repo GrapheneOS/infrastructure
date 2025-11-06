@@ -112,6 +112,8 @@ MaxStartups 4096
 #ChrootDirectory none
 #VersionAddendum none
 
+AcceptEnv COLORTERM
+
 # no default banner path
 #Banner none
 
