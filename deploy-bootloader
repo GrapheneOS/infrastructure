@@ -14,6 +14,7 @@ for host in ${hosts_all[@]}; do
         rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
         rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
         ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
+        rsync -r --delete etc/systemd/system/systemd-boot-update.service.d $remote:/etc/systemd/system/
     else
         rsync etc/default/grub $remote:/etc/default/grub
         drive=$(ssh $remote bash -c '[[ -e /dev/sda ]] && echo sda || echo vda')
