@@ -1,8 +1,16 @@
-/var/log/nginx/access.log /var/log/nginx/error.log {
+/var/log/nginx/access.log {
     missingok
-    sharedscripts
+    maxsize 1G
     nodelaycompress
-    maxsize 2G
+    postrotate
+        syslog-ng-ctl reopen >/dev/null
+    endscript
+}
+
+/var/log/nginx/error.log {
+    missingok
+    maxsize 64M
+    nodelaycompress
     postrotate
         syslog-ng-ctl reopen >/dev/null
     endscript
