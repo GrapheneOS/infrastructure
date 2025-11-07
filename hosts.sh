@@ -115,6 +115,10 @@ declare -Ar hosts_agcount=(
 )
 
 declare -Ar hosts_reserved_ports=(
+    [0.grapheneos.org]=7275
+    [1.grapheneos.org]=7275
+    [2.grapheneos.org]=7275
+    [3.grapheneos.org]=7275
     [0.grapheneos.network]=7275
     [1.grapheneos.network]=7275
     [2.grapheneos.network]=7275
