@@ -1,0 +1,14 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    ssh $remote hostnamectl hostname ${hosts_hostname[$host]}
+done
