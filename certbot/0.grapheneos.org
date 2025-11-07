@@ -24,3 +24,37 @@ certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
     -d www.grapheneos.page \
     -d vanadium.app \
     -d www.vanadium.app
+
+certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
+    --key-type ecdsa --reuse-key --required-profile tlsserver \
+    --deploy-hook "nginx -s reload" \
+    --cert-name grapheneos.network \
+    -d grapheneos.network \
+    -d www.grapheneos.network \
+    -d connectivitycheck.grapheneos.network \
+    -d grapheneos.online \
+    -d www.grapheneos.online \
+    -d connectivitycheck.grapheneos.online \
+    -d time.grapheneos.org \
+    -d remoteprovisioning.grapheneos.org \
+    -d widevineprovisioning.grapheneos.org \
+    -d broadcom.psds.grapheneos.org \
+    -d samsung.psds.grapheneos.org \
+    -d qualcomm.psds.grapheneos.org \
+    -d supl.grapheneos.org \
+    -d nominatim.grapheneos.org \
+    -d gs-loc.apple.grapheneos.org \
+    -d update.vanadium.app \
+    -d dl.vanadium.app
+
+certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
+    --key-type rsa --rsa-key-size 3072 --reuse-key --required-profile tlsserver \
+    --deploy-hook "nginx -s reload" \
+    --cert-name supl.grapheneos.org \
+    -d supl.grapheneos.org
+
+certbot certonly --webroot --webroot-path /srv/certbot --no-eff-email \
+    --key-type rsa --rsa-key-size 3072 --reuse-key \
+    --deploy-hook "nginx -s reload" \
+    --cert-name classic.supl.grapheneos.org \
+    -d supl.grapheneos.org
