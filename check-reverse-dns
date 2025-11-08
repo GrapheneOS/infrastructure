@@ -1,0 +1,31 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+status=0
+
+check_address() {
+    reverse=$(drill -Qx $1)
+    if [[ $reverse != $2. ]]; then
+        echo mismatched reverse dns: $reverse
+        status=1
+    fi
+}
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    if test -v hosts_ipv4_address[$host]; then
+        check_address ${hosts_ipv4_address[$host]} $host
+    fi
+    if test -v hosts_ipv6_address[$host]; then
+        check_address ${hosts_ipv6_address[$host]} $host
+    fi
+done
+
+exit $status
