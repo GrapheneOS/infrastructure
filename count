@@ -15,7 +15,7 @@ mkdir logs
 
 for host in ${hosts_releases[@]}; do
     echo obtaining logs from $host
-    ssh $host journalctl -u nginx -o cat -g ' 200 ' >> logs/merged.log
+    ssh $host 'zstdcat /var/log/nginx/access.log* | zstd -1' | zstd -1d >> logs/merged.log
 done
 
 grep Dalvik/ logs/merged.log > logs/merged-device.log
