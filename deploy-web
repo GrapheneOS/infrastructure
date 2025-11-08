@@ -16,7 +16,7 @@ for host in ${hosts_web[@]}; do
     rsync --chmod=755 session-ticket-keys-create session-ticket-keys-rotate $remote:/usr/local/bin/
     rsync -r --delete etc/systemd/system/nginx.service.d/ $remote:/etc/systemd/system/nginx.service.d
     rsync etc/syslog-ng/syslog-ng.conf $remote:/etc/syslog-ng/syslog-ng.conf
-    ssh $remote mkdir -p /etc/syslog-ng/conf.d
+    rsync -r etc/syslog-ng/conf.d/ $remote:/etc/syslog-ng/conf.d
     rsync etc/logrotate.d/nginx $remote:/etc/logrotate.d/nginx
 
     ssh $remote "mkdir -pm755 /var/cache/nginx
