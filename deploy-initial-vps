@@ -39,7 +39,8 @@ rsync etc/systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.
 rsync etc/systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
 
 rsync etc/fstab.virtual $remote:/mnt/etc/fstab
-rsync etc/{crypttab,locale.conf,mkinitcpio.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
+rsync etc/{crypttab,locale.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
+rsync etc/mkinitcpio.conf.simple $remote:/mnt/etc/mkinitcpio.conf
 
 rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
