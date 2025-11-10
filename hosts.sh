@@ -363,6 +363,10 @@ readonly hosts_all=(
     "${hosts_web[@]}"
 )
 
+readonly hosts_vultr=(
+    {lax,mia,nyc,sea}.ns1.grapheneos.org
+)
+
 readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
     {brn,las,nyc}.ns2.grapheneos.org
