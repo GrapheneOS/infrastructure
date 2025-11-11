@@ -1,11 +1,11 @@
 declare -Ar hosts_hostname=(
     [ns1.staging.grapheneos.org]=ns1-staging
-    [2.ns1.grapheneos.org]=2-ns1
-    [3.ns1.grapheneos.org]=3-ns1
+    [fra.ns1.grapheneos.org]=ns1-fra
     [lax.ns1.grapheneos.org]=ns1-lax
     [mia.ns1.grapheneos.org]=ns1-mia
     [nyc.ns1.grapheneos.org]=ns1-nyc
     [sea.ns1.grapheneos.org]=ns1-sea
+    [sin.ns1.grapheneos.org]=ns1-sin
     [brn.ns2.grapheneos.org]=ns2-brn
     [las.ns2.grapheneos.org]=ns2-las
     [nyc.ns2.grapheneos.org]=ns2-nyc
@@ -54,11 +54,11 @@ declare -Ar hosts_hardware_watchdog=(
 )
 
 declare -Ar hosts_authorized_keys=(
-    [2.ns1.grapheneos.org]=authorized_keys-replica-ns1
-    [3.ns1.grapheneos.org]=authorized_keys-replica-ns1
+    [fra.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [lax.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [mia.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [sea.ns1.grapheneos.org]=authorized_keys-replica-ns1
+    [sin.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [brn.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [las.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [bhs1.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -75,12 +75,12 @@ declare -Ar hosts_authorized_keys=(
 
 declare -Ar hosts_firewall=(
     [ns1.staging.grapheneos.org]=ns1
-    [2.ns1.grapheneos.org]=ns1
-    [3.ns1.grapheneos.org]=ns1
+    [fra.ns1.grapheneos.org]=ns1
     [lax.ns1.grapheneos.org]=ns1
     [mia.ns1.grapheneos.org]=ns1
     [nyc.ns1.grapheneos.org]=ns1
     [sea.ns1.grapheneos.org]=ns1
+    [sin.ns1.grapheneos.org]=ns1
     [brn.ns2.grapheneos.org]=ns2
     [las.ns2.grapheneos.org]=ns2
     [nyc.ns2.grapheneos.org]=ns2
@@ -154,12 +154,12 @@ declare -Ar hosts_tcp_fastopen=(
 
 declare -Ar hosts_conntrack_size=(
     [ns1.staging.grapheneos.org]=65536
-    [2.ns1.grapheneos.org]=131072
-    [3.ns1.grapheneos.org]=131072
+    [fra.ns1.grapheneos.org]=65536
     [lax.ns1.grapheneos.org]=65536
     [mia.ns1.grapheneos.org]=65536
     [nyc.ns1.grapheneos.org]=65536
     [sea.ns1.grapheneos.org]=65536
+    [sin.ns1.grapheneos.org]=65536
     [brn.ns2.grapheneos.org]=65536
     [las.ns2.grapheneos.org]=65536
     [nyc.ns2.grapheneos.org]=65536
@@ -213,12 +213,12 @@ declare -Ar hosts_journald_system_max_file_size=(
 
 declare -Ar hosts_ipv4_address=(
     [ns1.staging.grapheneos.org]=198.98.56.238
-    [2.ns1.grapheneos.org]=57.129.65.223
-    [3.ns1.grapheneos.org]=15.235.197.61
+    [fra.ns1.grapheneos.org]=80.240.20.200
     [lax.ns1.grapheneos.org]=140.82.23.46
     [mia.ns1.grapheneos.org]=45.32.173.220
     [nyc.ns1.grapheneos.org]=66.135.8.22
     [sea.ns1.grapheneos.org]=66.42.74.68
+    [sin.ns1.grapheneos.org]=139.180.154.140
     [brn.ns2.grapheneos.org]=107.189.3.168
     [las.ns2.grapheneos.org]=205.185.124.155
     [nyc.ns2.grapheneos.org]=198.98.53.141
@@ -244,12 +244,12 @@ declare -Ar hosts_ipv4_address=(
 
 declare -Ar hosts_ipv6_address=(
     [ns1.staging.grapheneos.org]=2605:6400:10:c41:de92:c534:326a:711a
-    [2.ns1.grapheneos.org]=2001:41d0:701:1100::245b
-    [3.ns1.grapheneos.org]=2402:1f00:8000:800::3966
+    [fra.ns1.grapheneos.org]=2a05:f480:1800:2acd:5400:05ff:fec2:23a1
     [lax.ns1.grapheneos.org]=2001:19f0:6000:2dcd:5400:05ff:fec1:97db
     [mia.ns1.grapheneos.org]=2001:19f0:9002:2981:5400:05ff:fec1:65c4
     [nyc.ns1.grapheneos.org]=2001:19f0:1000:c0d4:5400:05ff:fec1:7c21
     [sea.ns1.grapheneos.org]=2001:19f0:8001:0438:5400:05ff:fec1:9dbd
+    [sin.ns1.grapheneos.org]=2401:c080:1400:4890:5400:05ff:fec2:23b0
     [brn.ns2.grapheneos.org]=2605:6400:30:ec25:102c:af6d:5be:1eb8
     [las.ns2.grapheneos.org]=2605:6400:20:1c8f:a0c9:372d:482e:945b
     [nyc.ns2.grapheneos.org]=2605:6400:10:102e:95bc:89ef:2e7f:49bb
@@ -273,7 +273,7 @@ declare -Ar hosts_ipv6_address=(
 )
 
 readonly hosts_ns1=(
-    {{2..3},lax,mia,nyc,sea}.ns1.grapheneos.org
+    {fra,lax,mia,nyc,sea,sin}.ns1.grapheneos.org
 )
 
 readonly hosts_ns2=(
@@ -315,7 +315,7 @@ readonly hosts_primary=(
 )
 
 readonly hosts_secondary=(
-    {{2..3},lax,mia,sea}.ns1.grapheneos.org
+    {fra,lax,mia,sea,sin}.ns1.grapheneos.org
     {brn,las}.ns2.grapheneos.org
     {bhs1,gra0,gra1,las0,las1,sin0,sin1}.grapheneos.org
     {lax,lon}.releases.grapheneos.org
@@ -364,7 +364,7 @@ readonly hosts_all=(
 )
 
 readonly hosts_vultr=(
-    {lax,mia,nyc,sea}.ns1.grapheneos.org
+    {fra,lax,mia,nyc,sea,sin}.ns1.grapheneos.org
 )
 
 readonly hosts_buyvm=(
@@ -376,7 +376,6 @@ readonly hosts_buyvm=(
 )
 
 readonly hosts_ovh=(
-    {2..3}.ns1.grapheneos.org
     mail.grapheneos.org
     {bhs0,bhs1,gra0,gra1,sin0,sin1}.grapheneos.org
     attestation.app
