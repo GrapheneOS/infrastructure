@@ -1,5 +1,6 @@
 b3sum
 base
+bird
 chrony
 cloud-guest-utils
 conntrack-tools
