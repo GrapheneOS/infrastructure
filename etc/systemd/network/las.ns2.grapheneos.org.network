@@ -6,6 +6,9 @@ LinkLocalAddressing=no
 Address=205.185.124.155/24
 Address=2605:6400:20:1c8f:a0c9:372d:482e:945b/128
 
+# 23.149.124.0/24 anycast subnet for ns2 instances
+Address=23.149.124.1/32
+
 # 2602:f4d9:1::/48 anycast subnet for ns2 instances
 Address=2602:f4d9:1::1/128
 
