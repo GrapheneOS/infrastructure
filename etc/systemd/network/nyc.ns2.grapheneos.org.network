@@ -5,7 +5,11 @@ Name=public
 LinkLocalAddressing=no
 Address=198.98.53.141/24
 Address=2605:6400:10:102e:95bc:89ef:2e7f:49bb/128
+
+# 2602:f4d9:1::/48 anycast subnet for ns2 instances
 Address=2602:f4d9:1::1/128
+
+# anycast address for BuyVM ns2 instances
 Address=198.251.90.93/32
 
 [Route]
