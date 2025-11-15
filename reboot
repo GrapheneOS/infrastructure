@@ -20,6 +20,7 @@ for host in ${hosts[@]}; do
     echo $host
     echo
 
+    ssh root@$host 'systemctl is-active bird.service >/dev/null && systemctl stop bird.service && sleep 5'
     systemctl -H $host reboot
     sleep $2
 
