@@ -24,5 +24,6 @@ groupadd -fg 2100 tls
 mkdir -p -m 750 /etc/session-ticket-keys && chgrp tls /etc/session-ticket-keys
 systemctl daemon-reload &&
 systemctl enable --now session-ticket-keys-create.service session-ticket-keys-rotate.timer syslog-ng@default.service nginx.service
+chmod 700 /var/log/nginx
 syslog-ng-ctl reload"
 done
