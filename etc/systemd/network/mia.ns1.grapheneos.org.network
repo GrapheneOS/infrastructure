@@ -5,7 +5,9 @@ Name=public
 DHCP=ipv4
 
 # 2602:f4d9::/48 anycast subnet for ns1 instances
+[Address]
 Address=2602:f4d9::1/128
+PreferredLifetime=0
 
 [DHCP]
 UseMTU=true

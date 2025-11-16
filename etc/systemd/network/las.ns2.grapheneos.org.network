@@ -7,13 +7,19 @@ Address=205.185.124.155/24
 Address=2605:6400:20:1c8f:a0c9:372d:482e:945b/128
 
 # 23.149.124.0/24 anycast subnet for ns2 instances
+[Address]
 Address=23.149.124.1/32
+PreferredLifetime=0
 
 # 2602:f4d9:1::/48 anycast subnet for ns2 instances
+[Address]
 Address=2602:f4d9:1::1/128
+PreferredLifetime=0
 
 # anycast address for BuyVM ns2 instances
+[Address]
 Address=198.251.90.93/32
+PreferredLifetime=0
 
 [Route]
 Destination=0.0.0.0/0
