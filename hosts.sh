@@ -78,7 +78,7 @@ declare -Ar hosts_authorized_keys=(
 )
 
 declare -Ar hosts_firewall=(
-    [ns1.staging.grapheneos.org]=ns1
+    [ns1.staging.grapheneos.org]=ns2
     [fra.ns1.grapheneos.org]=ns1
     [lax.ns1.grapheneos.org]=ns1
     [lon.ns1.grapheneos.org]=ns1
