@@ -18,7 +18,7 @@ for host in ${hosts[@]}; do
     echo
 
     declare -A stats
-    for field in $(ssh $user@$host "pdns_control show '*'" | tr ',' '\n'); do
+    for field in $(ssh $user@$host 'pdns_control list' | tr ',' '\n'); do
         IFS== read key value <<<$field
         stats[$key]=$value
     done
