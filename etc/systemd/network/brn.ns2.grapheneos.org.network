@@ -16,7 +16,7 @@ PreferredLifetime=0
 Address=2602:f4d9:1::1/128
 PreferredLifetime=0
 
-# anycast address for BuyVM ns2 instances
+# fallback anycast address for BuyVM ns2 instances
 [Address]
 Address=198.251.90.93/32
 PreferredLifetime=0
