@@ -1,0 +1,5 @@
+[Match]
+MACAddress=56:00:05:c4:e3:94
+
+[Link]
+Name=public

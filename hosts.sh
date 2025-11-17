@@ -7,6 +7,7 @@ declare -Ar hosts_hostname=(
     [nyc.ns1.grapheneos.org]=ns1-nyc
     [sea.ns1.grapheneos.org]=ns1-sea
     [sin.ns1.grapheneos.org]=ns1-sin
+    [tyo.ns1.grapheneos.org]=ns1-tyo
     [brn.ns2.grapheneos.org]=ns2-brn
     [las.ns2.grapheneos.org]=ns2-las
     [mia.ns2.grapheneos.org]=ns2-mia
@@ -62,6 +63,7 @@ declare -Ar hosts_authorized_keys=(
     [mia.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [sea.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [sin.ns1.grapheneos.org]=authorized_keys-replica-ns1
+    [tyo.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [brn.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [las.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
@@ -86,6 +88,7 @@ declare -Ar hosts_firewall=(
     [nyc.ns1.grapheneos.org]=ns1
     [sea.ns1.grapheneos.org]=ns1
     [sin.ns1.grapheneos.org]=ns1
+    [tyo.ns1.grapheneos.org]=ns1
     [brn.ns2.grapheneos.org]=ns2
     [las.ns2.grapheneos.org]=ns2
     [mia.ns2.grapheneos.org]=ns2
@@ -167,6 +170,7 @@ declare -Ar hosts_conntrack_size=(
     [nyc.ns1.grapheneos.org]=65536
     [sea.ns1.grapheneos.org]=65536
     [sin.ns1.grapheneos.org]=65536
+    [tyo.ns1.grapheneos.org]=65536
     [brn.ns2.grapheneos.org]=65536
     [las.ns2.grapheneos.org]=65536
     [mia.ns2.grapheneos.org]=65536
@@ -226,6 +230,7 @@ declare -Ar hosts_ipv4_address=(
     [nyc.ns1.grapheneos.org]=66.135.8.22
     [sea.ns1.grapheneos.org]=66.42.74.68
     [sin.ns1.grapheneos.org]=139.180.154.140
+    [tyo.ns1.grapheneos.org]=66.42.42.15
     [brn.ns2.grapheneos.org]=107.189.3.168
     [las.ns2.grapheneos.org]=205.185.124.155
     [mia.ns2.grapheneos.org]=45.61.188.113
@@ -259,6 +264,7 @@ declare -Ar hosts_ipv6_address=(
     [nyc.ns1.grapheneos.org]=2001:19f0:1000:c0d4:5400:05ff:fec1:7c21
     [sea.ns1.grapheneos.org]=2001:19f0:8001:0438:5400:05ff:fec1:9dbd
     [sin.ns1.grapheneos.org]=2401:c080:1400:4890:5400:05ff:fec2:23b0
+    [tyo.ns1.grapheneos.org]=2001:19f0:7001:5695:5400:05ff:fec4:e394
     [brn.ns2.grapheneos.org]=2605:6400:30:ec25:102c:af6d:5be:1eb8
     [las.ns2.grapheneos.org]=2605:6400:20:1c8f:a0c9:372d:482e:945b
     [mia.ns2.grapheneos.org]=2605:6400:40:ffbd:14e7:d270:fd75:600c
@@ -283,7 +289,7 @@ declare -Ar hosts_ipv6_address=(
 )
 
 readonly hosts_ns1=(
-    {fra,lax,lon,mia,nyc,sea,sin}.ns1.grapheneos.org
+    {fra,lax,lon,mia,nyc,sea,sin,tyo}.ns1.grapheneos.org
 )
 
 readonly hosts_ns2=(
@@ -325,7 +331,7 @@ readonly hosts_primary=(
 )
 
 readonly hosts_secondary=(
-    {fra,lax,lon,mia,sea,sin}.ns1.grapheneos.org
+    {fra,lax,lon,mia,sea,sin,tyo}.ns1.grapheneos.org
     {brn,las,mia}.ns2.grapheneos.org
     {bhs1,fra,gra,hio,las,sin0,sin1}.grapheneos.org
     {lax,lon}.releases.grapheneos.org
@@ -374,7 +380,7 @@ readonly hosts_all=(
 )
 
 readonly hosts_vultr=(
-    {fra,lax,lon,mia,nyc,sea,sin}.ns1.grapheneos.org
+    {fra,lax,lon,mia,nyc,sea,sin,tyo}.ns1.grapheneos.org
 )
 
 readonly hosts_buyvm=(
