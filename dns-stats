@@ -26,7 +26,11 @@ for host in ${hosts[@]}; do
     print_stat uptime
     print_stat backend-queries
     print_stat tcp-queries
+    print_stat tcp4-queries
+    print_stat tcp6-queries
     print_stat udp-queries
+    print_stat udp4-queries
+    print_stat udp6-queries
     print_stat latency
     print_stat receive-latency
     print_stat backend-latency
