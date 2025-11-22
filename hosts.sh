@@ -22,8 +22,7 @@ declare -Ar hosts_hostname=(
     [gra.grapheneos.org]=grapheneos-gra
     [hio.grapheneos.org]=grapheneos-hio
     [las.grapheneos.org]=grapheneos-las
-    [sin0.grapheneos.org]=grapheneos-sin0
-    [sin1.grapheneos.org]=grapheneos-sin1
+    [sin.grapheneos.org]=grapheneos-sin
     [lax.releases.grapheneos.org]=releases-lax
     [lon.releases.grapheneos.org]=releases-lon
     [mia.releases.grapheneos.org]=releases-mia
@@ -76,8 +75,7 @@ declare -Ar hosts_authorized_keys=(
     [gra.grapheneos.org]=authorized_keys-replica-grapheneos
     [hio.grapheneos.org]=authorized_keys-replica-grapheneos
     [las.grapheneos.org]=authorized_keys-replica-grapheneos
-    [sin0.grapheneos.org]=authorized_keys-replica-grapheneos
-    [sin1.grapheneos.org]=authorized_keys-replica-grapheneos
+    [sin.grapheneos.org]=authorized_keys-replica-grapheneos
     [lax.releases.grapheneos.org]=authorized_keys-replica-releases
     [lon.releases.grapheneos.org]=authorized_keys-replica-releases
     [staging.attestation.app]=authorized_keys-staging-attestation
@@ -107,8 +105,7 @@ declare -Ar hosts_firewall=(
     [gra.grapheneos.org]=network
     [hio.grapheneos.org]=network
     [las.grapheneos.org]=network-fq
-    [sin0.grapheneos.org]=network
-    [sin1.grapheneos.org]=network
+    [sin.grapheneos.org]=network-fq
     [lax.releases.grapheneos.org]=web-fq
     [lon.releases.grapheneos.org]=web-fq
     [mia.releases.grapheneos.org]=web-fq
@@ -142,8 +139,7 @@ declare -Ar hosts_reserved_ports=(
     [gra.grapheneos.org]=7275
     [hio.grapheneos.org]=7275
     [las.grapheneos.org]=7275
-    [sin0.grapheneos.org]=7275
-    [sin1.grapheneos.org]=7275
+    [sin.grapheneos.org]=7275
     [staging.attestation.app]=8080
     [attestation.app]=8080
 )
@@ -191,8 +187,7 @@ declare -Ar hosts_conntrack_size=(
     [gra.grapheneos.org]=131072
     [hio.grapheneos.org]=131072
     [las.grapheneos.org]=65536
-    [sin0.grapheneos.org]=131072
-    [sin1.grapheneos.org]=131072
+    [sin.grapheneos.org]=65536
     [lax.releases.grapheneos.org]=12582912
     [lon.releases.grapheneos.org]=8388608
     [mia.releases.grapheneos.org]=12582912
@@ -253,8 +248,7 @@ declare -Ar hosts_ipv4_address=(
     [gra.grapheneos.org]=54.37.41.188
     [hio.grapheneos.org]=15.204.8.153
     [las.grapheneos.org]=209.141.37.35
-    [sin0.grapheneos.org]=51.79.160.50
-    [sin1.grapheneos.org]=51.79.161.36
+    [sin.grapheneos.org]=66.42.50.166
     [lax.releases.grapheneos.org]=104.194.8.203
     [lon.releases.grapheneos.org]=45.88.230.12
     [mia.releases.grapheneos.org]=172.96.172.37
@@ -289,8 +283,7 @@ declare -Ar hosts_ipv6_address=(
     [gra.grapheneos.org]=2001:41d0:304:200::902f
     [hio.grapheneos.org]=2604:2dc0:202:300::23a6
     [las.grapheneos.org]=2605:6400:20:387:72d4:dab9:a369:f351
-    [sin0.grapheneos.org]=2402:1f00:8000:800::16d6
-    [sin1.grapheneos.org]=2402:1f00:8000:800::1949
+    [sin.grapheneos.org]=2001:19f0:4400:2c24:5400:05ff:fec7:4cdc
     [lax.releases.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [mia.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
@@ -345,7 +338,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sea,sin,syd,tyo}.ns1.grapheneos.org
     {brn,las,mia}.ns2.grapheneos.org
-    {bhs1,fra,gra,hio,las,sin0,sin1}.grapheneos.org
+    {bhs1,fra,gra,hio,las,sin}.grapheneos.org
     {lax,lon}.releases.grapheneos.org
 )
 
@@ -359,7 +352,7 @@ readonly hosts_backup=(
 )
 
 readonly hosts_grapheneos=(
-    {bhs0,bhs1,fra,gra,hio,las,sin0,sin1}.grapheneos.org
+    {bhs0,bhs1,fra,gra,hio,las,sin}.grapheneos.org
 )
 
 readonly hosts_grapheneos_all=(
@@ -393,6 +386,7 @@ readonly hosts_all=(
 
 readonly hosts_vultr=(
     {bom,fra,lax,lon,mia,nyc,sea,sin,syd,tyo}.ns1.grapheneos.org
+    sin.grapheneos.org
 )
 
 readonly hosts_buyvm=(
@@ -405,7 +399,7 @@ readonly hosts_buyvm=(
 
 readonly hosts_ovh=(
     mail.grapheneos.org
-    {bhs0,bhs1,fra,gra,hio,sin0,sin1}.grapheneos.org
+    {bhs0,bhs1,fra,gra,hio}.grapheneos.org
     attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
