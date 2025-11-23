@@ -23,6 +23,7 @@ declare -Ar hosts_hostname=(
     [hio.grapheneos.org]=grapheneos-hio
     [las.grapheneos.org]=grapheneos-las
     [sin.grapheneos.org]=grapheneos-sin
+    [syd.grapheneos.org]=grapheneos-syd
     [lax.releases.grapheneos.org]=releases-lax
     [lon.releases.grapheneos.org]=releases-lon
     [mia.releases.grapheneos.org]=releases-mia
@@ -76,6 +77,7 @@ declare -Ar hosts_authorized_keys=(
     [hio.grapheneos.org]=authorized_keys-replica-grapheneos
     [las.grapheneos.org]=authorized_keys-replica-grapheneos
     [sin.grapheneos.org]=authorized_keys-replica-grapheneos
+    [syd.grapheneos.org]=authorized_keys-replica-grapheneos
     [lax.releases.grapheneos.org]=authorized_keys-replica-releases
     [lon.releases.grapheneos.org]=authorized_keys-replica-releases
     [staging.attestation.app]=authorized_keys-staging-attestation
@@ -106,6 +108,7 @@ declare -Ar hosts_firewall=(
     [hio.grapheneos.org]=network
     [las.grapheneos.org]=network-fq
     [sin.grapheneos.org]=network-fq
+    [syd.grapheneos.org]=network-fq
     [lax.releases.grapheneos.org]=web-fq
     [lon.releases.grapheneos.org]=web-fq
     [mia.releases.grapheneos.org]=web-fq
@@ -140,6 +143,7 @@ declare -Ar hosts_reserved_ports=(
     [hio.grapheneos.org]=7275
     [las.grapheneos.org]=7275
     [sin.grapheneos.org]=7275
+    [syd.grapheneos.org]=7275
     [staging.attestation.app]=8080
     [attestation.app]=8080
 )
@@ -188,6 +192,7 @@ declare -Ar hosts_conntrack_size=(
     [hio.grapheneos.org]=131072
     [las.grapheneos.org]=65536
     [sin.grapheneos.org]=65536
+    [syd.grapheneos.org]=65536
     [lax.releases.grapheneos.org]=12582912
     [lon.releases.grapheneos.org]=8388608
     [mia.releases.grapheneos.org]=12582912
@@ -249,6 +254,7 @@ declare -Ar hosts_ipv4_address=(
     [hio.grapheneos.org]=15.204.8.153
     [las.grapheneos.org]=209.141.37.35
     [sin.grapheneos.org]=66.42.50.166
+    [syd.grapheneos.org]=107.191.57.135
     [lax.releases.grapheneos.org]=104.194.8.203
     [lon.releases.grapheneos.org]=45.88.230.12
     [mia.releases.grapheneos.org]=172.96.172.37
@@ -284,6 +290,7 @@ declare -Ar hosts_ipv6_address=(
     [hio.grapheneos.org]=2604:2dc0:202:300::23a6
     [las.grapheneos.org]=2605:6400:20:387:72d4:dab9:a369:f351
     [sin.grapheneos.org]=2001:19f0:4400:2c24:5400:05ff:fec7:4cdc
+    [syd.grapheneos.org]=2401:c080:1800:1c40:5400:05ff:fec7:c902
     [lax.releases.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [mia.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
@@ -338,7 +345,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sea,sin,syd,tyo}.ns1.grapheneos.org
     {brn,las,mia}.ns2.grapheneos.org
-    {bhs1,fra,gra,hio,las,sin}.grapheneos.org
+    {bhs1,fra,gra,hio,las,sin,syd}.grapheneos.org
     {lax,lon}.releases.grapheneos.org
 )
 
@@ -352,7 +359,7 @@ readonly hosts_backup=(
 )
 
 readonly hosts_grapheneos=(
-    {bhs0,bhs1,fra,gra,hio,las,sin}.grapheneos.org
+    {bhs0,bhs1,fra,gra,hio,las,sin,syd}.grapheneos.org
 )
 
 readonly hosts_grapheneos_all=(
@@ -386,7 +393,7 @@ readonly hosts_all=(
 
 readonly hosts_vultr=(
     {bom,fra,lax,lon,mia,nyc,sea,sin,syd,tyo}.ns1.grapheneos.org
-    sin.grapheneos.org
+    {sin,syd}.grapheneos.org
 )
 
 readonly hosts_buyvm=(

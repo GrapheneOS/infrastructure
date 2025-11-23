@@ -1,0 +1,8 @@
+[Match]
+Name=public
+
+[Network]
+DHCP=ipv4
+
+[DHCP]
+UseMTU=true
