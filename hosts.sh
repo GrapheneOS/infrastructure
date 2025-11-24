@@ -19,8 +19,8 @@ declare -Ar hosts_hostname=(
     [bhs.grapheneos.org]=grapheneos-bhs
     [fra.grapheneos.org]=grapheneos-fra
     [gra.grapheneos.org]=grapheneos-gra
-    [hio.grapheneos.org]=grapheneos-hio
     [las.grapheneos.org]=grapheneos-las
+    [sea.grapheneos.org]=grapheneos-sea
     [sin.grapheneos.org]=grapheneos-sin
     [syd.grapheneos.org]=grapheneos-syd
     [lax.releases.grapheneos.org]=releases-lax
@@ -72,8 +72,8 @@ declare -Ar hosts_authorized_keys=(
     [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [fra.grapheneos.org]=authorized_keys-replica-grapheneos
     [gra.grapheneos.org]=authorized_keys-replica-grapheneos
-    [hio.grapheneos.org]=authorized_keys-replica-grapheneos
     [las.grapheneos.org]=authorized_keys-replica-grapheneos
+    [sea.grapheneos.org]=authorized_keys-replica-grapheneos
     [sin.grapheneos.org]=authorized_keys-replica-grapheneos
     [syd.grapheneos.org]=authorized_keys-replica-grapheneos
     [lax.releases.grapheneos.org]=authorized_keys-replica-releases
@@ -102,8 +102,8 @@ declare -Ar hosts_firewall=(
     [bhs.grapheneos.org]=network
     [fra.grapheneos.org]=network
     [gra.grapheneos.org]=network
-    [hio.grapheneos.org]=network
     [las.grapheneos.org]=network-fq
+    [sea.grapheneos.org]=network-fq
     [sin.grapheneos.org]=network-fq
     [syd.grapheneos.org]=network-fq
     [lax.releases.grapheneos.org]=web-fq
@@ -136,8 +136,8 @@ declare -Ar hosts_reserved_ports=(
     [bhs.grapheneos.org]=7275
     [fra.grapheneos.org]=7275
     [gra.grapheneos.org]=7275
-    [hio.grapheneos.org]=7275
     [las.grapheneos.org]=7275
+    [sea.grapheneos.org]=7275
     [sin.grapheneos.org]=7275
     [syd.grapheneos.org]=7275
     [staging.attestation.app]=8080
@@ -184,8 +184,8 @@ declare -Ar hosts_conntrack_size=(
     [bhs.grapheneos.org]=131072
     [fra.grapheneos.org]=131072
     [gra.grapheneos.org]=131072
-    [hio.grapheneos.org]=131072
     [las.grapheneos.org]=65536
+    [sea.grapheneos.org]=65536
     [sin.grapheneos.org]=65536
     [syd.grapheneos.org]=65536
     [lax.releases.grapheneos.org]=12582912
@@ -245,8 +245,8 @@ declare -Ar hosts_ipv4_address=(
     [bhs.grapheneos.org]=51.222.156.101
     [fra.grapheneos.org]=57.129.65.223
     [gra.grapheneos.org]=54.37.41.188
-    [hio.grapheneos.org]=15.204.8.153
     [las.grapheneos.org]=209.141.37.35
+    [sea.grapheneos.org]=45.32.230.4
     [sin.grapheneos.org]=66.42.50.166
     [syd.grapheneos.org]=107.191.57.135
     [lax.releases.grapheneos.org]=104.194.8.203
@@ -280,8 +280,8 @@ declare -Ar hosts_ipv6_address=(
     [bhs.grapheneos.org]=2607:5300:205:200::29c6
     [fra.grapheneos.org]=2001:41d0:701:1100::245b
     [gra.grapheneos.org]=2001:41d0:304:200::902f
-    [hio.grapheneos.org]=2604:2dc0:202:300::23a6
     [las.grapheneos.org]=2605:6400:20:387:72d4:dab9:a369:f351
+    [sea.grapheneos.org]=2001:19f0:8000:3454:5400:05ff:fec8:4139
     [sin.grapheneos.org]=2001:19f0:4400:2c24:5400:05ff:fec7:4cdc
     [syd.grapheneos.org]=2401:c080:1800:1c40:5400:05ff:fec7:c902
     [lax.releases.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
@@ -338,7 +338,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sea,sin,syd,tyo}.ns1.grapheneos.org
     {brn,las,mia}.ns2.grapheneos.org
-    {fra,gra,hio,las,sin,syd}.grapheneos.org
+    {fra,gra,las,sea,sin,syd}.grapheneos.org
     {lax,lon}.releases.grapheneos.org
 )
 
@@ -352,7 +352,7 @@ readonly hosts_backup=(
 )
 
 readonly hosts_grapheneos=(
-    {bhs,fra,gra,hio,las,sin,syd}.grapheneos.org
+    {bhs,fra,gra,las,sea,sin,syd}.grapheneos.org
 )
 
 readonly hosts_grapheneos_all=(
@@ -386,7 +386,7 @@ readonly hosts_all=(
 
 readonly hosts_vultr=(
     {bom,fra,lax,lon,mia,nyc,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {sin,syd}.grapheneos.org
+    {sea,sin,syd}.grapheneos.org
 )
 
 readonly hosts_buyvm=(
@@ -399,7 +399,7 @@ readonly hosts_buyvm=(
 
 readonly hosts_ovh=(
     mail.grapheneos.org
-    {bhs,fra,gra,hio}.grapheneos.org
+    {bhs,fra,gra}.grapheneos.org
     attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
