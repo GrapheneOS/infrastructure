@@ -184,29 +184,25 @@ declare -Ar hosts_ssh_users=(
 )
 
 declare -Ar hosts_journald_system_max_use=(
-    [ns1.staging.grapheneos.org]=4G
-    [staging.grapheneos.org]=4G
-    [brn.grapheneos.org]=4G
-    [las.grapheneos.org]=4G
-    [mia.grapheneos.org]=4G
-    [nyc.grapheneos.org]=4G
+    [mail.grapheneos.org]=8G
     [lax.releases.grapheneos.org]=64G
     [lon.releases.grapheneos.org]=64G
     [mia.releases.grapheneos.org]=64G
-    [staging.attestation.app]=4G
+    [attestation.app]=8G
+    [matrix.grapheneos.org]=8G
+    [discuss.grapheneos.org]=8G
+    [grapheneos.social]=8G
 )
 
 declare -Ar hosts_journald_system_max_file_size=(
-    [ns1.staging.grapheneos.org]=256M
-    [staging.grapheneos.org]=256M
-    [brn.grapheneos.org]=256M
-    [las.grapheneos.org]=256M
-    [mia.grapheneos.org]=256M
-    [nyc.grapheneos.org]=256M
+    [mail.grapheneos.org]=512M
     [lax.releases.grapheneos.org]=4G
     [lon.releases.grapheneos.org]=4G
     [mia.releases.grapheneos.org]=4G
-    [staging.attestation.app]=256M
+    [attestation.app]=512M
+    [matrix.grapheneos.org]=512M
+    [discuss.grapheneos.org]=512M
+    [grapheneos.social]=512M
 )
 
 declare -Ar hosts_ipv4_address=(
