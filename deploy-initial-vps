@@ -62,7 +62,7 @@ rsync tmp $remote:/mnt/etc/ssh/sshd_config
 rm tmp
 
 cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf tmp
-sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]} / 64 ))/g" tmp
+sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]:-65536} / 64 ))/g" tmp
 sed -i "s/{{ssh_ipv4}}/$ssh_ipv4/g" tmp
 sed -i "s/{{ssh_ipv6}}/$ssh_ipv6/g" tmp
 rsync tmp $remote:/mnt/etc/nftables.conf
