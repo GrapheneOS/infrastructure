@@ -4,7 +4,7 @@ Name=public
 [Network]
 LinkLocalAddressing=no
 Address=198.98.56.238/24
-Address=2605:6400:10:c41:de92:c534:326a:711a/128
+Address=2605:6400:10:c41:de92:c534:326a:711a/48
 
 [Route]
 Destination=0.0.0.0/0

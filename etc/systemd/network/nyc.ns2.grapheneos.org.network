@@ -4,7 +4,7 @@ Name=public
 [Network]
 LinkLocalAddressing=no
 Address=198.98.53.141/24
-Address=2605:6400:10:102e:95bc:89ef:2e7f:49bb/128
+Address=2605:6400:10:102e:95bc:89ef:2e7f:49bb/48
 
 # 23.149.124.0/24 anycast subnet for ns2 instances
 [Address]
