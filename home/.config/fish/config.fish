@@ -31,6 +31,7 @@ if status is-interactive
     alias chgrp 'chgrp --preserve-root'
     alias vim nvim
     alias vimdiff 'nvim -d'
+    alias certbot 'certbot --max-log-backups 0'
 
     abbr cp cp -i
     abbr mv mv -i
