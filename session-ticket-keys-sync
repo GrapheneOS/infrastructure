@@ -4,7 +4,7 @@ set -o errexit -o nounset -o pipefail
 
 status=0
 
-cd /etc/session-ticket-keys
+cd /etc/tls/session-ticket-keys
 
 if [[ ! -f syncing ]]; then
     for mirror in $(cat /etc/mirrors); do
@@ -12,11 +12,11 @@ if [[ ! -f syncing ]]; then
         echo Syncing from $mirror
         echo
 
-        ssh $mirror "bash -c [[ -f /etc/session-ticket-keys/synced ]]" || continue
+        ssh $mirror "bash -c [[ -f /etc/tls/session-ticket-keys/synced ]]" || continue
 
         rm -rf sync
         mkdir sync
-        rsync -aI $mirror:/etc/session-ticket-keys/{{next,1,2,3,4}.key,keys} sync/ || continue
+        rsync -aI $mirror:/etc/tls/session-ticket-keys/{{next,1,2,3,4}.key,keys} sync/ || continue
         rsync -aIv sync/{{next,1,2,3,4}.key,keys} . || continue
         rm -r sync
 
@@ -38,7 +38,7 @@ for mirror in $(cat /etc/mirrors); do
     echo Syncing to $mirror
     echo
 
-    ssh $mirror "rm -rf /etc/session-ticket-keys/sync && mkdir /etc/session-ticket-keys/sync" || continue
-    rsync -aI {{next,1,2,3,4}.key,keys} $mirror:/etc/session-ticket-keys/sync || continue
+    ssh $mirror "rm -rf /etc/tls/session-ticket-keys/sync && mkdir /etc/tls/session-ticket-keys/sync" || continue
+    rsync -aI {{next,1,2,3,4}.key,keys} $mirror:/etc/tls/session-ticket-keys/sync || continue
     ssh $mirror session-ticket-keys-sync-deploy || continue
 done
