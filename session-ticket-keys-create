@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-cd /etc/session-ticket-keys
+cd /etc/tls/session-ticket-keys
 
 for i in next.key {1..4}.key; do
     head -c 80 </dev/random >$i

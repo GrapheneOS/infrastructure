@@ -21,7 +21,9 @@ for host in ${hosts_web[@]}; do
 
     ssh $remote 'mkdir -pm755 /var/cache/nginx &&
 groupadd -fg 2100 tls &&
-mkdir -p -m 750 /etc/session-ticket-keys && chgrp tls /etc/session-ticket-keys &&
+mkdir -pm 750 /etc/tls/session-ticket-keys &&
+chmod 750 /etc/tls &&
+chown root:tls /etc/tls &&
 systemctl daemon-reload &&
 systemctl enable --now session-ticket-keys-create.service session-ticket-keys-rotate.timer syslog-ng@default.service nginx.service &&
 chmod 700 /var/log/nginx &&

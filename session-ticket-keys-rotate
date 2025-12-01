@@ -2,7 +2,7 @@
 
 set -o errexit -o nounset -o pipefail
 
-cd /etc/session-ticket-keys
+cd /etc/tls/session-ticket-keys
 
 exec {fd}>sync-lock
 flock $fd
