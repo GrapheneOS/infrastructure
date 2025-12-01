@@ -10,7 +10,7 @@ for mirror in $(cat /etc/mirrors); do
     echo
 
     rsync -acv --delete --fsync --preallocate /etc/letsencrypt/ $mirror:/etc/letsencrypt &&
-        ssh root@$mirror nginx -s reload ||
+        ssh root@$mirror "systemctl is-active --quiet nginx.service && nginx -s reload; systemctl is-active --quiet dnsdist.service && dnsdist -c -e 'reloadAllCertificates()'" ||
         status=1
 done
 
