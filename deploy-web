@@ -20,7 +20,7 @@ for host in ${hosts_web[@]}; do
     rsync etc/logrotate.d/nginx $remote:/etc/logrotate.d/nginx
 
     ssh $remote 'mkdir -pm755 /var/cache/nginx &&
-groupadd -fg 2100 tls &&
+groupadd -fr tls &&
 mkdir -pm 750 /etc/tls/session-ticket-keys &&
 chmod 750 /etc/tls &&
 chown root:tls /etc/tls &&
