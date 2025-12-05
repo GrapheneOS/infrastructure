@@ -6,6 +6,11 @@ LinkLocalAddressing=no
 Address=198.98.56.238/24
 Address=2605:6400:10:c41:de92:c534:326a:711a/48
 
+# 2602:f4d9:4::/48 subnet for ns1.staging.grapheneos.org
+[Address]
+Address=2602:f4d9:4::1/128
+PreferredLifetime=0
+
 [Route]
 Destination=0.0.0.0/0
 Gateway=198.98.56.1
