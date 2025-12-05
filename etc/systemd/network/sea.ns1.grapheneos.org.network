@@ -9,5 +9,10 @@ DHCP=ipv4
 Address=2602:f4d9::1/128
 PreferredLifetime=0
 
+# 2602:f4d9:2::/48 anycast subnet for ns1 instances
+[Address]
+Address=2602:f4d9:2::1/128
+PreferredLifetime=0
+
 [DHCP]
 UseMTU=true
