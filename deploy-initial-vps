@@ -57,9 +57,13 @@ rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
 rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
 cp etc/ssh/sshd_config tmp
+sed -i "s/{{ipv4_address}}/${hosts_ipv4_address[$host]:-127.0.0.1}/g" tmp
+sed -i "s/{{ipv6_address}}/${hosts_ipv6_address[$host]:-::1}/g" tmp
 sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" tmp
 rsync tmp $remote:/mnt/etc/ssh/sshd_config
 rm tmp
+
+rsync -r --delete etc/systemd/system/sshd.service.d $remote:/mnt/etc/systemd/system/
 
 cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf tmp
 sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]:-65536} / 64 ))/g" tmp
