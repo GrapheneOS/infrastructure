@@ -1,5 +1,0 @@
-#!/bin/bash
-
-python3 -m venv --clear venv
-source venv/bin/activate
-pip install --require-hashes --only-binary :all: -r requirements.txt
