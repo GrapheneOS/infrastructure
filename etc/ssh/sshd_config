@@ -13,8 +13,8 @@ Include /etc/ssh/sshd_config.d/*.conf
 
 #Port 22
 #AddressFamily any
-#ListenAddress 0.0.0.0
-#ListenAddress ::
+ListenAddress {{ipv4_address}}
+ListenAddress {{ipv6_address}}
 
 IPQoS cs2 cs0
 
