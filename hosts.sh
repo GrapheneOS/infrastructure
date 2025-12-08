@@ -38,6 +38,7 @@ declare -Ar hosts_uefi=(
     [lax.releases.grapheneos.org]=true
     [lon.releases.grapheneos.org]=true
     [mia.releases.grapheneos.org]=true
+    [matrix.grapheneos.org]=true
 )
 
 declare -Ar hosts_mdraid=(
@@ -133,6 +134,7 @@ declare -Ar hosts_agcount=(
     [lax.releases.grapheneos.org]=24
     [lon.releases.grapheneos.org]=32
     [mia.releases.grapheneos.org]=24
+    [matrix.grapheneos.org]=10
 )
 
 declare -Ar hosts_reserved_ports=(
@@ -192,7 +194,7 @@ declare -Ar hosts_journald_system_max_use=(
     [lon.releases.grapheneos.org]=64G
     [mia.releases.grapheneos.org]=64G
     [attestation.app]=8G
-    [matrix.grapheneos.org]=8G
+    [matrix.grapheneos.org]=32G
     [discuss.grapheneos.org]=8G
     [grapheneos.social]=8G
 )
@@ -203,7 +205,7 @@ declare -Ar hosts_journald_system_max_file_size=(
     [lon.releases.grapheneos.org]=4G
     [mia.releases.grapheneos.org]=4G
     [attestation.app]=512M
-    [matrix.grapheneos.org]=512M
+    [matrix.grapheneos.org]=2G
     [discuss.grapheneos.org]=512M
     [grapheneos.social]=512M
 )
@@ -239,7 +241,7 @@ declare -Ar hosts_ipv4_address=(
     [mia.releases.grapheneos.org]=172.96.172.37
     [staging.attestation.app]=198.98.57.157
     [attestation.app]=51.79.66.27
-    [matrix.grapheneos.org]=51.79.51.42
+    [matrix.grapheneos.org]=152.53.39.88
     [discuss.grapheneos.org]=51.79.52.38
     [grapheneos.social]=51.222.159.14
 )
@@ -274,7 +276,7 @@ declare -Ar hosts_ipv6_address=(
     [mia.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
     [attestation.app]=2607:5300:205:200::7e9
-    [matrix.grapheneos.org]=2607:5300:205:200::26e1
+    [matrix.grapheneos.org]=2a0a:4cc0:2000:dbc::1
     [discuss.grapheneos.org]=2607:5300:205:200::3c4
     [grapheneos.social]=2607:5300:205:200::5e3f
 )
