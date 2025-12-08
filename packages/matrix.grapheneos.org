@@ -4,10 +4,11 @@ certbot
 chrony
 cloud-guest-utils
 conntrack-tools
+dosfstools
+efibootmgr
 ethtool
 fish
 git
-grub
 htop
 ioping
 iperf

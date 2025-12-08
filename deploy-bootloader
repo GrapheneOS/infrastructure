@@ -12,9 +12,13 @@ for host in ${hosts_all[@]}; do
 
     if [[ ${hosts_uefi[$host]:-false} = true ]]; then
         rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
-        rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
-        ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
-        rsync -r --delete etc/systemd/system/systemd-boot-update.service.d $remote:/etc/systemd/system/
+        if [[ ${hosts_mdraid[$host]:-false} = true ]]; then
+            rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
+            ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
+            rsync -r --delete etc/systemd/system/systemd-boot-update.service.d $remote:/etc/systemd/system/
+        else
+            ssh $remote "bootctl install && systemctl enable systemd-boot-update.service"
+        fi
     else
         rsync etc/default/grub $remote:/etc/default/grub
         drive=$(ssh $remote bash -c '[[ -e /dev/sda ]] && echo sda || echo vda')
