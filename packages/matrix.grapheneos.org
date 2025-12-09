@@ -48,5 +48,6 @@ sysstat
 tinyxxd
 tree
 unbound
+valkey
 xfsprogs
 yarn
