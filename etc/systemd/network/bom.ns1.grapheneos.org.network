@@ -4,6 +4,11 @@ Name=public
 [Network]
 DHCP=ipv4
 
+# 23.149.124.0/24 anycast subnet for ns1 instances
+[Address]
+Address=23.149.124.1/32
+PreferredLifetime=0
+
 # 2602:f4d9::/48 anycast subnet for ns1 instances
 [Address]
 Address=2602:f4d9::1/128
