@@ -378,6 +378,10 @@ readonly hosts_all=(
     "${hosts_web[@]}"
 )
 
+readonly hosts_netcup=(
+    matrix.grapheneos.org
+)
+
 readonly hosts_vultr=(
     {bom,fra,lax,lon,mia,nyc,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
     {sao,sea,sin,syd}.grapheneos.org
@@ -394,7 +398,6 @@ readonly hosts_buyvm=(
 readonly hosts_ovh=(
     mail.grapheneos.org
     attestation.app
-    matrix.grapheneos.org
     discuss.grapheneos.org
     grapheneos.social
 )
