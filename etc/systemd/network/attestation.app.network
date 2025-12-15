@@ -2,25 +2,24 @@
 Name=public
 
 [Network]
-DHCP=ipv4
 LinkLocalAddressing=no
-Address=2607:5300:205:200::7e9/128
+Address=159.195.67.50/22
+Address=2a0a:4cc0:c2:1cf3::1/64
+
+[Route]
+Destination=0.0.0.0/0
+Gateway=159.195.64.1
+PreferredSource=159.195.67.50
+
+[Route]
+Destination=159.195.64.1
+PreferredSource=159.195.67.50
 
 [Route]
 Destination=::/0
-Gateway=2607:5300:205:200::1
-PreferredSource=2607:5300:205:200::7e9
+Gateway=fe80::1
+PreferredSource=2a0a:4cc0:c2:1cf3::1
 
 [Route]
-Destination=2607:5300:205:200::1
-PreferredSource=2607:5300:205:200::7e9
-
-[DHCP]
-UseMTU=true
-
-[CAKE]
-Handle=1
-Bandwidth=1000M
-PriorityQueueingPreset=diffserv4
-FlowIsolationMode=dual-dst-host
-SplitGSO=false
+Destination=fe80::1
+PreferredSource=2a0a:4cc0:c2:1cf3::1

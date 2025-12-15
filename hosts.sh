@@ -39,7 +39,10 @@ declare -Ar hosts_uefi=(
     [lax.releases.grapheneos.org]=true
     [lon.releases.grapheneos.org]=true
     [mia.releases.grapheneos.org]=true
+    [attestation.app]=true
     [matrix.grapheneos.org]=true
+    [discuss.grapheneos.org]=true
+    [grapheneos.social]=true
 )
 
 declare -Ar hosts_mdraid=(
@@ -116,7 +119,7 @@ declare -Ar hosts_firewall=(
     [lax.releases.grapheneos.org]=web
     [lon.releases.grapheneos.org]=web
     [mia.releases.grapheneos.org]=web
-    [staging.attestation.app]=attestation-fq
+    [staging.attestation.app]=attestation
     [attestation.app]=attestation
     [matrix.grapheneos.org]=matrix
     [discuss.grapheneos.org]=discuss
@@ -137,7 +140,10 @@ declare -Ar hosts_agcount=(
     [lax.releases.grapheneos.org]=24
     [lon.releases.grapheneos.org]=32
     [mia.releases.grapheneos.org]=24
+    [attestation.app]=6
     [matrix.grapheneos.org]=10
+    [discuss.grapheneos.org]=6
+    [grapheneos.social]=6
 )
 
 declare -Ar hosts_reserved_ports=(
@@ -197,10 +203,10 @@ declare -Ar hosts_journald_system_max_use=(
     [lax.releases.grapheneos.org]=64G
     [lon.releases.grapheneos.org]=64G
     [mia.releases.grapheneos.org]=64G
-    [attestation.app]=8G
+    [attestation.app]=16G
     [matrix.grapheneos.org]=32G
-    [discuss.grapheneos.org]=8G
-    [grapheneos.social]=8G
+    [discuss.grapheneos.org]=16G
+    [grapheneos.social]=16G
 )
 
 declare -Ar hosts_journald_system_max_file_size=(
@@ -208,10 +214,10 @@ declare -Ar hosts_journald_system_max_file_size=(
     [lax.releases.grapheneos.org]=4G
     [lon.releases.grapheneos.org]=4G
     [mia.releases.grapheneos.org]=4G
-    [attestation.app]=512M
+    [attestation.app]=1G
     [matrix.grapheneos.org]=2G
-    [discuss.grapheneos.org]=512M
-    [grapheneos.social]=512M
+    [discuss.grapheneos.org]=1G
+    [grapheneos.social]=1G
 )
 
 declare -Ar hosts_ipv4_address=(
@@ -245,10 +251,10 @@ declare -Ar hosts_ipv4_address=(
     [lon.releases.grapheneos.org]=45.88.230.12
     [mia.releases.grapheneos.org]=172.96.172.37
     [staging.attestation.app]=198.98.57.157
-    [attestation.app]=51.79.66.27
+    [attestation.app]=159.195.67.50
     [matrix.grapheneos.org]=152.53.39.88
-    [discuss.grapheneos.org]=51.79.52.38
-    [grapheneos.social]=51.222.159.14
+    [discuss.grapheneos.org]=152.53.168.153
+    [grapheneos.social]=152.53.168.159
 )
 
 declare -Ar hosts_ipv6_address=(
@@ -281,10 +287,10 @@ declare -Ar hosts_ipv6_address=(
     [lax.releases.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [mia.releases.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
     [staging.attestation.app]=2605:6400:10:aa9:1c0f:44d3:da15:c0ec
-    [attestation.app]=2607:5300:205:200::7e9
+    [attestation.app]=2a0a:4cc0:c2:1cf3::1
     [matrix.grapheneos.org]=2a0a:4cc0:2000:dbc::1
-    [discuss.grapheneos.org]=2607:5300:205:200::3c4
-    [grapheneos.social]=2607:5300:205:200::5e3f
+    [discuss.grapheneos.org]=2a0a:4cc0:2000:aa27::1
+    [grapheneos.social]=2a0a:4cc0:2000:a62d::1
 )
 
 readonly hosts_ns1=(
@@ -379,7 +385,10 @@ readonly hosts_all=(
 )
 
 readonly hosts_netcup=(
+    attestation.app
     matrix.grapheneos.org
+    discuss.grapheneos.org
+    grapheneos.social
 )
 
 readonly hosts_vultr=(
@@ -397,7 +406,4 @@ readonly hosts_buyvm=(
 
 readonly hosts_ovh=(
     mail.grapheneos.org
-    attestation.app
-    discuss.grapheneos.org
-    grapheneos.social
 )
