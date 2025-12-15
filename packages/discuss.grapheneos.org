@@ -6,10 +6,11 @@ chrony
 cloud-guest-utils
 composer
 conntrack-tools
+dosfstools
+efibootmgr
 ethtool
 fish
 geoipupdate
-grub
 htop
 ioping
 iperf

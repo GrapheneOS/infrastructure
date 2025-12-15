@@ -1,0 +1,16 @@
+[Unit]
+Requires=sys-subsystem-net-devices-public.device
+After=sys-subsystem-net-devices-public.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/tc qdisc replace dev public root handle 1 mq
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:1 handle 1001 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:2 handle 1002 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:3 handle 1003 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:4 handle 1004 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:5 handle 1005 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+ExecStart=/usr/bin/tc qdisc replace dev public parent 1:6 handle 1006 fq bands 3 priomap 1 2 2 2 0 2 0 0 1 1 1 1 1 1 1 1
+
+[Install]
+WantedBy=sys-subsystem-net-devices-public.device
