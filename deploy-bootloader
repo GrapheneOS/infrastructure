@@ -13,7 +13,10 @@ for host in ${hosts_all[@]}; do
     if [[ ${hosts_uefi[$host]:-false} = true ]]; then
         rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
         if [[ ${hosts_mdraid[$host]:-false} = true ]]; then
-            rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
+            # standalone intel-ucode.img is needed for yto.releases.grapheneos.org
+            if [[ $host != yto.releases.grapheneos.org ]]; then
+                rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
+            fi
             ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
             rsync -r --delete etc/systemd/system/systemd-boot-update.service.d $remote:/etc/systemd/system/
         else
