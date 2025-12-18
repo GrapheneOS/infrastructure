@@ -41,4 +41,3 @@ tree
 unbound
 xfsprogs
 yaml-cpp
-zerotier-one
