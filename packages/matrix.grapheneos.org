@@ -35,11 +35,13 @@ plocate
 postgresql
 postgresql-old-upgrade
 pv
+python-hiredis
 python-keystoneauth1
 python-keystoneclient
 python-pip
 python-psycopg2
 python-swiftclient
+python-txredisapi
 rsync
 strace
 stress
