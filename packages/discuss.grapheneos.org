@@ -33,9 +33,6 @@ pacutils
 php
 php-fpm
 php-gd
-php-legacy
-php-legacy-fpm
-php-legacy-gd
 plocate
 pv
 python-keystoneauth1
