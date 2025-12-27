@@ -1,6 +1,6 @@
 certbot certonly --webroot --webroot-path /srv/certbot --max-log-backups 0 --no-eff-email \
     --key-type ecdsa --reuse-key --required-profile shortlived \
-    --deploy-hook "nginx -s reload; rsync -acv --copy-links --delete --chmod=D750,F640 --chown root:dnsdist /etc/letsencrypt/live/ /etc/letsencrypt/dnsdist/; dnsdist -c -e 'reloadAllCertificates()'" \
+    --deploy-hook "systemctl reload nginx; rsync -acv --copy-links --delete --chmod=D750,F640 --chown root:dnsdist /etc/letsencrypt/live/ /etc/letsencrypt/dnsdist/; dnsdist -c -e 'reloadAllCertificates()'" \
     --cert-name ns2.grapheneos.org \
     -d ns2.grapheneos.org \
     -d ns2.attestation.app \
