@@ -21,7 +21,7 @@ if [[ ! -f syncing ]]; then
         rm -r sync
 
         if systemctl is-active --quiet nginx.service; then
-            nginx -s reload || true
+            systemctl reload nginx || true
         fi
 
         if systemctl is-active --quiet dnsdist.service; then

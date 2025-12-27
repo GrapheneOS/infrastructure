@@ -14,7 +14,7 @@ if ! cmp --silent keys sync/keys; then
     status=0
 
     if systemctl is-active --quiet nginx.service; then
-        nginx -s reload || status=1
+        systemctl reload nginx || status=1
     fi
 
     if systemctl is-active --quiet dnsdist.service; then
