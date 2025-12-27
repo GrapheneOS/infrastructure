@@ -140,6 +140,18 @@ declare -Ar hosts_firewall=(
     [grapheneos.social]=social
 )
 
+declare -Ar hosts_ntp_server=(
+    [staging.grapheneos.org]=true
+    [brn.grapheneos.org]=true
+    [las.grapheneos.org]=true
+    [mia.grapheneos.org]=true
+    [nyc.grapheneos.org]=true
+    [sao.grapheneos.org]=true
+    [sea.grapheneos.org]=true
+    [sin.grapheneos.org]=true
+    [syd.grapheneos.org]=true
+)
+
 declare -Ar hosts_swap=(
     [lax.releases.grapheneos.org]=32768
     [lon.releases.grapheneos.org]=32768

@@ -44,7 +44,7 @@ rsync etc/mkinitcpio.conf.simple $remote:/mnt/etc/mkinitcpio.conf
 
 rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
-if [[ $host = @(0.grapheneos.network|1.grapheneos.network|2.grapheneos.network|3.grapheneos.network) ]]; then
+if [[ ${hosts_ntp_server[$host]:-false} = true ]]; then
     cp etc/chrony.conf tmp
     echo -e '\nallow' >> tmp
     rsync tmp $remote:/mnt/etc/chrony.conf
