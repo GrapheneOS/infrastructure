@@ -3,6 +3,7 @@ Name=public
 
 [Network]
 DHCP=ipv4
+Address=2401:c080:1800:1c40:5400:05ff:fec7:c902/64
 
 [DHCP]
 UseMTU=true

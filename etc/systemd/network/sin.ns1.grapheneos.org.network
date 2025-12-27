@@ -3,6 +3,7 @@ Name=public
 
 [Network]
 DHCP=ipv4
+Address=2401:c080:1400:4890:5400:05ff:fec2:23b0/64
 
 # 23.149.124.0/24 anycast subnet for ns1 instances
 [Address]
