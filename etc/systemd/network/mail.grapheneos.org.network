@@ -2,7 +2,7 @@
 Name=public
 
 [Network]
-LinkLocalAddressing=no
+IPv6AcceptRA=no
 Address=192.99.98.22/32
 Address=2607:5300:205:200::472f/128
 
