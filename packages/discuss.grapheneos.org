@@ -47,5 +47,6 @@ tinyxxd
 tree
 unbound
 valkey
+x264
 xfsprogs
 zopfli
