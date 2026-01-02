@@ -1,0 +1,5 @@
+[Match]
+MACAddress=24:a3:f0:47:df:ec
+
+[Link]
+Name=public
