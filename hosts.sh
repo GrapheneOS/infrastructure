@@ -14,6 +14,7 @@ declare -Ar hosts_hostname=(
     [ber.ns2.grapheneos.org]=ns2-ber
     [brn.ns2.grapheneos.org]=ns2-brn
     [las.ns2.grapheneos.org]=ns2-las
+    [lon.ns2.grapheneos.org]=ns2-lon
     [mia.ns2.grapheneos.org]=ns2-mia
     [nyc.ns2.grapheneos.org]=ns2-nyc
     [sin.ns2.grapheneos.org]=ns2-sin
@@ -85,6 +86,7 @@ declare -Ar hosts_authorized_keys=(
     [ber.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [brn.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [las.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [lon.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sin.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [brn.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -115,6 +117,7 @@ declare -Ar hosts_firewall=(
     [ber.ns2.grapheneos.org]=ns2
     [brn.ns2.grapheneos.org]=ns2
     [las.ns2.grapheneos.org]=ns2
+    [lon.ns2.grapheneos.org]=ns2
     [mia.ns2.grapheneos.org]=ns2
     [nyc.ns2.grapheneos.org]=ns2
     [sin.ns2.grapheneos.org]=ns2
@@ -259,6 +262,7 @@ declare -Ar hosts_ipv4_address=(
     [ber.ns2.grapheneos.org]=194.156.154.116
     [brn.ns2.grapheneos.org]=107.189.3.168
     [las.ns2.grapheneos.org]=205.185.124.155
+    [lon.ns2.grapheneos.org]=45.142.244.163
     [mia.ns2.grapheneos.org]=45.61.188.113
     [nyc.ns2.grapheneos.org]=198.98.53.141
     [sin.ns2.grapheneos.org]=194.156.163.89
@@ -298,6 +302,7 @@ declare -Ar hosts_ipv6_address=(
     [ber.ns2.grapheneos.org]=2a12:8d02:2100:176:26a3:f0ff:fe49:eda8
     [brn.ns2.grapheneos.org]=2605:6400:30:ec25:102c:af6d:5be:1eb8
     [las.ns2.grapheneos.org]=2605:6400:20:1c8f:a0c9:372d:482e:945b
+    [lon.ns2.grapheneos.org]=2a0f:3b03:101:2d3:26a3:f0ff:fe4a:594
     [mia.ns2.grapheneos.org]=2605:6400:40:ffbd:14e7:d270:fd75:600c
     [nyc.ns2.grapheneos.org]=2605:6400:10:102e:95bc:89ef:2e7f:49bb
     [sin.ns2.grapheneos.org]=2407:b9c0:e002:226:26a3:f0ff:fe47:8f06
@@ -326,7 +331,7 @@ readonly hosts_ns1=(
 )
 
 readonly hosts_ns2=(
-    {ber,brn,las,mia,nyc,sin}.ns2.grapheneos.org
+    {ber,brn,las,lon,mia,nyc,sin}.ns2.grapheneos.org
 )
 
 readonly hosts_dns=(
@@ -365,7 +370,7 @@ readonly hosts_primary=(
 
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {ber,brn,las,mia,sin}.ns2.grapheneos.org
+    {ber,brn,las,lon,mia,sin}.ns2.grapheneos.org
     {brn,las,mia,nyc,sao,sea,sin,syd}.grapheneos.org
     {lax,yto}.releases.grapheneos.org
 )
