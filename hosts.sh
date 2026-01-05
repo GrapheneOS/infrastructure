@@ -12,12 +12,8 @@ declare -Ar hosts_hostname=(
     [syd.ns1.grapheneos.org]=ns1-syd
     [tyo.ns1.grapheneos.org]=ns1-tyo
     [ber.ns2.grapheneos.org]=ns2-ber
-    [brn.ns2.grapheneos.org]=ns2-brn
     [iad.ns2.grapheneos.org]=ns2-iad
-    [las.ns2.grapheneos.org]=ns2-las
     [lon.ns2.grapheneos.org]=ns2-lon
-    [mia.ns2.grapheneos.org]=ns2-mia
-    [nyc.ns2.grapheneos.org]=ns2-nyc
     [sjc.ns2.grapheneos.org]=ns2-sjc
     [sin.ns2.grapheneos.org]=ns2-sin
     [mail.grapheneos.org]=mail
@@ -86,11 +82,7 @@ declare -Ar hosts_authorized_keys=(
     [syd.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [tyo.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [ber.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [brn.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [las.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [lon.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [nyc.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sjc.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sin.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [brn.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -119,12 +111,8 @@ declare -Ar hosts_firewall=(
     [syd.ns1.grapheneos.org]=ns1
     [tyo.ns1.grapheneos.org]=ns1
     [ber.ns2.grapheneos.org]=ns2
-    [brn.ns2.grapheneos.org]=ns2
     [iad.ns2.grapheneos.org]=ns2
-    [las.ns2.grapheneos.org]=ns2
     [lon.ns2.grapheneos.org]=ns2
-    [mia.ns2.grapheneos.org]=ns2
-    [nyc.ns2.grapheneos.org]=ns2
     [sjc.ns2.grapheneos.org]=ns2
     [sin.ns2.grapheneos.org]=ns2
     [mail.grapheneos.org]=mail
@@ -201,10 +189,6 @@ declare -Ar hosts_tcp_wmem_max=(
 
 declare -Ar hosts_tcp_fastopen=(
     [ns1.staging.grapheneos.org]=false
-    [brn.ns2.grapheneos.org]=false
-    [las.ns2.grapheneos.org]=false
-    [mia.ns2.grapheneos.org]=false
-    [nyc.ns2.grapheneos.org]=false
     [staging.grapheneos.org]=false
     [brn.grapheneos.org]=false
     [las.grapheneos.org]=false
@@ -266,12 +250,8 @@ declare -Ar hosts_ipv4_address=(
     [syd.ns1.grapheneos.org]=45.63.28.82
     [tyo.ns1.grapheneos.org]=66.42.42.15
     [ber.ns2.grapheneos.org]=194.156.154.116
-    [brn.ns2.grapheneos.org]=107.189.3.168
     [iad.ns2.grapheneos.org]=38.175.99.47
-    [las.ns2.grapheneos.org]=205.185.124.155
     [lon.ns2.grapheneos.org]=45.142.244.163
-    [mia.ns2.grapheneos.org]=45.61.188.113
-    [nyc.ns2.grapheneos.org]=198.98.53.141
     [sjc.ns2.grapheneos.org]=38.175.105.122
     [sin.ns2.grapheneos.org]=194.156.163.89
     [mail.grapheneos.org]=192.99.98.22
@@ -308,12 +288,8 @@ declare -Ar hosts_ipv6_address=(
     [syd.ns1.grapheneos.org]=2401:c080:1800:141d:5400:05ff:fec5:d41b
     [tyo.ns1.grapheneos.org]=2001:19f0:7001:5695:5400:05ff:fec4:e394
     [ber.ns2.grapheneos.org]=2a12:8d02:2100:176:26a3:f0ff:fe49:eda8
-    [brn.ns2.grapheneos.org]=2605:6400:30:ec25:102c:af6d:5be:1eb8
     [iad.ns2.grapheneos.org]=2a0b:4342:1a32:db:26a3:f0ff:fe47:dfec
-    [las.ns2.grapheneos.org]=2605:6400:20:1c8f:a0c9:372d:482e:945b
     [lon.ns2.grapheneos.org]=2a0f:3b03:101:2d3:26a3:f0ff:fe4a:594
-    [mia.ns2.grapheneos.org]=2605:6400:40:ffbd:14e7:d270:fd75:600c
-    [nyc.ns2.grapheneos.org]=2605:6400:10:102e:95bc:89ef:2e7f:49bb
     [sjc.ns2.grapheneos.org]=2a0e:6901:410:ab:26a3:f0ff:fe4a:c8d6
     [sin.ns2.grapheneos.org]=2407:b9c0:e002:226:26a3:f0ff:fe47:8f06
     [mail.grapheneos.org]=2607:5300:205:200::472f
@@ -341,7 +317,7 @@ readonly hosts_ns1=(
 )
 
 readonly hosts_ns2=(
-    {ber,brn,iad,las,lon,mia,nyc,sjc,sin}.ns2.grapheneos.org
+    {ber,iad,lon,sjc,sin}.ns2.grapheneos.org
 )
 
 readonly hosts_dns=(
@@ -380,7 +356,7 @@ readonly hosts_primary=(
 
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {ber,brn,las,lon,mia,nyc,sjc,sin}.ns2.grapheneos.org
+    {ber,lon,sjc,sin}.ns2.grapheneos.org
     {brn,las,mia,nyc,sao,sea,sin,syd}.grapheneos.org
     {lax,yto}.releases.grapheneos.org
 )
@@ -441,7 +417,6 @@ readonly hosts_vultr=(
 
 readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
-    {brn,las,mia,nyc}.ns2.grapheneos.org
     staging.grapheneos.org
     {brn,las,mia,nyc}.grapheneos.org
     staging.attestation.app
