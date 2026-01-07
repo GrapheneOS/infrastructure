@@ -138,6 +138,10 @@ declare -Ar hosts_firewall=(
     [grapheneos.social]=social
 )
 
+declare -Ar hosts_users_outbound=(
+    [yto.releases.grapheneos.org]=bird
+)
+
 declare -Ar hosts_ntp_server=(
     [staging.grapheneos.org]=true
     [brn.grapheneos.org]=true

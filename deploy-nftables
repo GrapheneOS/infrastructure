@@ -11,10 +11,16 @@ for host in ${hosts_all[@]}; do
     echo $host
     echo
 
+    users_outbound="${hosts_users_outbound[$host]:-}"
+    if [[ -n "$users_outbound" ]]; then
+        users_outbound=", $users_outbound"
+    fi
+
     cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf tmp
     sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]:-65536} / 64 ))/g" tmp
     sed -i "s/{{ssh_ipv4}}/$ssh_ipv4/g" tmp
     sed -i "s/{{ssh_ipv6}}/$ssh_ipv6/g" tmp
+    sed -i "s/{{users_outbound}}/$users_outbound/g" tmp
     rsync tmp $remote:/etc/nftables.conf
     rm tmp
     ssh $remote systemctl enable --now nftables.service
