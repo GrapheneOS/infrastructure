@@ -1,0 +1,24 @@
+[Match]
+Name=public
+
+[Network]
+DHCP=ipv4
+Address=2407:b9c0:1:2af:26a3:f0ff:fe46:bede
+
+# 23.149.125.0/24 anycast subnet for ns2 instances
+[Address]
+Address=23.149.125.1/32
+PreferredLifetime=0
+
+# 2602:f4d9:1::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:1::1/128
+PreferredLifetime=0
+
+# 2602:f4d9:3::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:3::1/128
+PreferredLifetime=0
+
+[DHCP]
+UseMTU=true
