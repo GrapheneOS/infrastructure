@@ -1,0 +1,9 @@
+[Match]
+Name=public
+
+[Network]
+DHCP=ipv4
+Address=2401:c080:1000:13f8:5400:05ff:fee8:3c8b
+
+[DHCP]
+UseMTU=true
