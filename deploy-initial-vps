@@ -81,7 +81,7 @@ ssh $remote "umask 077 && dd if=/dev/random of=/mnt/swapfile bs=1M count=$swap s
 ssh $remote "arch-chroot /mnt chsh -s /usr/bin/fish"
 
 password=$(head -c32 <(tr -dc A-Za-z0-9 </dev/random))
-echo password: $password
+echo $password > passwords/$host
 ssh $remote "echo root:$password | arch-chroot /mnt chpasswd"
 ssh $remote umount /mnt
 ssh $remote reboot
