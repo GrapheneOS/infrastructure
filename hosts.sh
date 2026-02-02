@@ -21,9 +21,9 @@ declare -Ar hosts_hostname=(
     [tyo.ns2.grapheneos.org]=ns2-tyo
     [mail.grapheneos.org]=mail
     [staging.grapheneos.org]=grapheneos-staging
-    [brn.grapheneos.org]=grapheneos-brn
     [las.grapheneos.org]=grapheneos-las
     [mia.grapheneos.org]=grapheneos-mia
+    [nue.grapheneos.org]=grapheneos-nue
     [nyc.grapheneos.org]=grapheneos-nyc
     [sao.grapheneos.org]=grapheneos-sao
     [sea.grapheneos.org]=grapheneos-sea
@@ -41,6 +41,7 @@ declare -Ar hosts_hostname=(
 )
 
 declare -Ar hosts_uefi=(
+    [nue.grapheneos.org]=true
     [lax.releases.grapheneos.org]=true
     [mia.releases.grapheneos.org]=true
     [yto.releases.grapheneos.org]=true
@@ -92,9 +93,9 @@ declare -Ar hosts_authorized_keys=(
     [sjc.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sin.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [tyo.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [brn.grapheneos.org]=authorized_keys-replica-grapheneos
     [las.grapheneos.org]=authorized_keys-replica-grapheneos
     [mia.grapheneos.org]=authorized_keys-replica-grapheneos
+    [nue.grapheneos.org]=authorized_keys-replica-grapheneos
     [sao.grapheneos.org]=authorized_keys-replica-grapheneos
     [sea.grapheneos.org]=authorized_keys-replica-grapheneos
     [sin.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -128,9 +129,9 @@ declare -Ar hosts_firewall=(
     [tyo.ns2.grapheneos.org]=ns2
     [mail.grapheneos.org]=mail
     [staging.grapheneos.org]=network
-    [brn.grapheneos.org]=network
     [las.grapheneos.org]=network
     [mia.grapheneos.org]=network
+    [nue.grapheneos.org]=network
     [nyc.grapheneos.org]=network
     [sao.grapheneos.org]=network
     [sea.grapheneos.org]=network
@@ -153,9 +154,9 @@ declare -Ar hosts_users_outbound=(
 
 declare -Ar hosts_ntp_server=(
     [staging.grapheneos.org]=true
-    [brn.grapheneos.org]=true
     [las.grapheneos.org]=true
     [mia.grapheneos.org]=true
+    [nue.grapheneos.org]=true
     [nyc.grapheneos.org]=true
     [sao.grapheneos.org]=true
     [sea.grapheneos.org]=true
@@ -185,9 +186,9 @@ declare -Ar hosts_agcount=(
 )
 
 declare -Ar hosts_reserved_ports=(
-    [brn.grapheneos.org]=7275
     [las.grapheneos.org]=7275
     [mia.grapheneos.org]=7275
+    [nue.grapheneos.org]=7275
     [nyc.grapheneos.org]=7275
     [sao.grapheneos.org]=7275
     [sea.grapheneos.org]=7275
@@ -208,7 +209,6 @@ declare -Ar hosts_tcp_wmem_max=(
 declare -Ar hosts_tcp_fastopen=(
     [ns1.staging.grapheneos.org]=false
     [staging.grapheneos.org]=false
-    [brn.grapheneos.org]=false
     [las.grapheneos.org]=false
     [mia.grapheneos.org]=false
     [nyc.grapheneos.org]=false
@@ -234,6 +234,7 @@ declare -Ar hosts_ssh_users=(
 
 declare -Ar hosts_journald_system_max_use=(
     [mail.grapheneos.org]=8G
+    [nue.grapheneos.org]=8G
     [lax.releases.grapheneos.org]=64G
     [mia.releases.grapheneos.org]=64G
     [yto.releases.grapheneos.org]=64G
@@ -245,6 +246,7 @@ declare -Ar hosts_journald_system_max_use=(
 
 declare -Ar hosts_journald_system_max_file_size=(
     [mail.grapheneos.org]=512M
+    [nue.grapheneos.org]=512M
     [lax.releases.grapheneos.org]=4G
     [mia.releases.grapheneos.org]=4G
     [yto.releases.grapheneos.org]=4G
@@ -277,9 +279,9 @@ declare -Ar hosts_ipv4_address=(
     [tyo.ns2.grapheneos.org]=103.170.233.149
     [mail.grapheneos.org]=192.99.98.22
     [staging.grapheneos.org]=199.195.250.78
-    [brn.grapheneos.org]=107.189.14.16
     [las.grapheneos.org]=209.141.37.35
     [mia.grapheneos.org]=45.61.186.223
+    [nue.grapheneos.org]=159.195.46.80
     [nyc.grapheneos.org]=198.98.62.94
     [sao.grapheneos.org]=216.238.116.202
     [sea.grapheneos.org]=45.32.230.4
@@ -319,9 +321,9 @@ declare -Ar hosts_ipv6_address=(
     [tyo.ns2.grapheneos.org]=2407:b9c0:1:2af:26a3:f0ff:fe46:bede
     [mail.grapheneos.org]=2607:5300:205:200::472f
     [staging.grapheneos.org]=2605:6400:10:9d6:6d84:e183:acda:16d7
-    [brn.grapheneos.org]=2605:6400:30:fbfc:64d:dafb:d00a:5d19
     [las.grapheneos.org]=2605:6400:20:387:72d4:dab9:a369:f351
     [mia.grapheneos.org]=2605:6400:40:ffb4:40e3:e5c8:9b96:614b
+    [nue.grapheneos.org]=2a0a:4cc0:c1:9de2::1
     [nyc.grapheneos.org]=2605:6400:10:50:20a1:d9ea:5c10:a895
     [sao.grapheneos.org]=2001:19f0:b800:1f13:5400:05ff:fed0:8ea7
     [sea.grapheneos.org]=2001:19f0:8000:3454:5400:05ff:fec8:4139
@@ -383,7 +385,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
     {ber,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
-    {brn,las,mia,sao,sea,sin,syd,tyo}.grapheneos.org
+    {las,nue,mia,sao,sea,sin,syd,tyo}.grapheneos.org
     {lax,yto}.releases.grapheneos.org
 )
 
@@ -397,7 +399,7 @@ readonly hosts_backup=(
 )
 
 readonly hosts_grapheneos=(
-    {brn,las,nyc,mia,sao,sea,sin,syd,tyo}.grapheneos.org
+    {las,nue,nyc,mia,sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
 readonly hosts_grapheneos_all=(
@@ -430,6 +432,7 @@ readonly hosts_all=(
 )
 
 readonly hosts_netcup=(
+    nue.grapheneos.org
     attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
@@ -444,7 +447,7 @@ readonly hosts_vultr=(
 readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
     staging.grapheneos.org
-    {brn,las,mia,nyc}.grapheneos.org
+    {las,mia,nyc}.grapheneos.org
     staging.attestation.app
 )
 
