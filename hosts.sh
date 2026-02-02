@@ -383,7 +383,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
     {ber,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
-    {brn,las,mia,nyc,sao,sea,sin,syd,tyo}.grapheneos.org
+    {brn,las,mia,sao,sea,sin,syd,tyo}.grapheneos.org
     {lax,yto}.releases.grapheneos.org
 )
 
