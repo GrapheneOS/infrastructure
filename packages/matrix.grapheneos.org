@@ -18,7 +18,6 @@ linux-lts
 logrotate
 man-db
 matrix-synapse
-matterbridge-git
 moreutils
 mtr
 neovim
