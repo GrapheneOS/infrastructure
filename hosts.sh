@@ -210,7 +210,6 @@ declare -Ar hosts_tcp_fastopen=(
     [ns1.staging.grapheneos.org]=false
     [staging.grapheneos.org]=false
     [las.grapheneos.org]=false
-    [mia.grapheneos.org]=false
     [nyc.grapheneos.org]=false
     [staging.attestation.app]=false
 )
@@ -280,7 +279,7 @@ declare -Ar hosts_ipv4_address=(
     [mail.grapheneos.org]=192.99.98.22
     [staging.grapheneos.org]=199.195.250.78
     [las.grapheneos.org]=209.141.37.35
-    [mia.grapheneos.org]=45.61.186.223
+    [mia.grapheneos.org]=104.207.147.19
     [nue.grapheneos.org]=159.195.46.80
     [nyc.grapheneos.org]=198.98.62.94
     [sao.grapheneos.org]=216.238.116.202
@@ -322,7 +321,7 @@ declare -Ar hosts_ipv6_address=(
     [mail.grapheneos.org]=2607:5300:205:200::472f
     [staging.grapheneos.org]=2605:6400:10:9d6:6d84:e183:acda:16d7
     [las.grapheneos.org]=2605:6400:20:387:72d4:dab9:a369:f351
-    [mia.grapheneos.org]=2605:6400:40:ffb4:40e3:e5c8:9b96:614b
+    [mia.grapheneos.org]=2001:19f0:9000:2605:5400:05ff:feed:7df5
     [nue.grapheneos.org]=2a0a:4cc0:c1:9de2::1
     [nyc.grapheneos.org]=2605:6400:10:50:20a1:d9ea:5c10:a895
     [sao.grapheneos.org]=2001:19f0:b800:1f13:5400:05ff:fed0:8ea7
@@ -441,13 +440,13 @@ readonly hosts_netcup=(
 
 readonly hosts_vultr=(
     {bom,ewr,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {sao,sea,sin,syd,tyo}.grapheneos.org
+    {mia,sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
 readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
     staging.grapheneos.org
-    {las,mia,nyc}.grapheneos.org
+    {las,nyc}.grapheneos.org
     staging.attestation.app
 )
 
