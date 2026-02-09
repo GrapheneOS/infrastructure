@@ -9,7 +9,7 @@ Address=2602:fd50:1a1:20::2/112
 # AS40806 (GrapheneOS) 91.246.30.0/24 subnet for Toronto
 Address=91.246.30.2/32
 
-# AS40806 (GrapheneOS) 2602:f4d9:5:1::/64 subnet for yto.releases.grapheneos.org from 2602:f4d9:5::/48 subnet for Toronto
+# AS40806 (GrapheneOS) 2602:f4d9:5:1::/64 subnet for yto.grapheneos.org from 2602:f4d9:5::/48 subnet for Toronto
 Address=2602:f4d9:5:1::1/128
 
 [Route]

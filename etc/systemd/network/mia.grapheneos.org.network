@@ -2,8 +2,24 @@
 Name=public
 
 [Network]
-DHCP=ipv4
-Address=2001:19f0:9000:2605:5400:05ff:feed:7df5/64
+IPv6AcceptRA=no
+Address=172.96.172.37/24
+Address=2605:9880:400:1100:15:1240:515:6e/64
 
-[DHCP]
-UseMTU=true
+[Route]
+Destination=0.0.0.0/0
+Gateway=172.96.172.1
+PreferredSource=172.96.172.37
+
+[Route]
+Destination=172.96.172.1
+PreferredSource=172.96.172.37
+
+[Route]
+Destination=::/0
+Gateway=2605:9880:400::1
+PreferredSource=2605:9880:400:1100:15:1240:515:6e
+
+[Route]
+Destination=2605:9880:400::1
+PreferredSource=2605:9880:400:1100:15:1240:515:6e
