@@ -19,6 +19,7 @@ declare -Ar hosts_hostname=(
     [sjc.ns2.grapheneos.org]=ns2-sjc
     [sin.ns2.grapheneos.org]=ns2-sin
     [tyo.ns2.grapheneos.org]=ns2-tyo
+    [yto.ns2.grapheneos.org]=ns2-yto
     [mail.grapheneos.org]=mail
     [staging.grapheneos.org]=grapheneos-staging
     [lax.grapheneos.org]=grapheneos-lax
@@ -54,10 +55,11 @@ declare -Ar hosts_mdraid=(
     [yto.grapheneos.org]=true
 )
 
-declare -Ar hosts_metal=(
-    [lax.grapheneos.org]=true
-    [mia.grapheneos.org]=true
-    [yto.grapheneos.org]=true
+declare -Ar hosts_type=(
+    [yto.ns2.grapheneos.org]=container
+    [lax.grapheneos.org]=metal
+    [mia.grapheneos.org]=metal
+    [yto.grapheneos.org]=metal
 )
 
 declare -Ar hosts_cpu_vendor=(
@@ -90,6 +92,7 @@ declare -Ar hosts_authorized_keys=(
     [sjc.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sin.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [tyo.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [yto.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [lax.grapheneos.org]=authorized_keys-replica-grapheneos
     [nue.grapheneos.org]=authorized_keys-replica-grapheneos
     [sao.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -122,6 +125,7 @@ declare -Ar hosts_firewall=(
     [sjc.ns2.grapheneos.org]=ns2
     [sin.ns2.grapheneos.org]=ns2
     [tyo.ns2.grapheneos.org]=ns2
+    [yto.ns2.grapheneos.org]=ns2
     [mail.grapheneos.org]=mail
     [staging.grapheneos.org]=network
     [lax.grapheneos.org]=network
@@ -132,16 +136,12 @@ declare -Ar hosts_firewall=(
     [sin.grapheneos.org]=network
     [syd.grapheneos.org]=network
     [tyo.grapheneos.org]=network
-    [yto.grapheneos.org]=network
+    [yto.grapheneos.org]=network-yto
     [staging.attestation.app]=attestation
     [attestation.app]=attestation
     [matrix.grapheneos.org]=matrix
     [discuss.grapheneos.org]=discuss
     [grapheneos.social]=social
-)
-
-declare -Ar hosts_users_outbound=(
-    [yto.grapheneos.org]=bird
 )
 
 declare -Ar hosts_ntp_server=(
@@ -265,6 +265,7 @@ declare -Ar hosts_ipv4_address=(
     [sjc.ns2.grapheneos.org]=38.175.105.122
     [sin.ns2.grapheneos.org]=194.156.163.89
     [tyo.ns2.grapheneos.org]=103.170.233.149
+    [yto.ns2.grapheneos.org]=91.246.30.3
     [mail.grapheneos.org]=192.99.98.22
     [staging.grapheneos.org]=199.195.250.78
     [lax.grapheneos.org]=104.194.8.203
@@ -304,6 +305,7 @@ declare -Ar hosts_ipv6_address=(
     [sjc.ns2.grapheneos.org]=2a0e:6901:410:ab:26a3:f0ff:fe4a:c8d6
     [sin.ns2.grapheneos.org]=2407:b9c0:e002:226:26a3:f0ff:fe47:8f06
     [tyo.ns2.grapheneos.org]=2407:b9c0:1:2af:26a3:f0ff:fe46:bede
+    [yto.ns2.grapheneos.org]=2602:f4d9:5:2::1
     [mail.grapheneos.org]=2607:5300:205:200::472f
     [staging.grapheneos.org]=2605:6400:10:9d6:6d84:e183:acda:16d7
     [lax.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
@@ -327,7 +329,7 @@ readonly hosts_ns1=(
 )
 
 readonly hosts_ns2=(
-    {ber,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
+    {ber,iad,lon,mia,sea,sjc,sin,tyo,yto}.ns2.grapheneos.org
 )
 
 readonly hosts_dns=(
@@ -364,7 +366,7 @@ readonly hosts_primary=(
 
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {ber,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
+    {ber,lon,mia,sea,sjc,sin,tyo,yto}.ns2.grapheneos.org
     {lax,mia,nue,sao,sea,sin,syd,tyo,yto}.grapheneos.org
 )
 
