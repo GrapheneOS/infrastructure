@@ -1,0 +1,27 @@
+[Match]
+Name=host0
+
+[Network]
+Gateway=91.246.30.1
+Gateway=fe80::1
+
+# AS40806 (GrapheneOS) 91.246.30.0/24 subnet for Toronto
+Address=91.246.30.3/24
+
+# AS40806 (GrapheneOS) 2602:f4d9:5:2::/64 subnet for yto.ns2.grapheneos.org from 2602:f4d9:5::/48 subnet for Toronto
+Address=2602:f4d9:5:2::1/64
+
+# 23.149.125.0/24 anycast subnet for ns2 instances
+[Address]
+Address=23.149.125.1/32
+PreferredLifetime=0
+
+# 2602:f4d9:1::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:1::1/128
+PreferredLifetime=0
+
+# 2602:f4d9:3::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:3::1/128
+PreferredLifetime=0

@@ -22,7 +22,7 @@ for host in ${hosts_all[@]}; do
         else
             ssh $remote "bootctl install && systemctl enable systemd-boot-update.service"
         fi
-    else
+    elif [[ ${hosts_type[$host]:-vps} != container ]]; then
         rsync etc/default/grub $remote:/etc/default/grub
         drive=$(ssh $remote bash -c '[[ -e /dev/sda ]] && echo sda || echo vda')
         ssh $remote grub-install /dev/$drive
