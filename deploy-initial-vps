@@ -34,8 +34,7 @@ ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
 
 ssh $remote "echo $hostname >/mnt/etc/hostname"
 
-rsync etc/systemd/network/$host.link $remote:/mnt/etc/systemd/network/10-public.link
-rsync etc/systemd/network/$host.network $remote:/mnt/etc/systemd/network/10-public.network
+rsync -r --delete etc/systemd/network/$host/ $remote:/mnt/etc/systemd/network/
 
 rsync etc/fstab.virtual $remote:/mnt/etc/fstab
 rsync etc/{crypttab,locale.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
