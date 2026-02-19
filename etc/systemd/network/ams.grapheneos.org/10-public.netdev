@@ -1,0 +1,9 @@
+[NetDev]
+Name=public
+Kind=bond
+
+[Bond]
+Mode=802.3ad
+TransmitHashPolicy=layer3+4
+MIIMonitorSec=100ms
+LACPTransmitRate=fast
