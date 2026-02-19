@@ -1,0 +1,5 @@
+[Match]
+Name=public0
+
+[Network]
+Bond=public

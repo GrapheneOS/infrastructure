@@ -1,0 +1,14 @@
+[Match]
+Name=public
+
+[Network]
+Address=84.32.64.33/26
+
+[Route]
+Destination=0.0.0.0/0
+Gateway=84.32.64.1
+PreferredSource=84.32.64.33
+
+[Route]
+Destination=84.32.64.1
+PreferredSource=84.32.64.33
