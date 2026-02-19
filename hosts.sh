@@ -98,13 +98,13 @@ declare -Ar hosts_authorized_keys=(
     [syd.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [tyo.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [ber.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [iad.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [lon.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sea.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sjc.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [sin.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [tyo.ns2.grapheneos.org]=authorized_keys-replica-ns2
-    [yto.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [ams.grapheneos.org]=authorized_keys-replica-grapheneos
     [lax.grapheneos.org]=authorized_keys-replica-grapheneos
     [lon.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -382,7 +382,7 @@ readonly hosts_staging=(
 readonly hosts_certbot=(
     ns1.staging.grapheneos.org
     ewr.ns1.grapheneos.org
-    iad.ns2.grapheneos.org
+    yto.ns2.grapheneos.org
     mail.grapheneos.org
     staging.grapheneos.org
     yto.grapheneos.org
@@ -395,13 +395,13 @@ readonly hosts_certbot=(
 
 readonly hosts_primary=(
     ewr.ns1.grapheneos.org
-    iad.ns2.grapheneos.org
+    yto.ns2.grapheneos.org
     yto.grapheneos.org
 )
 
 readonly hosts_secondary=(
     {bom,fra,lax,lon,mia,sao,sea,sin,syd,tyo}.ns1.grapheneos.org
-    {ber,lon,mia,sea,sjc,sin,tyo,yto}.ns2.grapheneos.org
+    {ber,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
     {ams,lax,lon,mia,nue,sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
