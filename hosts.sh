@@ -63,6 +63,7 @@ declare -Ar hosts_mdraid=(
 
 declare -Ar hosts_type=(
     [yto.ns2.grapheneos.org]=container
+    [mail.grapheneos.org]=container
     [ams.grapheneos.org]=metal
     [lax.grapheneos.org]=metal
     [lon.grapheneos.org]=metal
@@ -230,7 +231,6 @@ declare -Ar hosts_tcp_fastopen=(
 )
 
 declare -Ar hosts_conntrack_size=(
-    [mail.grapheneos.org]=131072
     [ams.grapheneos.org]=12582912
     [lax.grapheneos.org]=12582912
     [lon.grapheneos.org]=8388608
@@ -298,7 +298,7 @@ declare -Ar hosts_ipv4_address=(
     [sin.ns2.grapheneos.org]=194.156.163.89
     [tyo.ns2.grapheneos.org]=103.170.233.149
     [yto.ns2.grapheneos.org]=91.246.30.3
-    [mail.grapheneos.org]=192.99.98.22
+    [mail.grapheneos.org]=91.246.30.4
     [staging.grapheneos.org]=199.195.250.78
     [ams.grapheneos.org]=84.32.64.33
     [lax.grapheneos.org]=104.194.8.203
@@ -340,7 +340,7 @@ declare -Ar hosts_ipv6_address=(
     [sin.ns2.grapheneos.org]=2407:b9c0:e002:226:26a3:f0ff:fe47:8f06
     [tyo.ns2.grapheneos.org]=2407:b9c0:1:2af:26a3:f0ff:fe46:bede
     [yto.ns2.grapheneos.org]=2602:f4d9:5:2::1
-    [mail.grapheneos.org]=2607:5300:205:200::472f
+    [mail.grapheneos.org]=2602:f4d9:5:3::1
     [staging.grapheneos.org]=2605:6400:10:9d6:6d84:e183:acda:16d7
     [lax.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [lon.grapheneos.org]=2a01:4020:0:52::2
@@ -463,8 +463,4 @@ readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
     staging.grapheneos.org
     staging.attestation.app
-)
-
-readonly hosts_ovh=(
-    mail.grapheneos.org
 )
