@@ -1,0 +1,12 @@
+[Match]
+Name=ve-mail.grapheneos.org
+
+[Network]
+Address=91.246.30.1/32
+Address=fe80::1/64
+
+[Route]
+Destination=91.246.30.4
+
+[Route]
+Destination=2602:f4d9:5:3::1
