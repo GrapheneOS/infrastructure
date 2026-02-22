@@ -3,7 +3,6 @@ base
 brotli
 certbot
 chrony
-cloud-guest-utils
 composer
 conntrack-tools
 diffutils
@@ -36,6 +35,7 @@ php-fpm
 php-gd
 plocate
 pv
+python
 python-keystoneauth1
 python-keystoneclient
 python-swiftclient

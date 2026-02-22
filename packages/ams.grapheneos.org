@@ -1,7 +1,6 @@
 amd-ucode
 base
 chrony
-cloud-guest-utils
 conntrack-tools
 cpupower
 diffutils
@@ -32,6 +31,7 @@ pacman-contrib
 pacutils
 plocate
 pv
+python
 rsync
 smartmontools
 strace

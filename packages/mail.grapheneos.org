@@ -2,7 +2,6 @@ age
 base
 certbot
 chrony
-cloud-guest-utils
 conntrack-tools
 diffutils
 dovecot
@@ -32,6 +31,7 @@ postfix
 postfix-pcre
 publicsuffix-list
 pv
+python
 python-authres
 python-keystoneauth1
 python-keystoneclient
