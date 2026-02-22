@@ -1,6 +1,5 @@
 base
 chrony
-cloud-guest-utils
 conntrack-tools
 diffutils
 dosfstools
@@ -26,6 +25,7 @@ pacman-contrib
 pacutils
 plocate
 pv
+python
 rsync
 strace
 stress

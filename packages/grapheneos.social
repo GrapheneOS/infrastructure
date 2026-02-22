@@ -2,7 +2,6 @@ age
 base
 certbot
 chrony
-cloud-guest-utils
 conntrack-tools
 diffutils
 dosfstools
@@ -30,6 +29,7 @@ pacutils
 plocate
 postgresql-old-upgrade
 pv
+python
 python-keystoneauth1
 python-keystoneclient
 python-swiftclient
