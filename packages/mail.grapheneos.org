@@ -7,11 +7,9 @@ diffutils
 dovecot
 ethtool
 fish
-grub
 htop
 ioping
 iperf
-linux-lts
 logrotate
 man-db
 moreutils
@@ -42,8 +40,6 @@ s-nail
 strace
 stress
 syslog-ng
-sysstat
 tinyxxd
 tree
 unbound
-xfsprogs
