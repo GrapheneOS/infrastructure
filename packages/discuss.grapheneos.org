@@ -6,6 +6,7 @@ chrony
 cloud-guest-utils
 composer
 conntrack-tools
+diffutils
 dosfstools
 efibootmgr
 ethtool

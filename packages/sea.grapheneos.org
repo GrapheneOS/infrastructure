@@ -2,6 +2,7 @@ base
 chrony
 cloud-guest-utils
 conntrack-tools
+diffutils
 ethtool
 fish
 grub
