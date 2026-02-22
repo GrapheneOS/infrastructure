@@ -2,7 +2,6 @@ age
 base
 certbot
 chrony
-cloud-guest-utils
 conntrack-tools
 diffutils
 dosfstools
@@ -28,6 +27,7 @@ pacman-contrib
 pacutils
 plocate
 pv
+python
 python-keystoneauth1
 python-keystoneclient
 python-swiftclient

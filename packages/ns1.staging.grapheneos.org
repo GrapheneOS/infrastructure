@@ -3,7 +3,6 @@ base
 bird
 certbot
 chrony
-cloud-guest-utils
 conntrack-tools
 diffutils
 dnsdist
@@ -32,6 +31,7 @@ pacutils
 plocate
 powerdns
 pv
+python
 rsync
 strace
 stress
