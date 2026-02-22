@@ -3,6 +3,7 @@ chrony
 cloud-guest-utils
 conntrack-tools
 cpupower
+diffutils
 dmidecode
 dosfstools
 efibootmgr

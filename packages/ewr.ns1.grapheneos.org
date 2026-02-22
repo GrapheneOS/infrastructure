@@ -5,6 +5,7 @@ certbot
 chrony
 cloud-guest-utils
 conntrack-tools
+diffutils
 dnsdist
 ethtool
 fish
