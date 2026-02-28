@@ -13,8 +13,9 @@ for host in ${hosts_all[@]}; do
     if [[ ${hosts_uefi[$host]:-false} = true ]]; then
         rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
         if [[ ${hosts_mdraid[$host]:-false} = true ]]; then
+            # workaround for NVMe drive power saving bug is needed for lon.grapheneos.org
             # standalone intel-ucode.img is needed for yto.grapheneos.org
-            if [[ $host != yto.grapheneos.org ]]; then
+            if [[ $host != @(lon.grapheneos.org|yto.grapheneos.org) ]]; then
                 rsync boot/loader/entries/arch-lts{,-fallback}.conf $remote:/boot/loader/entries/
             fi
             ssh $remote "SYSTEMD_RELAX_ESP_CHECKS=1 bootctl install && systemctl enable systemd-boot-update.service"
