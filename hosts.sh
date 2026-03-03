@@ -34,6 +34,7 @@ declare -Ar hosts_hostname=(
     [syd.grapheneos.org]=grapheneos-syd
     [tyo.grapheneos.org]=grapheneos-tyo
     [yto.grapheneos.org]=grapheneos-yto
+    [ams.nominatim.grapheneos.org]=nominatim-ams
     [staging.attestation.app]=attestation-staging
     [attestation.app]=attestation
     [matrix.grapheneos.org]=matrix
@@ -48,6 +49,7 @@ declare -Ar hosts_uefi=(
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
     [yto.grapheneos.org]=true
+    [ams.nominatim.grapheneos.org]=true
     [attestation.app]=true
     [matrix.grapheneos.org]=true
     [discuss.grapheneos.org]=true
@@ -60,6 +62,7 @@ declare -Ar hosts_mdraid=(
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
     [yto.grapheneos.org]=true
+    [ams.nominatim.grapheneos.org]=true
 )
 
 declare -Ar hosts_type=(
@@ -70,6 +73,7 @@ declare -Ar hosts_type=(
     [lon.grapheneos.org]=metal
     [mia.grapheneos.org]=metal
     [yto.grapheneos.org]=metal
+    [ams.nominatim.grapheneos.org]=metal
 )
 
 declare -Ar hosts_cpu_vendor=(
@@ -78,6 +82,7 @@ declare -Ar hosts_cpu_vendor=(
     [lon.grapheneos.org]=intel
     [mia.grapheneos.org]=amd
     [yto.grapheneos.org]=intel
+    [ams.nominatim.grapheneos.org]=amd
 )
 
 declare -Ar hosts_hardware_watchdog=(
@@ -86,6 +91,7 @@ declare -Ar hosts_hardware_watchdog=(
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
     [yto.grapheneos.org]=true
+    [ams.nominatim.grapheneos.org]=true
 )
 
 declare -Ar hosts_authorized_keys=(
@@ -157,6 +163,7 @@ declare -Ar hosts_firewall=(
     [syd.grapheneos.org]=network
     [tyo.grapheneos.org]=network
     [yto.grapheneos.org]=network-yto
+    [ams.nominatim.grapheneos.org]=nominatim
     [staging.attestation.app]=attestation
     [attestation.app]=attestation
     [matrix.grapheneos.org]=matrix
@@ -185,6 +192,7 @@ declare -Ar hosts_swap=(
     [lon.grapheneos.org]=32768
     [mia.grapheneos.org]=32768
     [yto.grapheneos.org]=4096
+    [ams.nominatim.grapheneos.org]=32768
     [attestation.app]=4096
     [matrix.grapheneos.org]=8192
     [discuss.grapheneos.org]=4096
@@ -197,6 +205,7 @@ declare -Ar hosts_agcount=(
     [lon.grapheneos.org]=24
     [mia.grapheneos.org]=24
     [yto.grapheneos.org]=28
+    [ams.nominatim.grapheneos.org]=32
     [attestation.app]=6
     [matrix.grapheneos.org]=10
     [discuss.grapheneos.org]=6
@@ -224,6 +233,7 @@ declare -Ar hosts_tcp_wmem_max=(
     [lon.grapheneos.org]=33554432
     [mia.grapheneos.org]=33554432
     [yto.grapheneos.org]=33554432
+    [ams.nominatim.grapheneos.org]=33554432
     [matrix.grapheneos.org]=16777216
 )
 
@@ -239,6 +249,7 @@ declare -Ar hosts_conntrack_size=(
     [lon.grapheneos.org]=8388608
     [mia.grapheneos.org]=12582912
     [yto.grapheneos.org]=8388608
+    [ams.nominatim.grapheneos.org]=12582912
     [attestation.app]=131072
     [matrix.grapheneos.org]=131072
     [discuss.grapheneos.org]=131072
@@ -259,6 +270,7 @@ declare -Ar hosts_journald_system_max_use=(
     [lon.grapheneos.org]=64G
     [mia.grapheneos.org]=64G
     [yto.grapheneos.org]=64G
+    [ams.nominatim.grapheneos.org]=64G
     [attestation.app]=16G
     [matrix.grapheneos.org]=32G
     [discuss.grapheneos.org]=16G
@@ -273,6 +285,7 @@ declare -Ar hosts_journald_system_max_file_size=(
     [lon.grapheneos.org]=4G
     [mia.grapheneos.org]=4G
     [yto.grapheneos.org]=4G
+    [ams.nominatim.grapheneos.org]=4G
     [attestation.app]=1G
     [matrix.grapheneos.org]=2G
     [discuss.grapheneos.org]=1G
@@ -315,6 +328,7 @@ declare -Ar hosts_ipv4_address=(
     [syd.grapheneos.org]=107.191.57.135
     [tyo.grapheneos.org]=207.148.108.82
     [yto.grapheneos.org]=91.246.30.2
+    [ams.nominatim.grapheneos.org]=84.32.64.35
     [staging.attestation.app]=198.98.57.157
     [attestation.app]=159.195.67.50
     [matrix.grapheneos.org]=152.53.39.88
@@ -391,6 +405,7 @@ readonly hosts_certbot=(
     mail.grapheneos.org
     staging.grapheneos.org
     yto.grapheneos.org
+    ams.nominatim.grapheneos.org
     staging.attestation.app
     attestation.app
     matrix.grapheneos.org
@@ -432,6 +447,10 @@ readonly hosts_releases=(
     {ams,lax,lon,mia,yto}.grapheneos.org
 )
 
+readonly hosts_nominatim=(
+    ams.nominatim.grapheneos.org
+)
+
 readonly hosts_attestation=(
     staging.attestation.app
     attestation.app
@@ -441,6 +460,7 @@ readonly hosts_web=(
     "${hosts_dns[@]}"
     mail.grapheneos.org
     "${hosts_grapheneos_all[@]}"
+    "${hosts_nominatim[@]}"
     "${hosts_attestation[@]}"
     matrix.grapheneos.org
     discuss.grapheneos.org
