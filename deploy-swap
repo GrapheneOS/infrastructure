@@ -1,0 +1,17 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    [[ ${hosts_type[$host]:-vps} = container ]] && continue
+
+    swap=${hosts_swap[$host]:-2048}
+    ssh $remote "umask 077 && rm -f /swapfile && dd if=/dev/random of=/swapfile bs=1M count=$swap status=progress"
+done
