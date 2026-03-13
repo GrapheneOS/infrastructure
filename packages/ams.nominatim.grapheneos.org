@@ -26,6 +26,8 @@ nftables
 nginx
 nginx-mod-brotli
 nmap
+nominatim
+nominatim-ui
 openssh
 pacman-contrib
 pacutils
@@ -42,4 +44,5 @@ tinyxxd
 tree
 turbostat
 unbound
+wget
 xfsprogs
