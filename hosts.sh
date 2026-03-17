@@ -6,6 +6,7 @@ declare -Ar hosts_hostname=(
     [fra.ns1.grapheneos.org]=ns1-fra
     [lax.ns1.grapheneos.org]=ns1-lax
     [lon.ns1.grapheneos.org]=ns1-lon
+    [mad.ns1.grapheneos.org]=ns1-mad
     [mia.ns1.grapheneos.org]=ns1-mia
     [sao.ns1.grapheneos.org]=ns1-sao
     [sea.ns1.grapheneos.org]=ns1-sea
@@ -101,6 +102,7 @@ declare -Ar hosts_authorized_keys=(
     [fra.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [lax.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [lon.ns1.grapheneos.org]=authorized_keys-replica-ns1
+    [mad.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [mia.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [sao.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [sea.ns1.grapheneos.org]=authorized_keys-replica-ns1
@@ -137,6 +139,7 @@ declare -Ar hosts_firewall=(
     [fra.ns1.grapheneos.org]=ns1
     [lax.ns1.grapheneos.org]=ns1
     [lon.ns1.grapheneos.org]=ns1
+    [mad.ns1.grapheneos.org]=ns1
     [mia.ns1.grapheneos.org]=ns1
     [sao.ns1.grapheneos.org]=ns1
     [sea.ns1.grapheneos.org]=ns1
@@ -303,6 +306,7 @@ declare -Ar hosts_ipv4_address=(
     [fra.ns1.grapheneos.org]=80.240.20.200
     [lax.ns1.grapheneos.org]=140.82.23.46
     [lon.ns1.grapheneos.org]=192.248.159.52
+    [mad.ns1.grapheneos.org]=208.85.20.188
     [mia.ns1.grapheneos.org]=104.207.147.19
     [sao.ns1.grapheneos.org]=216.238.118.134
     [sea.ns1.grapheneos.org]=66.42.74.68
@@ -348,6 +352,7 @@ declare -Ar hosts_ipv6_address=(
     [fra.ns1.grapheneos.org]=2a05:f480:1800:2acd:5400:05ff:fec2:23a1
     [lax.ns1.grapheneos.org]=2001:19f0:6000:2dcd:5400:05ff:fec1:97db
     [lon.ns1.grapheneos.org]=2001:19f0:7400:8669:5400:05ff:fec3:f3f8
+    [mad.ns1.grapheneos.org]=2a05:f480:2800:24b7:5400:06ff:fe01:ce01
     [mia.ns1.grapheneos.org]=2001:19f0:9000:2605:5400:05ff:feed:7df5
     [sao.ns1.grapheneos.org]=2001:19f0:b800:14a9:5400:05ff:feca:f136
     [sea.ns1.grapheneos.org]=2001:19f0:8001:0438:5400:05ff:fec1:9dbd
@@ -384,7 +389,7 @@ declare -Ar hosts_ipv6_address=(
 )
 
 readonly hosts_ns1=(
-    {bom,dfw,ewr,fra,lax,lon,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
+    {bom,dfw,ewr,fra,lax,lon,mad,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
 )
 
 readonly hosts_ns2=(
@@ -425,7 +430,7 @@ readonly hosts_primary=(
 )
 
 readonly hosts_secondary=(
-    {bom,dfw,fra,lax,lon,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
+    {bom,dfw,fra,lax,lon,mad,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
     {ber,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
     {ams,lax,lon,mia,nue,sao,sea,sin,syd,tyo}.grapheneos.org
 )
@@ -485,7 +490,7 @@ readonly hosts_netcup=(
 )
 
 readonly hosts_vultr=(
-    {bom,dfw,ewr,fra,lax,lon,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
+    {bom,dfw,ewr,fra,lax,lon,mad,mia,sao,sea,sin,syd,tyo,waw}.ns1.grapheneos.org
     {sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
