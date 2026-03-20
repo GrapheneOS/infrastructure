@@ -2,6 +2,8 @@
 Name=host0
 
 [Network]
+IPv6AcceptRA=no
+
 # AS40806 (GrapheneOS) 91.246.30.0/24 subnet for Toronto
 Address=91.246.30.3/32
 
