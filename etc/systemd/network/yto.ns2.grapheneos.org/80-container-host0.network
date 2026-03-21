@@ -36,9 +36,9 @@ PreferredSource=91.246.30.3
 
 [Route]
 Destination=::/0
-Gateway=fe80::1
+Gateway=2602:f4d9:5::1
 PreferredSource=2602:f4d9:5:2::1
 
 [Route]
-Destination=fe80::1
+Destination=2602:f4d9:5::1
 PreferredSource=2602:f4d9:5:2::1
