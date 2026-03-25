@@ -8,7 +8,6 @@ dnsdist
 ethtool
 fish
 geoip
-geoipupdate
 grub
 htop
 ioping
@@ -28,7 +27,7 @@ openssh
 pacman-contrib
 pacutils
 plocate
-powerdns
+powerdns-ipinfo
 pv
 python
 rsync
