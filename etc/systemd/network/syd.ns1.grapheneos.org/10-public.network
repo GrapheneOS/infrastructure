@@ -21,4 +21,4 @@ Address=2602:f4d9:2::1/128
 PreferredLifetime=0
 
 [DHCP]
-UseMTU=true
+UseMTU=yes
