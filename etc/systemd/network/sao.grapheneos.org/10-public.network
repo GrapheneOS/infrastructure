@@ -5,4 +5,4 @@ Name=public
 DHCP=ipv4
 
 [DHCP]
-UseMTU=true
+UseMTU=yes
