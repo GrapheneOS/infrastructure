@@ -1,0 +1,5 @@
+[Match]
+MACAddress=f0:fb:7f:85:c0:32
+
+[Link]
+Name=public0
