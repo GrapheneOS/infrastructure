@@ -17,6 +17,7 @@ declare -Ar hosts_hostname=(
     [tyo.ns1.grapheneos.org]=ns1-tyo
     [waw.ns1.grapheneos.org]=ns1-waw
     [ber.ns2.grapheneos.org]=ns2-ber
+    [dal.ns2.grapheneos.org]=ns2-dal
     [iad.ns2.grapheneos.org]=ns2-iad
     [lon.ns2.grapheneos.org]=ns2-lon
     [mia.ns2.grapheneos.org]=ns2-mia
@@ -73,6 +74,7 @@ declare -Ar hosts_mdraid=(
 )
 
 declare -Ar hosts_type=(
+    [dal.ns2.grapheneos.org]=container
     [yto.ns2.grapheneos.org]=container
     [mail.grapheneos.org]=container
     [ams.grapheneos.org]=metal
@@ -121,6 +123,7 @@ declare -Ar hosts_authorized_keys=(
     [tyo.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [waw.ns1.grapheneos.org]=authorized_keys-replica-ns1
     [ber.ns2.grapheneos.org]=authorized_keys-replica-ns2
+    [dal.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [iad.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [lon.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [mia.ns2.grapheneos.org]=authorized_keys-replica-ns2
@@ -161,6 +164,7 @@ declare -Ar hosts_firewall=(
     [tyo.ns1.grapheneos.org]=ns1
     [waw.ns1.grapheneos.org]=ns1
     [ber.ns2.grapheneos.org]=ns2
+    [dal.ns2.grapheneos.org]=ns2
     [iad.ns2.grapheneos.org]=ns2
     [lon.ns2.grapheneos.org]=ns2
     [mia.ns2.grapheneos.org]=ns2
@@ -172,7 +176,7 @@ declare -Ar hosts_firewall=(
     [mail.grapheneos.org]=mail
     [staging.grapheneos.org]=network
     [ams.grapheneos.org]=network
-    [dal.grapheneos.org]=network
+    [dal.grapheneos.org]=network-dal
     [lax.grapheneos.org]=network
     [lon.grapheneos.org]=network
     [mia.grapheneos.org]=network
@@ -339,6 +343,7 @@ declare -Ar hosts_ipv4_address=(
     [tyo.ns1.grapheneos.org]=66.42.42.15
     [waw.ns1.grapheneos.org]=70.34.242.58
     [ber.ns2.grapheneos.org]=194.156.154.116
+    [dal.ns2.grapheneos.org]=121.127.40.57
     [iad.ns2.grapheneos.org]=38.175.99.47
     [lon.ns2.grapheneos.org]=45.142.244.163
     [mia.ns2.grapheneos.org]=38.175.100.57
@@ -388,6 +393,7 @@ declare -Ar hosts_ipv6_address=(
     [tyo.ns1.grapheneos.org]=2001:19f0:7001:5695:5400:05ff:fec4:e394
     [waw.ns1.grapheneos.org]=2a05:f480:2400:17ce:5400:06ff:fe00:15a2
     [ber.ns2.grapheneos.org]=2a12:8d02:2100:176:26a3:f0ff:fe49:eda8
+    [dal.ns2.grapheneos.org]=2a02:6ea0:d207::1
     [iad.ns2.grapheneos.org]=2a0b:4342:1a32:db:26a3:f0ff:fe47:dfec
     [lon.ns2.grapheneos.org]=2a0f:3b03:101:2d3:26a3:f0ff:fe4a:594
     [mia.ns2.grapheneos.org]=2a0e:6902:5010:d9:26a3:f0ff:fe48:de47
@@ -421,7 +427,7 @@ readonly hosts_ns1=(
 )
 
 readonly hosts_ns2=(
-    {ber,iad,lon,mia,sea,sjc,sin,tyo,yto}.ns2.grapheneos.org
+    {ber,dal,iad,lon,mia,sea,sjc,sin,tyo,yto}.ns2.grapheneos.org
 )
 
 readonly hosts_dns=(
@@ -459,7 +465,7 @@ readonly hosts_primary=(
 
 readonly hosts_secondary=(
     {bom,chi,dal,fra,lax,lon,mad,mia,sao,sea,sin,sto,syd,tyo,waw}.ns1.grapheneos.org
-    {ber,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
+    {ber,dal,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
     {ams,dal,lax,lon,mia,nue,sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
