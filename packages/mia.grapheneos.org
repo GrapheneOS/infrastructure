@@ -25,6 +25,7 @@ nginx
 nginx-mod-brotli
 nginx-mod-stream
 nmap
+nvme-cli
 openssh
 pacman-contrib
 pacutils
