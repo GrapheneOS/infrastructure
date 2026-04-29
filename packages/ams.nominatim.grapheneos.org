@@ -28,6 +28,7 @@ nginx-mod-brotli
 nmap
 nominatim
 nominatim-ui
+nvme-cli
 openssh
 pacman-contrib
 pacutils
