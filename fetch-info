@@ -6,8 +6,8 @@ user=root
 
 . hosts.sh
 
-rm -rf modules packages units
-mkdir -p modules packages units
+rm -rf modules packages sysctl units
+mkdir -p modules packages sysctl units
 
 for host in ${hosts_all[@]}; do
     (
