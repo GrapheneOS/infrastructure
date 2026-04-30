@@ -31,6 +31,7 @@ declare -Ar hosts_hostname=(
     [staging.grapheneos.org]=grapheneos-staging
     [ams.grapheneos.org]=grapheneos-ams
     [dal.grapheneos.org]=grapheneos-dal
+    [fra.grapheneos.org]=grapheneos-fra
     [lax.grapheneos.org]=grapheneos-lax
     [lon.grapheneos.org]=grapheneos-lon
     [mia.grapheneos.org]=grapheneos-mia
@@ -53,6 +54,7 @@ declare -Ar hosts_uefi=(
     [nue.grapheneos.org]=true
     [ams.grapheneos.org]=true
     [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
     [lax.grapheneos.org]=true
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
@@ -67,6 +69,7 @@ declare -Ar hosts_uefi=(
 declare -Ar hosts_mdraid=(
     [ams.grapheneos.org]=true
     [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
     [lax.grapheneos.org]=true
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
@@ -80,6 +83,7 @@ declare -Ar hosts_type=(
     [mail.grapheneos.org]=container
     [ams.grapheneos.org]=metal
     [dal.grapheneos.org]=metal
+    [fra.grapheneos.org]=metal
     [lax.grapheneos.org]=metal
     [lon.grapheneos.org]=metal
     [mia.grapheneos.org]=metal
@@ -90,6 +94,7 @@ declare -Ar hosts_type=(
 declare -Ar hosts_cpu_vendor=(
     [ams.grapheneos.org]=amd
     [dal.grapheneos.org]=amd
+    [fra.grapheneos.org]=amd
     [lax.grapheneos.org]=amd
     [lon.grapheneos.org]=intel
     [mia.grapheneos.org]=amd
@@ -100,6 +105,7 @@ declare -Ar hosts_cpu_vendor=(
 declare -Ar hosts_hardware_watchdog=(
     [ams.grapheneos.org]=true
     [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
     [lax.grapheneos.org]=true
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
@@ -135,6 +141,7 @@ declare -Ar hosts_authorized_keys=(
     [tyo.ns2.grapheneos.org]=authorized_keys-replica-ns2
     [ams.grapheneos.org]=authorized_keys-replica-grapheneos
     [dal.grapheneos.org]=authorized_keys-replica-grapheneos
+    [fra.grapheneos.org]=authorized_keys-replica-grapheneos
     [lax.grapheneos.org]=authorized_keys-replica-grapheneos
     [lon.grapheneos.org]=authorized_keys-replica-grapheneos
     [mia.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -180,6 +187,7 @@ declare -Ar hosts_firewall=(
     [staging.grapheneos.org]=network
     [ams.grapheneos.org]=network
     [dal.grapheneos.org]=network-dal
+    [fra.grapheneos.org]=network
     [lax.grapheneos.org]=network
     [lon.grapheneos.org]=network
     [mia.grapheneos.org]=network
@@ -202,6 +210,7 @@ declare -Ar hosts_ntp_server=(
     [staging.grapheneos.org]=true
     [ams.grapheneos.org]=true
     [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
     [lax.grapheneos.org]=true
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
@@ -217,6 +226,7 @@ declare -Ar hosts_ntp_server=(
 declare -Ar hosts_swap=(
     [ams.grapheneos.org]=32768
     [dal.grapheneos.org]=32768
+    [fra.grapheneos.org]=32768
     [lax.grapheneos.org]=32768
     [lon.grapheneos.org]=32768
     [mia.grapheneos.org]=32768
@@ -231,6 +241,7 @@ declare -Ar hosts_swap=(
 declare -Ar hosts_agcount=(
     [ams.grapheneos.org]=32
     [dal.grapheneos.org]=32
+    [fra.grapheneos.org]=32
     [lax.grapheneos.org]=24
     [lon.grapheneos.org]=24
     [mia.grapheneos.org]=24
@@ -245,6 +256,7 @@ declare -Ar hosts_agcount=(
 declare -Ar hosts_reserved_ports=(
     [ams.grapheneos.org]=7275
     [dal.grapheneos.org]=7275
+    [fra.grapheneos.org]=7275
     [lax.grapheneos.org]=7275
     [lon.grapheneos.org]=7275
     [mia.grapheneos.org]=7275
@@ -261,6 +273,7 @@ declare -Ar hosts_reserved_ports=(
 declare -Ar hosts_tcp_wmem_max=(
     [ams.grapheneos.org]=33554432
     [dal.grapheneos.org]=33554432
+    [fra.grapheneos.org]=33554432
     [lax.grapheneos.org]=33554432
     [lon.grapheneos.org]=33554432
     [mia.grapheneos.org]=33554432
@@ -278,6 +291,7 @@ declare -Ar hosts_tcp_fastopen=(
 declare -Ar hosts_conntrack_size=(
     [ams.grapheneos.org]=12582912
     [dal.grapheneos.org]=8388608
+    [fra.grapheneos.org]=8388608
     [lax.grapheneos.org]=12582912
     [lon.grapheneos.org]=8388608
     [mia.grapheneos.org]=12582912
@@ -300,6 +314,7 @@ declare -Ar hosts_journald_system_max_use=(
     [nue.grapheneos.org]=8G
     [ams.grapheneos.org]=64G
     [dal.grapheneos.org]=64G
+    [fra.grapheneos.org]=64G
     [lax.grapheneos.org]=64G
     [lon.grapheneos.org]=64G
     [mia.grapheneos.org]=64G
@@ -316,6 +331,7 @@ declare -Ar hosts_journald_system_max_file_size=(
     [nue.grapheneos.org]=512M
     [ams.grapheneos.org]=4G
     [dal.grapheneos.org]=4G
+    [fra.grapheneos.org]=4G
     [lax.grapheneos.org]=4G
     [lon.grapheneos.org]=4G
     [mia.grapheneos.org]=4G
@@ -360,6 +376,7 @@ declare -Ar hosts_ipv4_address=(
     [staging.grapheneos.org]=199.195.250.78
     [ams.grapheneos.org]=84.32.64.33
     [dal.grapheneos.org]=121.127.40.19
+    [fra.grapheneos.org]=87.249.129.100
     [lax.grapheneos.org]=104.194.8.203
     [lon.grapheneos.org]=185.44.76.161
     [mia.grapheneos.org]=172.96.172.37
@@ -410,6 +427,7 @@ declare -Ar hosts_ipv6_address=(
     [mail.grapheneos.org]=2602:f4d9:5:3::1
     [staging.grapheneos.org]=2605:6400:10:9d6:6d84:e183:acda:16d7
     [dal.grapheneos.org]=2a02:6ea0:d206::1
+    [fra.grapheneos.org]=2a02:6ea0:c75f::1
     [lax.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [lon.grapheneos.org]=2a01:4020:0:52::2
     [mia.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
@@ -471,7 +489,7 @@ readonly hosts_primary=(
 readonly hosts_secondary=(
     {bom,chi,dal,fra,lax,lon,mad,mia,sao,sea,sin,sto,syd,tyo,waw}.ns1.grapheneos.org
     {ams,ber,dal,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
-    {ams,dal,lax,lon,mia,nue,sao,sea,sin,syd,tyo}.grapheneos.org
+    {ams,dal,fra,lax,lon,mia,nue,sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
 readonly hosts_backup=(
@@ -484,7 +502,7 @@ readonly hosts_backup=(
 )
 
 readonly hosts_grapheneos=(
-    {ams,dal,lax,lon,mia,nue,sao,sea,sin,syd,tyo,yto}.grapheneos.org
+    {ams,dal,fra,lax,lon,mia,nue,sao,sea,sin,syd,tyo,yto}.grapheneos.org
 )
 
 readonly hosts_grapheneos_all=(
@@ -493,7 +511,7 @@ readonly hosts_grapheneos_all=(
 )
 
 readonly hosts_releases=(
-    {ams,dal,lax,lon,mia,yto}.grapheneos.org
+    {ams,dal,fra,lax,lon,mia,yto}.grapheneos.org
 )
 
 readonly hosts_nominatim=(
