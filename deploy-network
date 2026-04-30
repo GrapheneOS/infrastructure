@@ -1,0 +1,23 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+. ssh.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    rsync -r --delete etc/systemd/network/$host/ $remote:/etc/systemd/network/
+    if [[ $host != @(dal.grapheneos.org|fra.grapheneos.org|yto.grapheneos.org) ]]; then
+        rsync etc/systemd/networkd.conf.simple $remote:/etc/systemd/networkd.conf
+    else
+        rsync etc/systemd/networkd.conf.forward $remote:/etc/systemd/networkd.conf
+    fi
+    ssh $remote 'systemctl enable systemd-networkd.service &&
+systemctl disable systemd-network-generator.service systemd-networkd-resolve-hook.socket
+systemctl restart systemd-networkd.service'
+done
