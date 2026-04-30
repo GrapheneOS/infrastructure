@@ -35,7 +35,6 @@ declare -Ar hosts_hostname=(
     [lax.grapheneos.org]=grapheneos-lax
     [lon.grapheneos.org]=grapheneos-lon
     [mia.grapheneos.org]=grapheneos-mia
-    [nue.grapheneos.org]=grapheneos-nue
     [sao.grapheneos.org]=grapheneos-sao
     [sea.grapheneos.org]=grapheneos-sea
     [sin.grapheneos.org]=grapheneos-sin
@@ -51,7 +50,6 @@ declare -Ar hosts_hostname=(
 )
 
 declare -Ar hosts_uefi=(
-    [nue.grapheneos.org]=true
     [ams.grapheneos.org]=true
     [dal.grapheneos.org]=true
     [fra.grapheneos.org]=true
@@ -145,7 +143,6 @@ declare -Ar hosts_authorized_keys=(
     [lax.grapheneos.org]=authorized_keys-replica-grapheneos
     [lon.grapheneos.org]=authorized_keys-replica-grapheneos
     [mia.grapheneos.org]=authorized_keys-replica-grapheneos
-    [nue.grapheneos.org]=authorized_keys-replica-grapheneos
     [sao.grapheneos.org]=authorized_keys-replica-grapheneos
     [sea.grapheneos.org]=authorized_keys-replica-grapheneos
     [sin.grapheneos.org]=authorized_keys-replica-grapheneos
@@ -191,7 +188,6 @@ declare -Ar hosts_firewall=(
     [lax.grapheneos.org]=network
     [lon.grapheneos.org]=network
     [mia.grapheneos.org]=network
-    [nue.grapheneos.org]=network
     [sao.grapheneos.org]=network
     [sea.grapheneos.org]=network
     [sin.grapheneos.org]=network
@@ -214,7 +210,6 @@ declare -Ar hosts_ntp_server=(
     [lax.grapheneos.org]=true
     [lon.grapheneos.org]=true
     [mia.grapheneos.org]=true
-    [nue.grapheneos.org]=true
     [sao.grapheneos.org]=true
     [sea.grapheneos.org]=true
     [sin.grapheneos.org]=true
@@ -260,7 +255,6 @@ declare -Ar hosts_reserved_ports=(
     [lax.grapheneos.org]=7275
     [lon.grapheneos.org]=7275
     [mia.grapheneos.org]=7275
-    [nue.grapheneos.org]=7275
     [sao.grapheneos.org]=7275
     [sea.grapheneos.org]=7275
     [sin.grapheneos.org]=7275
@@ -311,7 +305,6 @@ declare -Ar hosts_ssh_users=(
 
 declare -Ar hosts_journald_system_max_use=(
     [mail.grapheneos.org]=8G
-    [nue.grapheneos.org]=8G
     [ams.grapheneos.org]=64G
     [dal.grapheneos.org]=64G
     [fra.grapheneos.org]=64G
@@ -328,7 +321,6 @@ declare -Ar hosts_journald_system_max_use=(
 
 declare -Ar hosts_journald_system_max_file_size=(
     [mail.grapheneos.org]=512M
-    [nue.grapheneos.org]=512M
     [ams.grapheneos.org]=4G
     [dal.grapheneos.org]=4G
     [fra.grapheneos.org]=4G
@@ -380,7 +372,6 @@ declare -Ar hosts_ipv4_address=(
     [lax.grapheneos.org]=104.194.8.203
     [lon.grapheneos.org]=185.44.76.161
     [mia.grapheneos.org]=172.96.172.37
-    [nue.grapheneos.org]=159.195.46.80
     [sao.grapheneos.org]=216.238.116.202
     [sea.grapheneos.org]=45.32.230.4
     [sin.grapheneos.org]=66.42.50.166
@@ -431,7 +422,6 @@ declare -Ar hosts_ipv6_address=(
     [lax.grapheneos.org]=2605:9880:200:400:135:7700:ef0a:81
     [lon.grapheneos.org]=2a01:4020:0:52::2
     [mia.grapheneos.org]=2605:9880:400:1100:15:1240:515:6e
-    [nue.grapheneos.org]=2a0a:4cc0:c1:9de2::1
     [sao.grapheneos.org]=2001:19f0:b800:1f13:5400:05ff:fed0:8ea7
     [sea.grapheneos.org]=2001:19f0:8000:3454:5400:05ff:fec8:4139
     [sin.grapheneos.org]=2001:19f0:4400:2c24:5400:05ff:fec7:4cdc
@@ -539,7 +529,6 @@ readonly hosts_all=(
 )
 
 readonly hosts_netcup=(
-    nue.grapheneos.org
     attestation.app
     matrix.grapheneos.org
     discuss.grapheneos.org
