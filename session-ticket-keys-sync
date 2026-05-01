@@ -12,7 +12,7 @@ if [[ ! -f syncing ]]; then
         echo Syncing from $mirror
         echo
 
-        ssh $mirror "bash -c [[ -f /etc/tls/session-ticket-keys/synced ]]" || continue
+        ssh $mirror "test -f /etc/tls/session-ticket-keys/synced" || continue
 
         rm -rf sync
         mkdir sync
