@@ -1,0 +1,40 @@
+[Match]
+Name=host0
+
+[Network]
+IPv6AcceptRA=no
+Address=87.249.129.102/32
+Address=2a02:6ea0:c75f:1::1/128
+
+# 23.149.125.0/24 anycast subnet for ns2 instances
+[Address]
+Address=23.149.125.1/32
+PreferredLifetime=0
+
+# 2602:f4d9:1::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:1::1/128
+PreferredLifetime=0
+
+# 2602:f4d9:3::/48 anycast subnet for ns2 instances
+[Address]
+Address=2602:f4d9:3::1/128
+PreferredLifetime=0
+
+[Route]
+Destination=0.0.0.0/0
+Gateway=87.249.129.100
+PreferredSource=87.249.129.102
+
+[Route]
+Destination=87.249.129.100
+PreferredSource=87.249.129.102
+
+[Route]
+Destination=::/0
+Gateway=fe80::1
+PreferredSource=2a02:6ea0:c75f:1::1
+
+[Route]
+Destination=fe80::1
+PreferredSource=2a02:6ea0:c75f:1::1

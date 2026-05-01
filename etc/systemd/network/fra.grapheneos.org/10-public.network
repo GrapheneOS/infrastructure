@@ -4,6 +4,7 @@ Name=public
 [Network]
 Address=87.249.129.100/26
 Address=2a02:6ea0:c75f::1/64
+IPv6ProxyNDPAddress=2a02:6ea0:c75f:1::1
 
 [Route]
 Destination=0.0.0.0/0
