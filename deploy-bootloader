@@ -25,7 +25,7 @@ for host in ${hosts_all[@]}; do
         fi
     elif [[ ${hosts_type[$host]:-vps} != container ]]; then
         rsync etc/default/grub $remote:/etc/default/grub
-        drive=$(ssh $remote bash -c '[[ -e /dev/sda ]] && echo sda || echo vda')
+        drive=$(ssh $remote 'test -e /dev/sda && echo sda || echo vda')
         ssh $remote grub-install /dev/$drive
         ssh $remote grub-mkconfig -o /boot/grub/grub.cfg
     fi
