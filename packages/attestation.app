@@ -11,7 +11,7 @@ fish
 htop
 ioping
 iperf
-jre21-openjdk-headless
+jre25-openjdk-headless
 linux-lts
 logrotate
 man-db
