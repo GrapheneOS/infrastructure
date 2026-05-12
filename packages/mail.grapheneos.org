@@ -19,8 +19,6 @@ neovim
 nftables
 nginx
 nmap
-opendkim
-opendmarc
 openssh
 pacman-contrib
 pacutils
@@ -33,8 +31,8 @@ python
 python-authres
 python-keystoneauth1
 python-keystoneclient
-python-spf-engine
 python-swiftclient
+rspamd
 rsync
 s-nail
 strace
