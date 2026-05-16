@@ -1,7 +1,9 @@
 set -o errexit -o nounset -o pipefail
-shopt -s expand_aliases inherit_errexit
+shopt -s inherit_errexit
 
-alias rsync='rsync -pcv --chmod=D755,F644 --preallocate'
+rsync() {
+    command rsync -pcv --chmod=D755,F644 --preallocate "$@"
+}
 
 touch lock
 exec {fd}< lock
