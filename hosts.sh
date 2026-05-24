@@ -102,15 +102,23 @@ declare -Ar hosts_cpu_vendor=(
     [ams.nominatim.grapheneos.org]=amd
 )
 
-declare -Ar hosts_hardware_watchdog=(
-    [ams.grapheneos.org]=true
-    [dal.grapheneos.org]=true
-    [fra.grapheneos.org]=true
-    [lax.grapheneos.org]=true
-    [lon.grapheneos.org]=true
-    [mia.grapheneos.org]=true
-    [yto.grapheneos.org]=true
-    [ams.nominatim.grapheneos.org]=true
+declare -Ar hosts_software_watchdog=(
+    [ns1.staging.grapheneos.org]=true
+    [ams.ns2.grapheneos.org]=true
+    [ber.ns2.grapheneos.org]=true
+    [iad.ns2.grapheneos.org]=true
+    [lon.ns2.grapheneos.org]=true
+    [mia.ns2.grapheneos.org]=true
+    [sea.ns2.grapheneos.org]=true
+    [sjc.ns2.grapheneos.org]=true
+    [sin.ns2.grapheneos.org]=true
+    [tyo.ns2.grapheneos.org]=true
+    [staging.grapheneos.org]=true
+    [staging.attestation.app]=true
+    [attestation.app]=true
+    [matrix.grapheneos.org]=true
+    [discuss.grapheneos.org]=true
+    [grapheneos.social]=true
 )
 
 declare -Ar hosts_authorized_keys=(
