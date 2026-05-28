@@ -21,6 +21,13 @@ for host in ${hosts_all[@]}; do
 systemctl disable systemd-network-generator.service systemd-networkd-resolve-hook.socket
 systemctl restart systemd-networkd.service'
 
+    fq=etc/systemd/system/$host.fq.service
+    [[ -f $fq ]] || fq=etc/systemd/system/single.fq.service
+    if [[ ${hosts_type[$host]:-vps} != container ]]; then
+        rsync $fq $remote:/etc/systemd/system/fq.service
+        ssh $remote systemctl enable fq.service
+    fi
+
     if [[ $host = @(dal.grapheneos.org|fra.grapheneos.org|yto.grapheneos.org) ]]; then
         rsync etc/bird/$host.bird.conf $remote:/etc/bird.conf
     fi
