@@ -2,8 +2,8 @@ b3sum
 base
 bird
 chrony
-cloud-guest-utils
 conntrack-tools
+diffutils
 dnsdist
 ethtool
 fish
@@ -29,6 +29,7 @@ pacutils
 plocate
 powerdns-ipinfo
 pv
+python
 rsync
 strace
 stress
