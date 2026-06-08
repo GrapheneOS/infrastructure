@@ -1,6 +1,10 @@
 set -o errexit -o nounset -o pipefail
 shopt -s inherit_errexit
 
+mktmp() {
+    mktemp --tmpdir "deploy.$1.XXXXXXXXXX"
+}
+
 rsync() {
     command rsync -pcv --chmod=D755,F644 --preallocate "$@"
 }

@@ -43,10 +43,11 @@ rsync etc/mkinitcpio.conf.simple $remote:/mnt/etc/mkinitcpio.conf
 rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
 
 if [[ ${hosts_ntp_server[$host]:-false} = true ]]; then
-    cp etc/chrony.conf tmp
-    echo -e '\nallow' >> tmp
-    rsync tmp $remote:/mnt/etc/chrony.conf
-    rm tmp
+    tmp=$(mktmp chrony.conf)
+    cp etc/chrony.conf $tmp
+    echo -e '\nallow' >> $tmp
+    rsync $tmp $remote:/mnt/etc/chrony.conf
+    rm $tmp
 else
     rsync etc/chrony.conf $remote:/mnt/etc/chrony.conf
 fi
@@ -54,17 +55,19 @@ ssh $remote mkdir -vp /mnt/etc/sysconfig
 rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
 
 rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
-cp etc/ssh/sshd_config tmp
-sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" tmp
-rsync tmp $remote:/mnt/etc/ssh/sshd_config
-rm tmp
+tmp=$(mktmp sshd_config)
+cp etc/ssh/sshd_config $tmp
+sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" $tmp
+rsync $tmp $remote:/mnt/etc/ssh/sshd_config
+rm $tmp
 
-cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf tmp
-sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]:-65536} / 64 ))/g" tmp
-sed -i "s/{{ssh_ipv4}}/$ssh_ipv4/g" tmp
-sed -i "s/{{ssh_ipv6}}/$ssh_ipv6/g" tmp
-rsync tmp $remote:/mnt/etc/nftables.conf
-rm tmp
+tmp=$(mktmp nftables.conf)
+cp etc/nftables/nftables-${hosts_firewall[$host]:-web}.conf $tmp
+sed -i "s/{{synproxy_threshold}}/$(( ${hosts_conntrack_size[$host]:-65536} / 64 ))/g" $tmp
+sed -i "s/{{ssh_ipv4}}/$ssh_ipv4/g" $tmp
+sed -i "s/{{ssh_ipv6}}/$ssh_ipv6/g" $tmp
+rsync $tmp $remote:/mnt/etc/nftables.conf
+rm $tmp
 
 ssh $remote "arch-chroot /mnt systemctl enable chronyd.service fstrim.timer logrotate.timer nftables.service systemd-networkd.service systemd-oomd.service sshd.service sysstat.service unbound.service"
 ssh $remote "arch-chroot /mnt systemctl disable remote-fs.target systemd-network-generator.service systemd-userdbd.socket"
