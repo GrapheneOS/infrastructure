@@ -10,6 +10,7 @@ dosfstools
 efibootmgr
 ethtool
 fish
+gunicorn_h1c
 htop
 ioping
 iperf
@@ -36,6 +37,7 @@ plocate
 pv
 python
 python-mwparserfromhell
+python-uvloop
 rsync
 smartmontools
 strace
