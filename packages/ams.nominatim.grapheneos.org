@@ -14,6 +14,7 @@ gunicorn_h1c
 htop
 ioping
 iperf
+jemalloc
 linux-firmware-amdgpu
 linux-firmware-intel
 linux-lts
