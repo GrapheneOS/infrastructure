@@ -545,8 +545,32 @@ readonly hosts_vultr=(
     {sao,sea,sin,syd,tyo}.grapheneos.org
 )
 
+readonly hosts_misaka=(
+    {ams,ber,iad,lon,mia,sea,sjc,sin,tyo}.ns2.grapheneos.org
+)
+
 readonly hosts_buyvm=(
     ns1.staging.grapheneos.org
     staging.grapheneos.org
     staging.attestation.app
+)
+
+readonly hosts_metal=(
+    {ams,dal,fra,lax,lon,mia,yto}.grapheneos.org
+    ams.nominatim.grapheneos.org
+)
+
+readonly hosts_vps=(
+    "${hosts_ns1[@]}"
+    "${hosts_misaka[@]}"
+    {sao,sea,sin,syd,tyo}.grapheneos.org
+    "${hosts_attestation[@]}"
+    matrix.grapheneos.org
+    discuss.grapheneos.org
+    grapheneos.social
+)
+
+readonly hosts_container=(
+    {dal,fra,yto}.ns2.grapheneos.org
+    mail.grapheneos.org
 )
