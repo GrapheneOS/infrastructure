@@ -1,7 +1,6 @@
 b3sum
 base
 bird
-certbot
 chrony
 conntrack-tools
 diffutils

@@ -104,15 +104,6 @@ declare -Ar hosts_cpu_vendor=(
 
 declare -Ar hosts_software_watchdog=(
     [ns1.staging.grapheneos.org]=true
-    [ams.ns2.grapheneos.org]=true
-    [ber.ns2.grapheneos.org]=true
-    [iad.ns2.grapheneos.org]=true
-    [lon.ns2.grapheneos.org]=true
-    [mia.ns2.grapheneos.org]=true
-    [sea.ns2.grapheneos.org]=true
-    [sjc.ns2.grapheneos.org]=true
-    [sin.ns2.grapheneos.org]=true
-    [tyo.ns2.grapheneos.org]=true
     [staging.grapheneos.org]=true
     [staging.attestation.app]=true
     [attestation.app]=true
