@@ -102,6 +102,19 @@ declare -Ar hosts_cpu_vendor=(
     [ams.nominatim.grapheneos.org]=amd
 )
 
+declare -Ar hosts_bonding=(
+    [ams.grapheneos.org]=true
+    [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
+    [ams.nominatim.grapheneos.org]=true
+)
+
+declare -Ar hosts_veth=(
+    [dal.grapheneos.org]=true
+    [fra.grapheneos.org]=true
+    [yto.grapheneos.org]=true
+)
+
 declare -Ar hosts_software_watchdog=(
     [ns1.staging.grapheneos.org]=true
     [staging.grapheneos.org]=true
