@@ -115,7 +115,7 @@ declare -Ar hosts_veth=(
     [yto.grapheneos.org]=true
 )
 
-declare -Ar hosts_software_watchdog=(
+declare -Ar hosts_softdog=(
     [ns1.staging.grapheneos.org]=true
     [staging.grapheneos.org]=true
     [staging.attestation.app]=true
