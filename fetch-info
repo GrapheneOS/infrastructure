@@ -11,7 +11,9 @@ mkdir -p modules packages sysctl units
 
 for host in ${hosts_all[@]}; do
     (
-        ssh root@$host lsmod | awk '{ print $1 }' | sort > modules/$host
+        if [[ ${hosts_type[$host]:-vps} != container ]]; then
+            ssh root@$host lsmod | awk '{ print $1 }' | sort > modules/$host
+        fi
         ssh root@$host pacman -Qqe > packages/$host
         ssh root@$host systemctl list-unit-files --state=enabled --state=disabled --state=masked | sort > units/$host
         ssh root@$host sysctl -a | sort > sysctl/$host
