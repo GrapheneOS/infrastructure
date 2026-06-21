@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [[ $# -gt 1 ]]; then
+    echo too many arguments
+    exit 1
+fi
+
+[[ $# -eq 1 && $1 = replace ]] && replace=true || replace=false
+
 . shared.sh
 . hosts.sh
 
@@ -12,6 +19,14 @@ for host in ${hosts_all[@]}; do
 
     [[ ${hosts_type[$host]:-vps} = container ]] && continue
 
+    if $(ssh $remote 'test -e /swapfile'); then
+        if [[ $replace = true ]]; then
+            ssh $remote rm -v /swapfile
+        else
+            continue
+        fi
+    fi
+
     swap=${hosts_swap[$host]:-2048}
-    ssh $remote "umask 077 && rm -f /swapfile && dd if=/dev/random of=/swapfile bs=1M count=$swap status=progress"
+    ssh $remote "umask 077 && dd conv=excl if=/dev/random of=/swapfile bs=1M count=$swap status=progress"
 done
