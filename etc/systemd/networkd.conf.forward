@@ -46,5 +46,11 @@ IPv6Forwarding=yes
 #DUIDRawData=
 #UseDomains=
 
+[DHCPRelay]
+#ServerAddress=
+#OverrideServerIdentifier=no
+#RemoteId=
+#ExtraOption=
+
 [DHCPServer]
 #PersistLeases=yes
