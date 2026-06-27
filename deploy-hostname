@@ -14,9 +14,9 @@ for host in ${hosts_all[@]}; do
 
     ssh $remote hostnamectl hostname $hostname
 
-    tmp=$(mktmp hosts)
-    cp etc/hosts $tmp
-    sed -i "s/{{fqdn}}/$host/; s/{{hostname}}/$hostname/" $tmp
-    rsync $tmp $remote:/etc/hosts
-    rm $tmp
+    tmp="$(mktmp hosts)"
+    cp etc/hosts "$tmp"
+    sed -i "s/{{fqdn}}/$host/; s/{{hostname}}/$hostname/" "$tmp"
+    rsync "$tmp" $remote:/etc/hosts
+    rm "$tmp"
 done
