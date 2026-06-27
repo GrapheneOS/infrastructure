@@ -1,0 +1,55 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_releases[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    rsync etc/sysctl.d/60-base.conf $remote:/etc/sysctl.d/
+
+    if [[ -n ${hosts_reserved_ports[$host]-} ]]; then
+        tmp="$(mktmp 60-reserved-ports.conf)"
+        echo "net.ipv4.ip_local_reserved_ports = ${hosts_reserved_ports[$host]}" > "$tmp"
+        rsync "$tmp" $remote:/etc/sysctl.d/60-reserved-ports.conf
+        rm "$tmp"
+    fi
+
+    if [[ ${hosts_tcp_fastopen[$host]:-true} = true ]]; then
+        rsync etc/sysctl.d/60-tcp_fastopen.conf $remote:/etc/sysctl.d/
+    fi
+
+    if [[ -n ${hosts_tcp_wmem_max[$host]-} ]]; then
+        tmp="$(mktmp 60-tcp_wmem.conf)"
+        echo "net.ipv4.tcp_wmem = 4096 16384 ${hosts_tcp_wmem_max[$host]}" > "$tmp"
+        rsync "$tmp" $remote:/etc/sysctl.d/60-tcp_wmem.conf
+        rm "$tmp"
+    fi
+
+    if [[ ${hosts_type[$host]:-vps} != container ]]; then
+        tmp="$(mktmp 60-conntrack_size.conf)"
+        echo "net.netfilter.nf_conntrack_buckets = ${hosts_conntrack_size[$host]:-65536}" > "$tmp"
+        echo "net.netfilter.nf_conntrack_max = ${hosts_conntrack_size[$host]:-65536}" >> "$tmp"
+        rsync "$tmp" $remote:/etc/sysctl.d/60-conntrack_size.conf
+        rm "$tmp"
+
+        rsync etc/sysctl.d/60-root.conf $remote:/etc/sysctl.d/
+        rsync etc/sysctl.d/90-autoload-disable.conf $remote:/etc/sysctl.d
+    else
+        rsync etc/sysctl.d/60-container.conf $remote:/etc/sysctl.d/
+        ssh $remote ln -sfv /dev/null /etc/sysctl.d/10-arch.conf
+        ssh $remote ln -sfv /dev/null /etc/sysctl.d/50-coredump.conf
+        ssh $remote ln -sfv /dev/null /etc/sysctl.d/50-default.conf
+        ssh $remote ln -sfv /dev/null /etc/sysctl.d/50-pid-max.conf
+    fi
+
+    if [[ ${hosts_mdraid[$host]:-false} = true ]]; then
+        rsync etc/sysctl.d/60-mdraid.conf $remote:/etc/sysctl.d/
+    fi
+
+    ssh $remote sysctl --system
+done
