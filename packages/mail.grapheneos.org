@@ -14,7 +14,6 @@ logrotate
 man-db
 moreutils
 mtr
-mutt
 neovim
 nftables
 nginx
