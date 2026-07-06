@@ -35,4 +35,8 @@ systemctl restart systemd-networkd.service'
     rsync etc/unbound/unbound.conf $remote:/etc/unbound/unbound.conf
     rsync -r --delete etc/systemd/system/unbound.service.d $remote:/etc/systemd/system/
     ssh $remote 'systemctl daemon-reload && systemctl enable unbound.service && systemctl restart unbound.service'
+
+    rsync --chmod=755 tcp-fastopen-rotate-keys $remote:/usr/local/bin/
+    rsync etc/systemd/system/tcp-fastopen-rotate-keys.{service,timer} $remote:/etc/systemd/system/
+    ssh $remote systemctl enable --now tcp-fastopen-rotate-keys.timer
 done
