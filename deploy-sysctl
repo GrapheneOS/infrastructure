@@ -37,8 +37,7 @@ for host in ${hosts_releases[@]}; do
         rsync "$tmp" $remote:/etc/sysctl.d/60-conntrack_size.conf
         rm "$tmp"
 
-        rsync etc/sysctl.d/60-root.conf $remote:/etc/sysctl.d/
-        rsync etc/sysctl.d/90-autoload-disable.conf $remote:/etc/sysctl.d
+        rsync etc/sysctl.d/{60-root.conf,90-autoload-disable.conf} $remote:/etc/sysctl.d/
     else
         rsync etc/sysctl.d/60-container.conf $remote:/etc/sysctl.d/
         ssh $remote ln -sfv /dev/null /etc/sysctl.d/10-arch.conf
