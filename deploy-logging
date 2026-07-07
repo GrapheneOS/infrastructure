@@ -16,7 +16,8 @@ for host in ${hosts_all[@]}; do
     sed -i "s/{{journald_system_max_file_size}}/${hosts_journald_system_max_file_size[$host]:-256M}/g" "$tmp"
     rsync "$tmp" $remote:/etc/systemd/journald.conf
     rm "$tmp"
-    ssh $remote systemctl reload systemd-journald
+    ssh $remote 'systemctl disable --now systemd-journald-audit.socket &&
+systemctl reload systemd-journald'
 
     rsync -r --delete etc/systemd/system/syslog-ng@default.service.d $remote:/etc/systemd/system/
     rsync -r etc/syslog-ng/ $remote:/etc/syslog-ng/
