@@ -1,0 +1,27 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_releases[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    tmp="$(mktmp sshd_config)"
+    cp etc/ssh/sshd_config "$tmp"
+    sed -i "s/{{ssh_users}}/${hosts_ssh_users[$host]:-root}/g" "$tmp"
+    rsync "$tmp" $remote:/etc/ssh/sshd_config
+    ssh $remote 'systemctl daemon-reload && systemctl reload sshd'
+    rm "$tmp"
+    rsync etc/ssh/ssh_config $remote:/etc/ssh/
+
+    rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/root/.ssh/authorized_keys
+
+    rsync -r --delete etc/systemd/system/sshd.service.d $remote:/etc/systemd/system/
+    ssh $remote 'systemctl daemon-reload &&
+systemctl enable --now sshd.service &&
+systemctl mask sshdgenkeys.service'
+done
