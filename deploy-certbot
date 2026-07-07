@@ -12,7 +12,7 @@ for host in ${hosts_certbot[@]}; do
 
     rsync etc/logrotate.d/letsencrypt $remote:/etc/logrotate.d/
     ssh $remote mkdir -p /etc/systemd/system/certbot-renew.service.d
-    rsync etc/systemd/system/certbot-renew.service.d/override.conf $remote:/etc/systemd/system/certbot-renew.service.d/override.conf
+    rsync etc/systemd/system/certbot-renew.service.d/override.conf $remote:/etc/systemd/system/certbot-renew.service.d/
 
     ssh $remote "systemctl daemon-reload &&
 systemctl enable --now certbot-renew.timer &&
