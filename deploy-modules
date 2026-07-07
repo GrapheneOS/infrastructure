@@ -1,0 +1,32 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    [[ ${hosts_type[$host]:-vps} = container ]] && continue
+
+    rsync etc/modules-load.d/60-base.conf $remote:/etc/modules-load.d/
+
+    if [[ ${hosts_uefi[$host]:-false} = true ]]; then
+        rsync etc/modules-load.d/60-vfat.conf $remote:/etc/modules-load.d/
+    fi
+
+    if [[ ${hosts_bonding[$host]:-false} = true ]]; then
+        rsync etc/modules-load.d/60-bonding.conf $remote:/etc/modules-load.d/
+    fi
+
+    if [[ ${hosts_veth[$host]:-false} = true ]]; then
+        rsync etc/modules-load.d/60-veth.conf $remote:/etc/modules-load.d/
+    fi
+
+    if [[ ${hosts_softdog[$host]:-false} = true ]]; then
+        rsync etc/modules-load.d/60-softdog.conf $remote:/etc/modules-load.d/
+    fi
+done
