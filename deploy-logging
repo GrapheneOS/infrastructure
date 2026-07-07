@@ -23,4 +23,10 @@ for host in ${hosts_all[@]}; do
     ssh $remote 'systemctl daemon-reload &&
 systemctl enable --now syslog-ng@default.service &&
 syslog-ng-ctl reload'
+
+    rsync etc/logrotate.conf $remote:/etc/
+    ssh $remote 'rm -vf /etc/logrotate.d/{chrony,syslog-ng}'
+    rsync -r --delete etc/systemd/system/logrotate.timer.d $remote:/etc/systemd/system/
+    ssh $remote 'systemctl daemon-reload &&
+systemctl enable --now logrotate.timer'
 done
