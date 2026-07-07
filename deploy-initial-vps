@@ -24,11 +24,11 @@ ssh $remote '[[ $(grep IMAGE_ID /etc/os-release) = "IMAGE_ID=archlinux" ]]' || e
 
 ssh $remote "sfdisk /dev/$drive -w always <<< ';'"
 ssh $remote "mkfs.xfs -d agcount=$agcount -f /dev/${drive}1"
-rsync etc/pacman.d/mirrorlist $remote:/etc/pacman.d/mirrorlist
+rsync etc/pacman.d/mirrorlist $remote:/etc/pacman.d/
 ssh $remote "mount /dev/${drive}1 /mnt"
 ssh $remote "pacstrap -K /mnt $(tr '\n' ' ' < packages/$host)"
 
-rsync etc/default/grub $remote:/mnt/etc/default/grub
+rsync etc/default/grub $remote:/mnt/etc/default/
 ssh $remote "arch-chroot /mnt grub-install /dev/$drive"
 ssh $remote "arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg"
 
@@ -52,7 +52,7 @@ else
     rsync etc/chrony.conf $remote:/mnt/etc/chrony.conf
 fi
 ssh $remote mkdir -vp /mnt/etc/sysconfig
-rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/chronyd
+rsync etc/sysconfig/chronyd $remote:/mnt/etc/sysconfig/
 
 rsync ${hosts_authorized_keys[$host]:-authorized_keys} $remote:/mnt/root/.ssh/authorized_keys
 tmp="$(mktmp sshd_config)"

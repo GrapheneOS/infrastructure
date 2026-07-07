@@ -11,7 +11,7 @@ for host in ${hosts_all[@]}; do
     echo
 
     if [[ ${hosts_uefi[$host]:-false} = true ]]; then
-        rsync boot/loader/loader.conf $remote:/boot/loader/loader.conf
+        rsync boot/loader/loader.conf $remote:/boot/loader/
         if [[ ${hosts_mdraid[$host]:-false} = true ]]; then
             # workaround for NVMe drive power saving bug is needed for lon.grapheneos.org
             # standalone intel-ucode.img is needed for yto.grapheneos.org
@@ -24,7 +24,7 @@ for host in ${hosts_all[@]}; do
             ssh $remote "bootctl install && systemctl enable systemd-boot-update.service"
         fi
     elif [[ ${hosts_type[$host]:-vps} != container ]]; then
-        rsync etc/default/grub $remote:/etc/default/grub
+        rsync etc/default/grub $remote:/etc/default/
         drive=$(ssh $remote 'test -e /dev/sda && echo sda || echo vda')
         ssh $remote grub-install /dev/$drive
         ssh $remote grub-mkconfig -o /boot/grub/grub.cfg
