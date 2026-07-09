@@ -24,7 +24,7 @@ certbot certonly --webroot --webroot-path /srv/certbot --max-log-backups 0 --no-
     -d mta-sts.vanadium.app
 
 certbot certonly --webroot --webroot-path /srv/certbot --max-log-backups 0 --no-eff-email \
-    --key-type rsa --rsa-key-size 3072 --reuse-key \
+    --key-type ecdsa --reuse-key \
     --deploy-hook "postfix reload; dovecot reload" \
     --cert-name mail.grapheneos.org \
     -d mail.grapheneos.org
