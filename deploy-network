@@ -2,7 +2,6 @@
 
 . shared.sh
 . hosts.sh
-. ssh.sh
 
 for host in ${hosts_all[@]}; do
     remote=root@$host
