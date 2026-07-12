@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    for user in ${hosts_ssh_users[$host]:-root}; do
+        remote=$user@$host
+
+        rsync -r --chmod=D700,F600 home/.config $remote:
+        ssh $remote systemctl --user enable --now systemd-tmpfiles-clean.timer systemd-tmpfiles-setup.service
+    done
+done
