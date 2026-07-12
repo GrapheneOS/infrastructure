@@ -1,0 +1,29 @@
+#!/bin/bash
+
+. shared.sh
+. hosts.sh
+
+for host in ${hosts_all[@]}; do
+    remote=root@$host
+
+    echo
+    echo $host
+    echo
+
+    [[ ${hosts_type[$host]:-vps} = container ]] && continue
+
+    if [[ ${hosts_ntp_server[$host]:-false} = true ]]; then
+        tmp="$(mktmp chrony.conf)"
+        cp etc/chrony.conf "$tmp"
+        echo -e '\nallow' >> "$tmp"
+        rsync "$tmp" $remote:/etc/chrony.conf
+        rm "$tmp"
+    else
+        rsync etc/chrony.conf $remote:/etc/
+    fi
+    ssh $remote mkdir -vp /etc/sysconfig
+    rsync etc/sysconfig/chronyd $remote:/etc/sysconfig/
+    rsync -r --delete etc/systemd/system/chronyd.service.d $remote:/etc/systemd/system/
+    rsync etc/tmpfiles.d/chrony.conf $remote:/etc/tmpfiles.d/
+    ssh $remote 'systemctl enable chronyd.service && systemctl restart chronyd.service'
+done
