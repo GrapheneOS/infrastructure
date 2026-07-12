@@ -14,6 +14,12 @@ for host in ${hosts_all[@]}; do
 
     rsync etc/modules-load.d/60-base.conf $remote:/etc/modules-load.d/
 
+    if [[ ${hosts_type[$host]:-vps} = vps ]]; then
+        rsync etc/modprobe.d/virtual.conf $remote:/etc/modprobe.d/
+    elif [[ ${hosts_type[$host]:-vps} = metal ]]; then
+        rsync etc/modprobe.d/metal.conf $remote:/etc/modprobe.d/
+    fi
+
     if [[ ${hosts_uefi[$host]:-false} = true ]]; then
         rsync etc/modules-load.d/60-vfat.conf $remote:/etc/modules-load.d/
     fi
