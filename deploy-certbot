@@ -14,9 +14,9 @@ for host in ${hosts_certbot[@]}; do
     ssh $remote mkdir -p /etc/systemd/system/certbot-renew.service.d
     rsync etc/systemd/system/certbot-renew.service.d/override.conf $remote:/etc/systemd/system/certbot-renew.service.d/
 
-    ssh $remote "systemctl daemon-reload &&
+    ssh $remote 'systemctl daemon-reload &&
 systemctl enable --now certbot-renew.timer &&
 mkdir -vp /srv/certbot &&
 chmod -c 750 /srv/certbot &&
-chown -c root:http /srv/certbot"
+chown -c root:http /srv/certbot'
 done
