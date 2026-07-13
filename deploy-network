@@ -32,7 +32,16 @@ systemctl restart systemd-networkd.service'
     fi
 
     rsync etc/resolv.conf $remote:/etc/
-    rsync etc/unbound/unbound.conf $remote:/etc/unbound/
+    if [[ $host = mail.grapheneos.org ]]; then
+        tmp="$(mktmp unbound.conf)"
+        cp etc/unbound/unbound.conf "$tmp"
+        echo -e '\ninclude-toplevel: "/etc/unbound/rbl.conf"' >> "$tmp"
+        rsync "$tmp" $remote:/etc/unbound/unbound.conf
+        rm "$tmp"
+        rsync etc/unbound/rbl.conf $remote:/etc/unbound/
+    else
+        rsync etc/unbound/unbound.conf $remote:/etc/unbound/
+    fi
     rsync -r --delete etc/systemd/system/unbound.service.d $remote:/etc/systemd/system/
     ssh $remote 'systemctl daemon-reload &&
 systemctl disable --now systemd-resolved.service &&
