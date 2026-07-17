@@ -10,6 +10,8 @@ for host in ${hosts_releases[@]}; do
     echo $host
     echo
 
+    ssh $remote groupadd -fg 2000 io_uring
+
     rsync etc/sysctl.d/60-base.conf $remote:/etc/sysctl.d/
 
     if [[ -n ${hosts_reserved_ports[$host]-} ]]; then
