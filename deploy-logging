@@ -20,8 +20,9 @@ for host in ${hosts_all[@]}; do
 systemctl reload systemd-journald'
 
     rsync -r --delete etc/systemd/system/syslog-ng@default.service.d $remote:/etc/systemd/system/
-    rsync -r etc/syslog-ng/ $remote:/etc/syslog-ng/
-    ssh $remote 'systemctl daemon-reload &&
+    rsync etc/syslog-ng/syslog-ng.conf $remote:/etc/syslog-ng/
+    ssh $remote 'mkdir -p /etc/syslog-ng/conf.d &&
+systemctl daemon-reload &&
 systemctl enable --now syslog-ng@default.service &&
 syslog-ng-ctl reload'
 
