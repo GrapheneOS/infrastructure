@@ -15,9 +15,11 @@ for host in ${hosts_web[@]}; do
     rsync etc/systemd/system/{session-ticket-keys-create.service,session-ticket-keys-rotate.service,session-ticket-keys-rotate.timer} $remote:/etc/systemd/system/
     rsync --chmod=755 session-ticket-keys-create session-ticket-keys-rotate $remote:/usr/local/bin/
     rsync -r --delete etc/systemd/system/nginx.service.d $remote:/etc/systemd/system/
+    rsync etc/syslog-ng/conf.d/nginx.conf $remote:/etc/syslog-ng/conf.d/
     rsync etc/logrotate.d/nginx $remote:/etc/logrotate.d/
 
-    ssh $remote 'mkdir -pm755 /var/cache/nginx &&
+    ssh $remote 'syslog-ng-ctl reload &&
+mkdir -pm755 /var/cache/nginx &&
 groupadd -fr tls &&
 mkdir -pm 750 /etc/tls/session-ticket-keys &&
 chmod 750 /etc/tls &&
