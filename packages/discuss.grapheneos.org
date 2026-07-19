@@ -27,6 +27,7 @@ nginx
 nginx-mod-brotli
 nginx-mod-geoip2
 nmap
+npm
 openssh
 pacman-contrib
 pacutils
