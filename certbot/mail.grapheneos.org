@@ -27,3 +27,9 @@ certbot certonly --webroot --webroot-path /srv/certbot --max-log-backups 0 --no-
     --deploy-hook "systemctl reload nginx postfix dovecot" \
     --cert-name mail.grapheneos.org \
     -d mail.grapheneos.org
+
+certbot certonly --webroot --webroot-path /srv/certbot --max-log-backups 0 --no-eff-email \
+    --key-type rsa --rsa-key-size 3072 --reuse-key \
+    --deploy-hook "systemctl reload nginx postfix dovecot" \
+    --cert-name rsa.mail.grapheneos.org \
+    -d mail.grapheneos.org
