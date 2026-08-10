@@ -25,7 +25,8 @@ nftables
 nginx
 nginx-mod-brotli
 nmap
-nodejs-lts-jod
+nodejs-lts-krypton
+npm
 openssh
 pacman-contrib
 pacutils
@@ -52,4 +53,3 @@ tree
 unbound
 valkey
 xfsprogs
-yarn
