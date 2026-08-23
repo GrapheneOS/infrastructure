@@ -14,6 +14,7 @@ geoipupdate
 htop
 ioping
 iperf
+jq
 linux-lts
 logrotate
 man-db
