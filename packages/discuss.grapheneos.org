@@ -27,6 +27,7 @@ nftables
 nginx
 nginx-mod-brotli
 nginx-mod-geoip2
+nginx-mod-njs
 nmap
 npm
 openssh
