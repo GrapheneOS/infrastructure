@@ -19,7 +19,7 @@ for host in ${hosts_all[@]}; do
 
     [[ ${hosts_type[$host]:-vps} = container ]] && continue
 
-    rsync etc/crypttab $remote:/etc/
+    rsync --chmod 600 etc/crypttab $remote:/etc/
     rsync -r --delete etc/systemd/system/systemd-cryptsetup@.service.d $remote:/etc/systemd/system/
 
     if $(ssh $remote 'test -e /swapfile'); then

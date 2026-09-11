@@ -37,7 +37,8 @@ ssh $remote "echo $hostname >/mnt/etc/hostname"
 rsync -r --delete etc/systemd/network/$host/ $remote:/mnt/etc/systemd/network/
 
 rsync etc/fstab.virtual $remote:/mnt/etc/fstab
-rsync etc/{crypttab,locale.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
+rsync --chmod 600 etc/crypttab $remote:/mnt/etc/
+rsync etc/{locale.conf,pacman.conf,pacreport.conf,resolv.conf} $remote:/mnt/etc/
 rsync etc/mkinitcpio.conf.simple $remote:/mnt/etc/mkinitcpio.conf
 
 rsync etc/unbound/unbound.conf $remote:/mnt/etc/unbound/unbound.conf
