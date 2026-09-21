@@ -80,6 +80,6 @@ ssh $remote "arch-chroot /mnt chsh -s /usr/bin/fish"
 
 password=$(head -c22 <(tr -dc A-Za-z0-9 </dev/random))
 echo $password > passwords/$host
-ssh $remote "echo root:$password | arch-chroot /mnt chpasswd"
+echo "root:$password" | ssh $remote "arch-chroot /mnt chpasswd"
 ssh $remote umount /mnt
 ssh $remote reboot
