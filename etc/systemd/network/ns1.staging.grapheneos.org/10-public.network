@@ -2,29 +2,13 @@
 Name=public
 
 [Network]
-IPv6AcceptRA=no
-Address=198.98.56.238/24
-Address=2605:6400:10:c41:de92:c534:326a:711a/48
+DHCP=ipv4
+Address=2001:19f0:b002:90f:5400:6ff:fed0:2d00/64
 
 # 2602:f4d9:4::/48 subnet for ns1.staging.grapheneos.org
 [Address]
 Address=2602:f4d9:4::1/128
 PreferredLifetime=0
 
-[Route]
-Destination=0.0.0.0/0
-Gateway=198.98.56.1
-PreferredSource=198.98.56.238
-
-[Route]
-Destination=198.98.56.1
-PreferredSource=198.98.56.238
-
-[Route]
-Destination=::/0
-Gateway=2605:6400:10::1
-PreferredSource=2605:6400:10:c41:de92:c534:326a:711a
-
-[Route]
-Destination=2605:6400:10::1
-PreferredSource=2605:6400:10:c41:de92:c534:326a:711a
+[DHCP]
+UseMTU=yes

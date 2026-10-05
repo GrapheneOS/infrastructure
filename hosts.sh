@@ -116,7 +116,6 @@ declare -Ar hosts_veth=(
 )
 
 declare -Ar hosts_softdog=(
-    [ns1.staging.grapheneos.org]=true
     [staging.grapheneos.org]=true
     [staging.attestation.app]=true
     [attestation.app]=true
@@ -294,7 +293,6 @@ declare -Ar hosts_tcp_wmem_max=(
 )
 
 declare -Ar hosts_tcp_fastopen=(
-    [ns1.staging.grapheneos.org]=false
     [staging.grapheneos.org]=false
     [staging.attestation.app]=false
 )
@@ -353,7 +351,7 @@ declare -Ar hosts_journald_system_max_file_size=(
 )
 
 declare -Ar hosts_ipv4_address=(
-    [ns1.staging.grapheneos.org]=198.98.56.238
+    [ns1.staging.grapheneos.org]=149.248.59.190
     [bom.ns1.grapheneos.org]=65.20.91.33
     [chi.ns1.grapheneos.org]=45.76.227.130
     [dal.ns1.grapheneos.org]=149.28.240.214
@@ -405,7 +403,7 @@ declare -Ar hosts_ipv4_address=(
 )
 
 declare -Ar hosts_ipv6_address=(
-    [ns1.staging.grapheneos.org]=2605:6400:10:c41:de92:c534:326a:711a
+    [ns1.staging.grapheneos.org]=2001:19f0:b002:90f:5400:6ff:fed0:2d00
     [bom.ns1.grapheneos.org]=2401:c080:2400:1814:5400:05ff:fec5:d503
     [chi.ns1.grapheneos.org]=2001:19f0:5c00:446d:5400:06ff:fe0b:0e77
     [dal.ns1.grapheneos.org]=2001:19f0:6401:1802:5400:05ff:fef7:7b7e
@@ -555,6 +553,7 @@ readonly hosts_netcup=(
 )
 
 readonly hosts_vultr=(
+    ns1.staging.grapheneos.org
     {bom,chi,dal,ewr,fra,lax,lon,mad,mia,sao,sea,sin,sto,syd,tyo,waw}.ns1.grapheneos.org
     {sao,sea,sin,syd,tyo}.grapheneos.org
 )
@@ -564,7 +563,6 @@ readonly hosts_misaka=(
 )
 
 readonly hosts_buyvm=(
-    ns1.staging.grapheneos.org
     staging.grapheneos.org
     staging.attestation.app
 )
