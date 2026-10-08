@@ -15,7 +15,7 @@ Address=2602:f4d9:5:1::1/128
 [Route]
 Destination=0.0.0.0/0
 Gateway=207.174.104.62
-PreferredSource=207.174.104.20
+PreferredSource=206.220.120.2
 
 [Route]
 Destination=207.174.104.62
@@ -24,7 +24,7 @@ PreferredSource=207.174.104.20
 [Route]
 Destination=::/0
 Gateway=2602:fd50:1a1:20::1
-PreferredSource=2602:fd50:1a1:20::2
+PreferredSource=2602:f4d9:5:1::1
 
 [Route]
 Destination=2602:fd50:1a1:20::1
