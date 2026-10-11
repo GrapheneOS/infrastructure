@@ -27,8 +27,9 @@ systemctl restart systemd-networkd.service'
         ssh $remote systemctl enable fq.service
     fi
 
-    if [[ $host = @(dal.grapheneos.org|fra.grapheneos.org|yto.grapheneos.org) ]]; then
-        rsync etc/bird/$host.bird.conf $remote:/etc/bird.conf
+    bird_conf=etc/bird/$host.bird.conf
+    if [[ -f $bird_conf ]]; then
+        rsync $bird_conf $remote:/etc/bird.conf
     fi
 
     rsync etc/resolv.conf $remote:/etc/
