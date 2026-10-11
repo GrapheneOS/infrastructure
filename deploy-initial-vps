@@ -5,7 +5,7 @@ shopt -s expand_aliases
 
 . shared.sh
 . hosts.sh
-. ssh.sh
+. private.sh
 
 [[ $# -eq 1 ]] || exit 1
 

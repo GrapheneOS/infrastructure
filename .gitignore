@@ -7,7 +7,7 @@
 /logs/
 /modules/
 /passwords/
-/ssh.sh
+/private.sh
 /sysctl/
 /units/
 /venv/
