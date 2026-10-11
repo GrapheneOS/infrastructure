@@ -6,8 +6,15 @@ DHCP=ipv4
 Address=2001:19f0:b002:90f:5400:6ff:fed0:2d00/64
 
 # 2602:f4d9:4::/48 subnet for ns1.staging.grapheneos.org
+
+# 2602:f4d9:4::/64 subnet for ns1.staging.grapheneos.org
 [Address]
 Address=2602:f4d9:4::1/128
+PreferredLifetime=0
+
+# 2602:f4d9:4:1::/64 subnet for ns2.staging.grapheneos.org
+[Address]
+Address=2602:f4d9:4:1::1/128
 PreferredLifetime=0
 
 [DHCP]
