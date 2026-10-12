@@ -5,5 +5,8 @@ Name=public
 DHCP=ipv4
 Address=2401:c080:1800:1c40:5400:5ff:fec7:c902/64
 
+# 2602:f4d9:d:1::/64 subnet for syd.grapheneos.org from 2602:f4d9:d::/48 subnet for Sydney
+Address=2602:f4d9:d:1::1/128
+
 [DHCP]
 UseMTU=yes

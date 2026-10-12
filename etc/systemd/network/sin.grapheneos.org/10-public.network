@@ -5,5 +5,8 @@ Name=public
 DHCP=ipv4
 Address=2001:19f0:4400:2c24:5400:5ff:fec7:4cdc/64
 
+# 2602:f4d9:b:1::/64 subnet for sin.grapheneos.org from 2602:f4d9:b::/48 subnet for Singapore
+Address=2602:f4d9:b:1::1/128
+
 [DHCP]
 UseMTU=yes
