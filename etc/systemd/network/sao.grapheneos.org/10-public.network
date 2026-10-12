@@ -5,5 +5,8 @@ Name=public
 DHCP=ipv4
 Address=2001:19f0:b800:1f13:5400:5ff:fed0:8ea7/64
 
+# 2602:f4d9:a:1::/64 subnet for sao.grapheneos.org from 2602:f4d9:a::/48 subnet for São Paulo
+Address=2602:f4d9:a:1::1/128
+
 [DHCP]
 UseMTU=yes

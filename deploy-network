@@ -2,8 +2,9 @@
 
 . shared.sh
 . hosts.sh
+. private.sh
 
-for host in ${hosts_all[@]}; do
+for host in {sao,sea,sin,syd,tyo}.grapheneos.org; do
     remote=root@$host
 
     echo
@@ -29,7 +30,11 @@ systemctl restart systemd-networkd.service'
 
     bird_conf=etc/bird/$host.bird.conf
     if [[ -f $bird_conf ]]; then
-        rsync $bird_conf $remote:/etc/bird.conf
+        tmp="$(mktmp bird.conf)"
+        cp $bird_conf $tmp
+        sed -i "s/{{bgp_password}}/${bgp_password[$host]:-}/g" $tmp
+        rsync $tmp $remote:/etc/bird.conf
+        rm $tmp
     fi
 
     rsync etc/resolv.conf $remote:/etc/

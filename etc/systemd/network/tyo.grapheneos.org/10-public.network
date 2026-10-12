@@ -5,5 +5,8 @@ Name=public
 DHCP=ipv4
 Address=2401:c080:1000:13f8:5400:5ff:fee8:3c8b
 
+# 2602:f4d9:c:1::/64 subnet for tyo.grapheneos.org from 2602:f4d9:c::/48 subnet for Tokyo
+Address=2602:f4d9:c:1::1/128
+
 [DHCP]
 UseMTU=yes

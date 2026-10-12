@@ -1,4 +1,5 @@
 base
+bird
 chrony
 conntrack-tools
 diffutils

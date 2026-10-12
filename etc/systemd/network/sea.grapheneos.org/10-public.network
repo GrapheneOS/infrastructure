@@ -5,5 +5,8 @@ Name=public
 DHCP=ipv4
 Address=2001:19f0:8000:3454:5400:5ff:fec8:4139/64
 
+# 2602:f4d9:9:1::/64 subnet for sea.grapheneos.org from 2602:f4d9:9::/48 subnet for Seattle
+Address=2602:f4d9:9:1::1/128
+
 [DHCP]
 UseMTU=yes
