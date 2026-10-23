@@ -30,6 +30,8 @@ systemctl restart systemd-networkd.service'
 
     bird_conf=etc/bird/$host.bird.conf
     if [[ -f $bird_conf ]]; then
+        ssh $remote 'id -u bird &>/dev/null || useradd -r bird -d / -s /usr/bin/nologin'
+
         tmp="$(mktmp bird.conf)"
         cp $bird_conf $tmp
         sed -i "s/{{bgp_password}}/${bgp_password[$host]:-}/g" $tmp
