@@ -7,4 +7,10 @@ ServerAliveInterval 60
 ServerAliveCountMax 2
 TCPKeepAlive no
 
+HostKeyAlgorithms ssh-mldsa44-ed25519
+PubkeyAcceptedKeyTypes ssh-mldsa44-ed25519
+KexAlgorithms mlkem768x25519-sha256
+Ciphers aes256-gcm@openssh.com
+MACs -*
+
 UpdateHostKeys yes
