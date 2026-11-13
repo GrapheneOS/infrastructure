@@ -8,4 +8,3 @@ ServerAliveCountMax 2
 TCPKeepAlive no
 
 UpdateHostKeys yes
-VerifyHostKeyDNS ask
