@@ -7,4 +7,5 @@ ServerAliveInterval 60
 ServerAliveCountMax 2
 TCPKeepAlive no
 
+UpdateHostKeys yes
 VerifyHostKeyDNS ask
