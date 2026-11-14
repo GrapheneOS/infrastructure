@@ -19,10 +19,9 @@ Include /etc/ssh/sshd_config.d/*.conf
 IPQoS cs2 cs0
 
 HostKey /etc/ssh/ssh_host_mldsa44_ed25519_key
-HostKey /etc/ssh/ssh_host_ed25519_key
-HostKeyAlgorithms ssh-mldsa44-ed25519,ssh-ed25519
+HostKeyAlgorithms ssh-mldsa44-ed25519
 KexAlgorithms mlkem768x25519-sha256
-PubkeyAcceptedKeyTypes ssh-mldsa44-ed25519,ssh-ed25519
+PubkeyAcceptedKeyTypes ssh-mldsa44-ed25519
 Ciphers aes256-gcm@openssh.com
 MACs -*
 
